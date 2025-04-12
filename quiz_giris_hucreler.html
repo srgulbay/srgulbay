@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Öğrenme Testi</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    :root {
+        --hue-primary: 210;
+        --hue-success: 145;
+        --hue-error: 355;
+        --hue-warning: 45;
+        --saturation-strong: 80%; /* Slightly adjusted saturation */
+        --saturation-moderate: 65%;
+        --saturation-light: 45%;
+
+        /* Açık Tema */
+        --bg-primary-light: #f8f9fa; /* Lighter page background */
+        --bg-secondary-light: #ffffff;
+        --bg-tertiary-light: #f1f3f5; /* Slightly darker tertiary */
+        --text-primary-light: #212529;
+        --text-secondary-light: #495057;
+        --text-muted-light: #6c757d;
+        --text-on-accent-light: #ffffff;
+        --accent-primary-light: hsl(var(--hue-primary), var(--saturation-strong), 53%); /* Slightly brighter blue */
+        --accent-primary-darker-light: hsl(var(--hue-primary), var(--saturation-strong), 43%);
+        --accent-secondary-light: #6c757d;
+        --accent-secondary-darker-light: #5a6268;
+        --border-primary-light: #e9ecef; /* Lighter border */
+        --border-secondary-light: #f1f3f5; /* Even lighter */
+        --shadow-color-light: rgba(0, 0, 0, 0.05); /* Softer shadow */
+        --shadow-hover-color-light: rgba(0, 0, 0, 0.1);
+        --success-light: hsl(var(--hue-success), var(--saturation-moderate), 40%);
+        --error-light: hsl(var(--hue-error), var(--saturation-strong), 55%);
+        --warning-light: hsl(var(--hue-warning), var(--saturation-strong), 55%);
+        --success-bg-light: hsl(var(--hue-success), var(--saturation-light), 94%);
+        --error-bg-light: hsl(var(--hue-error), var(--saturation-light), 95%);
+        --success-border-light: hsl(var(--hue-success), var(--saturation-light), 85%);
+        --error-border-light: hsl(var(--hue-error), var(--saturation-light), 88%);
+
+        /* Koyu Tema */
+        --bg-primary-dark: #1a1a1a; /* Slightly lighter dark */
+        --bg-secondary-dark: #242424;
+        --bg-tertiary-dark: #303030;
+        --text-primary-dark: #e8e8e8;
+        --text-secondary-dark: #b8b8b8;
+        --text-muted-dark: #909090;
+        --text-on-accent-dark: #ffffff;
+        --accent-primary-dark: hsl(var(--hue-primary), var(--saturation-moderate), 65%);
+        --accent-primary-darker-dark: hsl(var(--hue-primary), var(--saturation-moderate), 55%);
+        --accent-secondary-dark: #8a959d; /* Lighter gray */
+        --accent-secondary-darker-dark: #a0a9b0;
+        --border-primary-dark: #383838;
+        --border-secondary-dark: #2f2f2f;
+        --shadow-color-dark: rgba(255, 255, 255, 0.04);
+        --shadow-hover-color-dark: rgba(255, 255, 255, 0.07);
+        --success-dark: hsl(var(--hue-success), var(--saturation-light), 70%);
+        --error-dark: hsl(var(--hue-error), var(--saturation-light), 75%);
+        --warning-dark: hsl(var(--hue-warning), var(--saturation-moderate), 70%);
+        --success-bg-dark: rgba(40, 167, 69, 0.1); /* Adjusted alpha */
+        --error-bg-dark: rgba(220, 53, 69, 0.1); /* Adjusted alpha */
+        --success-border-dark: rgba(40, 167, 69, 0.25);
+        --error-border-dark: rgba(220, 53, 69, 0.25);
+
+        /* Aktif Tema (Default: Açık) */
+        --bg-primary: var(--bg-primary-light);
+        --bg-secondary: var(--bg-secondary-light);
+        --bg-tertiary: var(--bg-tertiary-light);
+        --text-primary: var(--text-primary-light);
+        --text-secondary: var(--text-secondary-light);
+        --text-muted: var(--text-muted-light);
+        --text-on-accent: var(--text-on-accent-light);
+        --accent-primary: var(--accent-primary-light);
+        --accent-primary-darker: var(--accent-primary-darker-light);
+        --accent-secondary: var(--accent-secondary-light);
+        --accent-secondary-darker: var(--accent-secondary-darker-light);
+        --border-primary: var(--border-primary-light);
+        --border-secondary: var(--border-secondary-light);
+        --shadow-color: var(--shadow-color-light);
+        --shadow-hover-color: var(--shadow-hover-color-light);
+        --success: var(--success-light);
+        --error: var(--error-light);
+        --warning: var(--warning-light);
+        --success-bg: var(--success-bg-light);
+        --error-bg: var(--error-bg-light);
+        --success-border: var(--success-border-light);
+        --error-border: var(--error-border-light);
+
+        --border-radius-sm: 0.25rem;
+        --border-radius-md: 0.5rem;
+        --border-radius-lg: 0.75rem;
+        --font-family: 'Poppins', sans-serif;
+        --transition-speed: 0.25s;
+        --transition-easing: cubic-bezier(0.25, 0.1, 0.25, 1); /* Smoother easing */
+    }
+
+    body.dark-mode {
+        --bg-primary: var(--bg-primary-dark);
+        --bg-secondary: var(--bg-secondary-dark);
+        --bg-tertiary: var(--bg-tertiary-dark);
+        --text-primary: var(--text-primary-dark);
+        --text-secondary: var(--text-secondary-dark);
+        --text-muted: var(--text-muted-dark);
+        --text-on-accent: var(--text-on-accent-dark);
+        --accent-primary: var(--accent-primary-dark);
+        --accent-primary-darker: var(--accent-primary-darker-dark);
+        --accent-secondary: var(--accent-secondary-dark);
+        --accent-secondary-darker: var(--accent-secondary-darker-dark);
+        --border-primary: var(--border-primary-dark);
+        --border-secondary: var(--border-secondary-dark);
+        --shadow-color: var(--shadow-color-dark);
+        --shadow-hover-color: var(--shadow-hover-color-dark);
+        --success: var(--success-dark);
+        --error: var(--error-dark);
+        --warning: var(--warning-dark);
+        --success-bg: var(--success-bg-dark);
+        --error-bg: var(--error-bg-dark);
+        --success-border: var(--success-border-dark);
+        --error-border: var(--error-border-dark);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+        font-family: var(--font-family);
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.7;
+        padding-top: 85px; /* Adjusted slightly */
+        transition: background-color var(--transition-speed) var(--transition-easing), color var(--transition-speed) var(--transition-easing);
+        background-image: linear-gradient(to bottom, var(--bg-primary) 95%, color-mix(in srgb, var(--bg-primary) 80%, var(--text-muted))); /* Subtle gradient at bottom */
+        background-attachment: fixed;
+    }
+
+    #stats-container {
+        background-color: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-primary);
+        padding: 10px 5%; /* Reduced vertical padding */
+        width: 100%;
+        box-sizing: border-box;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px 20px; /* Adjusted gap */
+        box-shadow: 0 2px 8px var(--shadow-color); /* Slightly stronger shadow */
+        transition: background-color var(--transition-speed) var(--transition-easing), border-color var(--transition-speed) var(--transition-easing), box-shadow var(--transition-speed) var(--transition-easing);
+        min-height: 60px;
+    }
+    .stat-item {
+        font-size: 0.75rem; /* Slightly smaller labels */
+        color: var(--text-muted);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 1.2;
+        transition: color var(--transition-speed) var(--transition-easing);
+    }
+    .stat-item span {
+        font-weight: 600;
+        color: var(--accent-primary);
+        font-size: 1.1em; /* Value relative to label */
+        min-width: 30px;
+        display: inline-block;
+        margin-top: 4px; /* Increased spacing */
+        transition: color var(--transition-speed) var(--transition-easing);
+    }
+    .score-value {
+        font-weight: 600;
+        min-width: 45px;
+        display: inline-block;
+        text-align: center;
+        transition: color 0.5s ease-out;
+    }
+    #stats-status-message {
+         font-weight: 600;
+         transition: color var(--transition-speed) ease-in-out;
+         font-size: 0.8rem;
+         padding: 3px 8px;
+         border-radius: var(--border-radius-sm);
+         color: var(--accent-primary-darker);
+     }
+    .progress-stat-container {
+        width: 150px; /* Slightly narrower */
+        text-align: center;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        line-height: 1.2;
+        transition: color var(--transition-speed) var(--transition-easing);
+    }
+    #stats-round-progress {
+        font-weight: 600;
+        color: var(--accent-primary);
+        display: block;
+        margin-top: 4px;
+        min-height: 1.2em;
+        transition: color var(--transition-speed) var(--transition-easing);
+    }
+    #progress-bar-track {
+        background-color: var(--border-secondary);
+        border-radius: 10px;
+        height: 5px; /* Thinner bar */
+        width: 100%;
+        margin-top: 6px; /* Increased spacing */
+        overflow: hidden;
+        position: relative;
+        transition: background-color var(--transition-speed) var(--transition-easing);
+    }
+    #progress-bar-fill {
+        background-color: var(--accent-primary);
+        height: 100%;
+        width: 0%;
+        border-radius: 10px;
+        transition: width 0.4s ease-out, background-color var(--transition-speed) var(--transition-easing);
+    }
+
+    .main-content {
+        width: 90%;
+        max-width: 700px;
+        margin: 45px auto; /* Increased margin */
+    }
+
+    #quiz-container,
+    #result-container,
+    #learning-offer-container,
+    #learning-round-container,
+    #final-review-container {
+        background-color: var(--bg-secondary);
+        padding: 40px; /* More padding */
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--shadow-lg); /* Slightly larger shadow */
+        margin-bottom: 40px;
+        display: none;
+        text-align: center;
+        animation: fadeIn 0.6s var(--transition-easing);
+        transition: background-color var(--transition-speed) var(--transition-easing), box-shadow var(--transition-speed) var(--transition-easing), border-color var(--transition-speed) var(--transition-easing);
+        border: 1px solid var(--border-primary);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px) scale(0.98); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    h2, h3 {
+        color: var(--text-primary);
+        margin-bottom: 35px; /* More space below headings */
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: -0.5px; /* Subtle letter spacing */
+        transition: color var(--transition-speed) var(--transition-easing);
+    }
+
+    #question {
+        font-size: 1.25em; /* Slightly larger */
+        margin-bottom: 40px;
+        min-height: 50px;
+        color: var(--text-primary);
+        text-align: left;
+        line-height: 1.75;
+        font-weight: 500;
+        transition: color var(--transition-speed) var(--transition-easing);
+    }
+
+    #options { display: flex; flex-direction: column; gap: 14px; }
+    .option-label {
+        display: flex;
+        align-items: center;
+        padding: 15px 50px 15px 20px; /* Adjusted padding for icon */
+        background-color: var(--bg-secondary);
+        border: 1px solid var(--border-primary);
+        border-radius: var(--border-radius-md);
+        cursor: pointer;
+        transition: all var(--transition-speed) var(--transition-easing);
+        text-align: left;
+        position: relative;
+        overflow: hidden;
+    }
+    .option-label:hover {
+        border-color: var(--accent-primary);
+        background-color: var(--bg-tertiary);
+        transform: none;
+        box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-primary) 20%, transparent); /* Softer focus outline */
+    }
+    .option-label input[type="radio"] {
+       margin-right: 15px;
+       flex-shrink: 0;
+       transform: scale(1.15); /* Slightly larger radio */
+       cursor: pointer;
+       accent-color: var(--accent-primary);
+    }
+    .option-label span {
+        color: var(--text-secondary);
+        flex-grow: 1;
+        line-height: 1.6; /* Improved line height */
+        transition: color var(--transition-speed) var(--transition-easing);
+    }
+    .option-label.correct-option {
+         background-color: var(--success-bg); border-color: var(--success-border); color: var(--success); font-weight: 500;
+     }
+    .option-label.incorrect-option {
+        background-color: var(--error-bg); border-color: var(--error-border); color: var(--error); opacity: 0.8; /* Slightly more opaque */
+    }
+    .option-label.user-selected.incorrect-option { opacity: 1.0; }
+    .options-disabled .option-label { pointer-events: none; opacity: 0.85; } /* Slightly less opaque */
+    .options-disabled .option-label:hover { transform: none; box-shadow: none; background-color: var(--bg-secondary); border-color: var(--border-primary); }
+    .options-disabled .option-label.correct-option,
+    .options-disabled .option-label.user-selected.incorrect-option { opacity: 1; }
+    .feedback-icon {
+         position: absolute; right: 18px; top: 50%; transform: translateY(-50%) scale(0.8); font-size: 1.3em; font-weight: bold; opacity: 0; transition: opacity 0.3s var(--transition-easing), transform 0.3s var(--transition-easing);
+     }
+    .option-label.correct-option .feedback-icon.correct,
+    .option-label.incorrect-option.user-selected .feedback-icon.incorrect { opacity: 1; transform: translateY(-50%) scale(1); } /* Scale up animation */
+    .feedback-icon.correct { color: var(--success); }
+    .feedback-icon.incorrect { color: var(--error); }
+
+    button {
+        padding: 12px 32px; /* Adjusted padding */
+        font-size: 1rem;
+        font-weight: 500;
+        background-color: var(--accent-primary);
+        color: var(--text-on-accent);
+        border: none;
+        border-radius: var(--border-radius-md);
+        cursor: pointer;
+        margin-top: 35px;
+        margin-right: 12px;
+        transition: all var(--transition-speed) var(--transition-easing);
+        box-shadow: var(--shadow-sm);
+        vertical-align: middle;
+        line-height: 1.5;
+    }
+    button:last-child { margin-right: 0; }
+    button:hover {
+        background-color: var(--accent-primary-darker);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-2px);
+    }
+     button:active { transform: translateY(1px) scale(0.98); box-shadow: none; } /* Click effect */
+    button:disabled {
+        background-color: color-mix(in srgb, var(--accent-primary) 35%, transparent);
+        color: color-mix(in srgb, var(--text-on-accent) 50%, transparent);
+        cursor: not-allowed; box-shadow: none; transform: none;
+    }
+    button:focus-visible {
+        outline: 3px solid color-mix(in srgb, var(--accent-primary) 50%, transparent);
+        outline-offset: 2px;
+    }
+     .option-label:focus-visible { /* Option focus uses hover style */
+          box-shadow: 0 0 0 2px var(--accent-primary);
+          outline: none;
+      }
+
+    button.secondary {
+         background-color: var(--accent-secondary); box-shadow: var(--shadow-sm);
+    }
+     button.secondary:hover {
+          background-color: var(--accent-secondary-darker); box-shadow: var(--shadow-md);
+     }
+     button.secondary:disabled {
+         background-color: color-mix(in srgb, var(--accent-secondary) 40%, transparent);
+         color: color-mix(in srgb, var(--text-on-accent) 50%, transparent);
+     }
+
+     button.explanation-toggle {
+          font-size: 0.75em; padding: 5px 10px; margin-left: 10px; margin-top: -2px; /* Align better */
+          vertical-align: middle; background-color: var(--bg-tertiary); color: var(--accent-primary);
+          border: 1px solid var(--border-primary); box-shadow: none;
+          transition: background-color var(--transition-speed) var(--transition-easing), color var(--transition-speed) var(--transition-easing), border-color var(--transition-speed) var(--transition-easing);
+      }
+     button.explanation-toggle:hover {
+         background-color: var(--border-secondary); border-color: var(--border-primary); transform: none; box-shadow: none;
+     }
+     button.explanation-toggle:active { transform: scale(0.97); }
+
+    #feedback { display: none; }
+
+    #result-container p, #learning-offer-container p, #final-review-container > p {
+        font-size: 1.05em; line-height: 1.7; margin-bottom: 25px; text-align: left; color: var(--text-secondary); transition: color var(--transition-speed) ease-in-out;
+    }
+    #score-info {
+        font-weight: 500; font-size: 1.1em; color: var(--text-primary); text-align: center; margin-bottom: 30px; line-height: 1.8; background-color: var(--bg-tertiary); padding: 20px; border-radius: var(--border-radius-md); border: 1px solid var(--border-secondary); transition: color var(--transition-speed) ease-in-out, background-color var(--transition-speed) ease-in-out, border-color var(--transition-speed) ease-in-out;
+    }
+    .success-message { color: var(--success); font-weight: 600; }
+    .improvement-message { color: var(--warning); font-weight: 600; }
+    .final-review-message { color: var(--accent-primary-darker); font-weight: 600; }
+
+    #learning-round-container, #final-review-container { text-align: left; }
+    #learning-round-container > p, #final-review-container > p {
+        text-align: center; margin-bottom: 30px; font-style: italic; color: var(--text-muted); font-size: 0.95em; transition: color var(--transition-speed) ease-in-out;
+    }
+    .learning-item { margin-bottom: 30px; padding-bottom: 25px; border-bottom: 1px solid var(--border-secondary); transition: border-color var(--transition-speed) ease-in-out; }
+    .learning-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .learning-item h4 {
+        font-size: 1.1em; color: var(--text-primary); margin-bottom: 15px; line-height: 1.6; font-weight: 500; transition: color var(--transition-speed) ease-in-out;
+    }
+    .learning-item .answer-line { margin-bottom: 15px; font-size: 1em; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 10px; transition: color var(--transition-speed) ease-in-out; }
+    .learning-item .correct-answer {
+        font-weight: 600; color: var(--success); background-color: var(--success-bg); padding: 4px 8px; border-radius: var(--border-radius-sm); border: 1px solid var(--success-border); transition: background-color var(--transition-speed) ease-in-out, color var(--transition-speed) ease-in-out, border-color var(--transition-speed) ease-in-out;
+    }
+    .learning-item .user-answer-incorrect {
+         font-weight: 600; color: var(--error); font-style: italic; background-color: var(--error-bg); padding: 4px 8px; border-radius: var(--border-radius-sm); border: 1px solid var(--error-border); transition: background-color var(--transition-speed) ease-in-out, color var(--transition-speed) ease-in-out, border-color var(--transition-speed) ease-in-out;
+    }
+    .learning-item .explanation {
+        font-size: 0.95em; color: var(--text-secondary); margin-top: 15px; font-style: normal; line-height: 1.7; padding: 15px; background-color: var(--bg-tertiary); border-radius: var(--border-radius-md); border: 1px solid var(--border-secondary);
+        display: none;
+        animation: fadeInExplanation 0.4s ease-out;
+        transition: color var(--transition-speed) ease-in-out, background-color var(--transition-speed) ease-in-out, border-color var(--transition-speed) ease-in-out;
+    }
+    @keyframes fadeInExplanation { from { opacity: 0; } to { opacity: 1; } }
+
+    #learning-round-container button, #final-review-container button {
+         display: block; margin: 30px auto 0 auto;
+    }
+
+    #theme-toggle-btn {
+        position: fixed; bottom: 20px; right: 20px; z-index: 1001; background-color: var(--bg-secondary); color: var(--text-secondary); border: 1px solid var(--border-primary); border-radius: 50%; width: 45px; height: 45px; font-size: 1.5rem; cursor: pointer; box-shadow: var(--shadow-md); transition: all var(--transition-speed) var(--transition-easing); display: flex; justify-content: center; align-items: center; padding: 0; margin: 0;
+    }
+    #theme-toggle-btn:hover {
+        background-color: var(--bg-tertiary); color: var(--text-primary); box-shadow: var(--shadow-lg); transform: scale(1.1) rotate(-15deg); /* Added rotation */
+    }
+     #theme-toggle-btn:active {
+         transform: scale(1); /* Reset scale on click */
+         box-shadow: var(--shadow-md);
+     }
+     #theme-toggle-btn:focus-visible {
+         outline: 3px solid var(--accent-primary);
+         outline-offset: 3px;
+     }
+
+    @media (max-width: 992px) {
+         #stats-container { justify-content: space-evenly; gap: 10px 15px; }
+         .stat-item { margin: 5px 8px; }
+         .progress-stat-container { width: 150px; }
+    }
+
+    @media (max-width: 768px) {
+        body { padding-top: 120px; }
+        #stats-container { padding: 12px; gap: 8px 10px; }
+        .stat-item { flex-basis: 30%; font-size: 0.75rem; margin: 2px;}
+        .progress-stat-container { flex-basis: 100%; width: 80%; margin: 8px auto; order: 99; }
+        #stats-status-message { flex-basis: 100%; margin-top: 5px; order: 100;}
+
+         #quiz-container,
+         #result-container,
+         #learning-offer-container,
+         #learning-round-container,
+         #final-review-container { padding: 30px 25px; }
+         h2, h3 { font-size: 1.3em; margin-bottom: 25px; }
+         #question { font-size: 1.1em; }
+         #options label { padding: 12px 45px 12px 15px; } /* Ensure space for icon */
+         button { width: 100%; margin: 15px 0 0 0; padding: 13px; } /* Adjusted margin */
+         .learning-item h4 {font-size: 1em;}
+         .learning-item .answer-line { flex-direction: column; align-items: flex-start; gap: 8px; }
+         .learning-item .user-answer-incorrect { margin-left: 0; }
+         button.explanation-toggle { margin-left: 0; margin-top: 5px; }
+         #theme-toggle-btn { bottom: 15px; right: 15px; width: 40px; height: 40px; font-size: 1.3rem;}
+    }
+     @media (max-width: 480px) {
+         body { padding-top: 150px; }
+         #stats-container { gap: 5px 8px; }
+         .stat-item { flex-basis: 45%; font-size: 0.7rem; }
+         .progress-stat-container { width: 90%; }
+         #question { font-size: 1em; }
+         h2, h3 {font-size: 1.2em;}
+         #options label { padding: 12px 40px 12px 15px; }
+         .feedback-icon { right: 15px; font-size: 1.1em; }
+     }
+    </style></head>
+<body>
+
+    <div id="stats-container">
+        <div class="stat-item">Tur: <span id="stats-current-round">-</span></div>
+        <div class="progress-stat-container">
+             Tur İlerleme: <span id="stats-round-progress">-</span>
+             <div id="progress-bar-track"><div id="progress-bar-fill"></div></div>
+        </div>
+        <div class="stat-item">Doğru: <span id="stats-round-correct">0</span></div>
+        <div class="stat-item">Yanlış: <span id="stats-round-incorrect">0</span></div>
+        <div class="stat-item">1. Tur: <span id="stats-round1-score" class="score-value">-</span></div>
+        <div class="stat-item">2. Tur: <span id="stats-round2-score" class="score-value">-</span></div>
+        <div class="stat-item">Final Tur: <span id="stats-round3-score" class="score-value">-</span></div>
+        <div class="stat-item">Durum: <span id="stats-status-message">Başlatılıyor...</span></div>
+    </div>
+
+    <div class="main-content">
+        <div id="quiz-container">
+            <h2 id="quiz-title"></h2> <div id="question">Soru yükleniyor...</div>
+            <div id="options"></div> <button id="submit-btn">Cevabı Kontrol Et</button>
+            <div id="feedback" style="display: none;"></div> </div>
+
+        <div id="learning-offer-container">
+            <h3 id="offer-title"></h3> <p id="offer-message"></p> <button id="start-learning-btn">Öğretim Turunu Başlat</button>
+            <button id="start-next-test-btn" class="secondary">Sonraki Tur Sorularını Çöz</button>
+        </div>
+
+        <div id="learning-round-container">
+            <h3 id="learning-title"></h3> <p>Bu turda yanlış yaptığınız soruların doğru cevapları ve açıklamaları aşağıdadır.</p>
+            <div id="learning-content"></div> <button id="continue-to-next-test-btn">Sonraki Tur Sorularını Çöz</button>
+        </div>
+
+        <div id="result-container">
+            <h2>Test Tamamlandı!</h2>
+            <p id="score-info"></p> <p id="final-message"></p> <button id="show-final-review-btn">Tüm Soruları ve Cevapları İncele</button>
+            <button onclick="location.reload()" class="secondary">Teste Tekrar Başla</button>
+        </div>
+
+         <div id="final-review-container">
+            <h3>Tüm Sorular ve Cevaplar</h3>
+            <p>Testteki tüm soruların doğru cevaplarını ve açıklamalarını aşağıda bulabilirsiniz.</p>
+            <div id="final-review-content"></div> <button onclick="location.reload()">Teste Tekrar Başla</button>
+        </div>
+    </div>
+
+    <button id="theme-toggle-btn" aria-label="Temayı Değiştir">🌓</button><script>
+       const allQuestions = [
+    { id: 1, question: "1. Aşağıdaki hücrelerden hangisi profesyonel antijen sunan hücre (APC) olarak görev yapmaz?", options: ["Makrofajlar", "Dendritik hücreler", "B lenfositleri", "Nötrofiller", "Langerhans hücreleri"], correctAnswer: "Nötrofiller", explanation: "Profesyonel APC'ler (Dendritik hücreler, Makrofajlar, B lenfositleri) antijenleri işleyip MHC sınıf II ile T helper hücrelere sunarak adaptif yanıtı başlatır. Nötrofiller primer olarak fagositoz yapar ve MHC II ekspresyonları çok düşüktür. [Source: Sunum Genel]" },
+    { id: 2, question: "2. Primer (birincil) lenfoid organlar hangileridir ve temel işlevleri nedir?", options: [ "Lenf düğümleri ve dalak – Antijenle karşılaşma yeri", "Kemik iliği ve timus – Lenfositlerin olgunlaşma yeri", "MALT ve GALT – Mukozal immün yanıtın başladığı yer", "Dalak ve timus – Kan kaynaklı antijenlerin filtrelenmesi", "Kemik iliği ve lenf düğümleri – Plazma hücrelerinin yerleştiği yer" ], correctAnswer: "Kemik iliği ve timus – Lenfositlerin olgunlaşma yeri", explanation: "Primer lenfoid organlar (Kemik iliği ve Timus) lenfositlerin üretildiği ve olgunlaştığı yerlerdir. B hücreleri kemik iliğinde, T hücreleri timusta olgunlaşır. Sekonder lenfoid organlar (lenf düğümleri, dalak vb.) olgun lenfositlerin antijenle karşılaştığı yerlerdir. [Source: Sunum Genel]" },
+    { id: 3, question: "3. Hücresel immüniteden temel olarak sorumlu olan lenfosit tipi hangisidir?", options: ["B lenfositleri", "Plazma hücreleri", "T lenfositleri", "NK hücreleri", "Mast hücreleri"], correctAnswer: "T lenfositleri", explanation: "Hücresel immünite, özellikle hücre içi patojenlerle enfekte olmuş hücrelerin veya anormal hücrelerin yok edilmesinden sorumludur ve bu görev temel olarak T lenfositleri (özellikle Sitotoksik T lenfositler - CD8+ ve Yardımcı T lenfositler - CD4+) tarafından yürütülür. B lenfositleri ve plazma hücreleri humoral immüniteden sorumludur. [Source: 4, 6]" },
+    { id: 4, question: "4. Doğal bağışıklık sistemi, patojenle ilişkili moleküler kalıpları (PAMP'lar) tanımak için hangi tip reseptörleri kullanır?", options: ["Antikorlar", "T Hücre Reseptörleri (TCR)", "Patern Tanıma Reseptörleri (PRR)", "MHC Molekülleri", "B Hücre Reseptörleri (BCR)"], correctAnswer: "Patern Tanıma Reseptörleri (PRR)", explanation: "Doğal bağışıklık hücreleri, mikroorganizmalara özgü korunmuş yapılar olan PAMP'ları tanımak için PRR'leri (örn. TLR'ler) kullanır, bu da hızlı ve non-spesifik bir yanıtı tetikler. Antikorlar, TCR ve BCR kazanılmış bağışıklığın spesifik reseptörleridir. [Source: 2, 57, 59]" },
+    { id: 5, question: "5. Kazanılmış bağışıklık sisteminin, doğal bağışıklık sisteminden ayıran temel özelliklerden biri aşağıdakilerden hangisi *değildir*?", options: ["Spesifite (Özgüllük)", "Bellek (Hafıza)", "Hızlı yanıt (saatler içinde)", "Klonal genişleme", "İmmünolojik tolerans (Kendine yanıt vermeme)"], correctAnswer: "Hızlı yanıt (saatler içinde)", explanation: "Doğal bağışıklık saatler içinde yanıt verirken, kazanılmış bağışıklık yanıtının gelişmesi günler sürer. Spesifite, bellek, klonal genişleme ve tolerans kazanılmış bağışıklığın ayırt edici özellikleridir. [Source: 4, 10, 56]" },
+    { id: 6, question: "6. Aşağıdaki hücrelerden hangisi temel olarak fagositoz yapma yeteneğine sahip *değildir*?", options: ["Nötrofil", "Makrofaj", "Dendritik Hücre", "Eozinofil", "Bazofil"], correctAnswer: "Bazofil", explanation: "Nötrofiller, makrofajlar ve dendritik hücreler aktif fagositlerdir. Eozinofillerin de sınırlı fagositoz yeteneği vardır. Bazofiller ise esas olarak granül içeriğini (histamin vb.) salgılar ve fagositoz yapmazlar. [Source: 20, 23, 30, 31, 42]" },
+    { id: 7, question: "7. Vücuda bir antijen ilk kez girdiğinde üretilen ilk antikor sınıfı (izotipi) hangisidir?", options: ["IgG", "IgA", "IgM", "IgE", "IgD"], correctAnswer: "IgM", explanation: "Primer immün yanıtta B lenfositleri tarafından ilk sentezlenen antikor sınıfı IgM'dir. Daha sonra izotip değişimi ile IgG, IgA gibi diğer sınıflar üretilir. [Source: 17]" },
+    { id: 8, question: "8. Hangi T lenfosit alt tipi, özellikle hücre içi patojenlere karşı hücresel bağışıklığı aktive etmekten ve makrofajları uyarmaktan sorumludur?", options: ["Th1", "Th2", "Th17", "Treg (Düzenleyici T hücresi)", "Sitotoksik T Lenfosit (CD8+)"], correctAnswer: "Th1", explanation: "Th1 hücreleri, IFN-γ salgılayarak makrofajları aktive eder ve hücresel bağışıklık yanıtlarını (hücre içi patojenlere karşı) güçlendirir. Th2 hümoral yanıtı, Th17 nötrofil çağrılmasını, Treg baskılamayı destekler. [Source: 50, 51]" },
+    { id: 9, question: "9. Aşağıdakilerden hangisi Doğal Katil (NK) hücrelerinin özelliklerinden biri *değildir*?", options: ["Doğal bağışıklık sistemi hücresidir.", "Virüsle enfekte hücreleri ve tümör hücrelerini öldürebilir.", "Hedef hücreleri tanımak için Antijen-MHC kompleksine ihtiyaç duyar.", "Perforin ve granzim kullanarak apoptozisi tetikler.", "Antikor kaplı hedef hücreleri ADCC yoluyla öldürebilir (CD16 reseptörü ile)."], correctAnswer: "Hedef hücreleri tanımak için Antijen-MHC kompleksine ihtiyaç duyar.", explanation: "NK hücreleri, T hücrelerinden farklı olarak antijenin MHC ile sunulmasına gerek duymazlar; hedef hücrelerdeki aktive edici/inhibitör reseptör sinyallerinin dengesine (özellikle MHC-I eksikliğine) göre hedef seçerler. Diğer seçenekler doğrudur. [Source: 32, 33, 34, 40, 41]" },
+    { id: 10, question: "10. Tek başına immün yanıt oluşturamayan ancak bir taşıyıcı proteine bağlandığında immünojenik hale gelen küçük moleküllere ne ad verilir?", options: ["Epitop", "Paratop", "Adjuvan", "Hapten", "İmmünojen"], correctAnswer: "Hapten", explanation: "Haptenler, tek başlarına immünojenik olmayan ama antijenik olan küçük moleküllerdir. Bir taşıyıcı proteine bağlandıklarında immün yanıt uyandırabilirler. İmmünojenler doğrudan yanıt uyandırır. Epitop antijenin tanınan kısmıdır. [Source: 37, 38]" },
+    { id: 11, question: "11. Eozinofillerin aktivasyonunda ve çoğalmasında rol oynayan temel sitokin hangisidir?", options: ["IL-2", "IL-4", "IL-5", "IFN-γ", "TNF-α"], correctAnswer: "IL-5", explanation: "Interlökin-5 (IL-5), eozinofillerin kemik iliğinden salınımını, aktivasyonunu ve hayatta kalmasını sağlayan temel sitokindir. Özellikle parazitik enfeksiyonlar ve alerjik yanıtlarda önemlidir. [Source: 31]" },
+    { id: 12, question: "12. Bağ dokusunda bulunan ve sitoplazmalarında histamin ve heparin içeren iri granüllere sahip mast hücresi tipi hangisidir?", options: ["Mukozal Mast Hücresi", "Bağ Dokusu Mast Hücresi", "Langerhans Hücresi", "Bazofil", "Plazma Hücresi"], correctAnswer: "Bağ Dokusu Mast Hücresi", explanation: "Mast hücreleri bulundukları dokuya göre farklılık gösterir. Bağ dokusu mast hücreleri, histamin ve heparin açısından zengin büyük granüllere sahiptir ve özellikle alerjik reaksiyonlarda rol oynar. Mukozal mast hücrelerinin granülleri farklı içeriktedir. [Source: 27]" },
+    { id: 13, question: "13. Periferik kanda normalde en az oranda bulunan lökosit (akyuvar) tipi hangisidir?", options: ["Nötrofil", "Lenfosit", "Monosit", "Eozinofil", "Bazofil"], correctAnswer: "Bazofil", explanation: "Bazofiller, periferik kandaki lökositlerin tipik olarak %1'inden azını oluşturur ve en nadir bulunan lökosit tipidir. Nötrofiller en bol bulunanlardır. [Source: 29]" },
+    { id: 14, question: "14. Lenfoid foliküllerde bulunan, MHC sınıf II molekülü eksprese etmeyen ancak B lenfositlerine antijen sunumu yapabilen dendritik hücre tipi hangisidir?", options: ["Langerhans Hücresi", "İnterstisyel Dendritik Hücre", "Plazmasitoid Dendritik Hücre", "Foliküler Dendritik Hücre", "Monositten Türevli Dendritik Hücre"], correctAnswer: "Foliküler Dendritik Hücre", explanation: "Foliküler dendritik hücreler (FDC'ler), diğer dendritik hücrelerden farklı olarak hematopoietik kökenli değildirler ve MHC sınıf II molekülü taşımazlar. Antijenleri yüzeylerinde uzun süre tutarak B lenfositlerinin aktivasyonu ve afinite olgunlaşmasında rol oynarlar. [Source: 45]" },
+    { id: 15, question: "15. Deri ve mukoza epitellerinde bulunan, antijen yakalayıp bölgesel lenf düğümlerine göç ederek T lenfositlerini uyaran immatür dendritik hücrelere ne ad verilir?", options: ["Kupffer Hücresi", "Mikroglia", "Langerhans Hücresi", "Histiosit", "Foliküler Dendritik Hücre"], correctAnswer: "Langerhans Hücresi", explanation: "Langerhans hücreleri, derinin epidermis tabakasında ve bazı mukozalarda bulunan özelleşmiş, immatür dendritik hücrelerdir. Antijenleri yakaladıktan sonra olgunlaşarak lenf düğümlerine göç eder ve T hücrelerine antijen sunarlar. [Source: 44]" },
+    { id: 16, question: "16. T lenfositleri antijenleri sadece MHC molekülleriyle sunulduğunda tanırken, B lenfositleri antijenleri nasıl tanır?", options: ["Sadece MHC sınıf I ile sunulanları", "Sadece MHC sınıf II ile sunulanları", "Protein, polisakkarit, lipid gibi çeşitli molekülleri doğrudan tanıyabilir", "Sadece T helper hücreler yardımıyla", "Sadece kompleman kaplı antijenleri"], correctAnswer: "Protein, polisakkarit, lipid gibi çeşitli molekülleri doğrudan tanıyabilir", explanation: "B lenfositleri, yüzeylerindeki B hücre reseptörleri (BCR) aracılığıyla protein, polisakkarit, lipid ve nükleik asit yapısındaki antijenleri çözünmüş veya hücre yüzeyine bağlı formda, MHC sunumuna gerek duymadan doğrudan tanıyabilirler. T lenfositleri ise sadece MHC molekülleri tarafından sunulan peptid antijenleri tanır. [Source: 9]" },
+    { id: 17, question: "17. Hangi Yardımcı T (Th) hücre alt tipi, salgıladığı sitokinlerle nötrofilleri inflamasyon bölgesine çağırarak özellikle hücre dışı bakteri ve mantarlara karşı savunmada rol oynar?", options: ["Th1", "Th2", "Th17", "Treg", "Tfh"], correctAnswer: "Th17", explanation: "Th17 hücreleri, IL-17 gibi sitokinler üreterek nötrofillerin inflamasyon bölgesine göçünü ve aktivasyonunu sağlar. Bu özellikleriyle özellikle hücre dışı bakteri ve mantar enfeksiyonlarına karşı korunmada önemlidirler. [Source: Slide 38]" },
+    { id: 18, question: "18. İmmün yanıtları baskılayarak otoimmüniteyi önlemede ve immün toleransın sürdürülmesinde görevli olan T lenfosit alt tipi hangisidir?", options: ["Th1", "Th2", "Th17", "Treg (Düzenleyici T hücresi)", "Sitotoksik T Lenfosit (CD8+)"], correctAnswer: "Treg (Düzenleyici T hücresi)", explanation: "Düzenleyici T hücreleri (Treg), immün yanıtların aşırıya kaçmasını engelleyen ve kendi dokularına karşı reaksiyonları (otoimmünite) baskılayan özel bir CD4+ T hücresi alt tipidir. [Source: 53]" },
+    { id: 19, question: "19. Doğal Katil (NK) hücrelerini tanımlamak için sıkça kullanılan yüzey belirteci (marker) hangisidir?", options: ["CD3", "CD4", "CD8", "CD19", "CD56"], correctAnswer: "CD56", explanation: "CD56 (NCAM), insan NK hücrelerinin büyük çoğunluğunda eksprese edilen bir yüzey molekülüdür ve NK hücrelerini tanımlamada önemli bir belirteçtir. CD3 T hücreleri, CD19 B hücreleri için tipik belirteçlerdir. CD4 ve CD8 T hücre alt gruplarını tanımlar. [Source: 34]" },
+    { id: 20, question: "20. NK hücreleri, yüzeylerindeki hangi reseptör aracılığıyla IgG antikoru ile kaplanmış hedef hücrelere bağlanarak Antikor Bağımlı Hücresel Sitotoksisite (ADCC) mekanizmasını tetikler?", options: ["CD3", "CD16 (FcγRIII)", "CD28", "CD56", "KIR"], correctAnswer: "CD16 (FcγRIII)", explanation: "CD16, IgG antikorlarının Fc bölgesine bağlanan bir reseptördür (FcγRIII). NK hücreleri, yüzeylerindeki CD16 aracılığıyla antikor kaplı hedef hücrelere bağlanır ve perforin/granzim salgılayarak bu hücreleri öldürür (ADCC). [Source: 34]" },
+    { id: 21, question: "21. Aşağıdakilerden hangisi, Gram-negatif bakterilerin dış zarında bulunan ve doğal bağışıklık sistemi tarafından Toll-benzeri reseptör 4 (TLR4) ile tanınan klasik bir PAMP örneğidir?", options: ["Peptidoglikan", "Lipopolisakkarit (LPS)", "Flagellin", "Çift iplikli RNA (dsRNA)", "Teikoik asit"], correctAnswer: "Lipopolisakkarit (LPS)", explanation: "Lipopolisakkarit (LPS), Gram-negatif bakterilerin dış membranının önemli bir bileşenidir ve doğal bağışıklık sistemi tarafından PAMP olarak tanınır, özellikle TLR4 tarafından algılanarak güçlü bir inflamatuar yanıt başlatır. [Source: 2]" },
+    { id: 22, question: "22. Hücre hasarı veya nekroz sonucu hücre dışına salınan ve doğal bağışıklık sistemini uyararak steril inflamasyona yol açabilen moleküllere ne ad verilir?", options: ["PAMP (Patojenle İlişkili Moleküler Kalıp)", "Antijen", "Sitokin", "Kemokin", "DAMP (Hasarla İlişkili Moleküler Kalıp)"], correctAnswer: "DAMP (Hasarla İlişkili Moleküler Kalıp)", explanation: "DAMP'lar (örn. HMGB1, ATP, ürik asit kristalleri), hasar görmüş veya ölmekte olan konak hücrelerinden salınan endojen moleküllerdir. PAMP'lar gibi PRR'ler tarafından tanınarak, enfeksiyon olmasa bile inflamatuar yanıtları tetikleyebilirler (steril inflamasyon). [Source: 2, 57]" },
+    { id: 23, question: "23. Bir antikor molekülündeki tek bir antijen bağlama bölgesinin (paratop) bir epitopa olan bağlanma gücüne ne ad verilir?", options: ["Avidite", "Affinite", "Spesifite", "Valans", "İmmünojenite"], correctAnswer: "Affinite", explanation: "Affinite, tek bir antijen bağlama bölgesi ile tek bir epitop arasındaki bağlanma gücünü ifade eder. Avidite ise, çoklu bağlanma bölgelerine sahip bir antikorun (örn. pentamerik IgM veya dimerik IgA) veya T hücresinin antijenle olan toplam bağlanma gücünü tanımlar. [Source: 3]" },
+    { id: 24, question: "24. Karaciğerde bulunan özelleşmiş, yerleşik makrofajlara verilen özel isim nedir?", options: ["Alveolar makrofaj", "Mikroglia", "Kupffer hücresi", "Histiosit", "Osteoklast"], correctAnswer: "Kupffer hücresi", explanation: "Kupffer hücreleri, karaciğer sinüzoidlerinde bulunan ve kanı filtreleyerek patojenleri, eski eritrositleri ve diğer partikülleri temizleyen yerleşik makrofajlardır. Alveolar makrofajlar akciğerde, mikroglia beyinde bulunur. [Source: 25]" },
+    { id: 25, question: "25. İkincil (sekonder) immün yanıtın, birincil (primer) yanıta göre temel farklarından biri nedir?", options: ["Daha yavaş başlar", "Temel olarak IgM antikorları üretilir", "Daha düşük düzeyde antikor üretilir", "Daha yüksek afiniteli IgG antikorları baskındır", "Bellek hücreleri oluşmaz"], correctAnswer: "Daha yüksek afiniteli IgG antikorları baskındır", explanation: "Sekonder yanıt, bellek hücreleri sayesinde daha hızlı başlar, daha yüksek düzeyde antikor üretilir ve izotip değişimi ile afinite olgunlaşması sonucu daha yüksek bağlanma gücüne sahip IgG (veya IgA/IgE) antikorları baskın olarak üretilir. Primer yanıtta ise IgM baskındır ve afinite daha düşüktür. [Source: 10, 17, 18]" }
+];
+        const totalQuestionsCount = allQuestions.length;
+
+        let currentRound = 'INIT';
+        let questionsForRound = [];
+        let incorrectInRound1 = [];
+        let incorrectInRound2 = [];
+        let currentQuestionIndexInRound = 0;
+        let userAnswers = {};
+
+        let stats = {
+            round1Correct: 0, round1Incorrect: 0,
+            round2Correct: 0, round2Incorrect: 0,
+            round3Correct: 0,
+            round1Score: 0, round2Score: 0, round3Score: 0,
+            round1TotalQuestions: totalQuestionsCount,
+            round2TotalQuestions: 0, round3TotalQuestions: 0,
+            currentRoundCorrect: 0, currentRoundIncorrect: 0,
+            currentRoundTotal: 0,
+            statusMessage: "Başlatılıyor..."
+        };
+
+        const statsCurrentRoundEl = document.getElementById('stats-current-round');
+        const statsRoundProgressEl = document.getElementById('stats-round-progress');
+        const statsRoundCorrectEl = document.getElementById('stats-round-correct');
+        const statsRoundIncorrectEl = document.getElementById('stats-round-incorrect');
+        const statsRound1ScoreEl = document.getElementById('stats-round1-score');
+        const statsRound2ScoreEl = document.getElementById('stats-round2-score');
+        const statsRound3ScoreEl = document.getElementById('stats-round3-score');
+        const statsStatusMessageEl = document.getElementById('stats-status-message');
+        const progressBarFillEl = document.getElementById('progress-bar-fill');
+
+        const quizContainerEl = document.getElementById('quiz-container');
+        const quizTitleEl = document.getElementById('quiz-title');
+        const questionEl = document.getElementById('question');
+        const optionsEl = document.getElementById('options');
+        const submitBtn = document.getElementById('submit-btn');
+        const feedbackEl = document.getElementById('feedback');
+
+        const learningOfferContainerEl = document.getElementById('learning-offer-container');
+        const offerTitleEl = document.getElementById('offer-title');
+        const offerMessageEl = document.getElementById('offer-message');
+        const startLearningBtn = document.getElementById('start-learning-btn');
+        const startNextTestBtn = document.getElementById('start-next-test-btn');
+
+        const learningRoundContainerEl = document.getElementById('learning-round-container');
+        const learningTitleEl = document.getElementById('learning-title');
+        const learningContentEl = document.getElementById('learning-content');
+        const continueToNextTestBtn = document.getElementById('continue-to-next-test-btn');
+
+        const resultContainerEl = document.getElementById('result-container');
+        const scoreInfoEl = document.getElementById('score-info');
+        const finalMessageEl = document.getElementById('final-message');
+        const showFinalReviewBtn = document.getElementById('show-final-review-btn');
+
+        const finalReviewContainerEl = document.getElementById('final-review-container');
+        const finalReviewContentEl = document.getElementById('final-review-content');
+        const themeToggleButton = document.getElementById('theme-toggle-btn');
+
+
+        function getScoreColor(score) {
+            const clampedScore = Math.max(0, Math.min(100, score));
+            const hue = clampedScore * 1.2;
+            return `hsl(${hue}, 85%, 40%)`;
+        }
+
+        function animateValue(element, start, end, duration) {
+             if (!element) return;
+             const startValue = (start === '-' || isNaN(parseFloat(start))) ? 0 : parseFloat(start);
+             const endValue = Math.round(end);
+             if (startValue === endValue && element.textContent === endValue + '%') return;
+             let startTimestamp = null;
+             const step = (timestamp) => {
+                 if (!startTimestamp) startTimestamp = timestamp;
+                 const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                 const currentValue = Math.floor(progress * (endValue - startValue) + startValue);
+                 element.textContent = currentValue + '%';
+                 element.style.color = getScoreColor(currentValue);
+                 if (progress < 1) { window.requestAnimationFrame(step); }
+                 else { element.textContent = endValue + '%'; element.style.color = getScoreColor(endValue); }
+             };
+             window.requestAnimationFrame(step);
+        }
+
+        function animateIntegerChange(element, endValue, duration = 300) {
+            if (!element) return;
+            const startValueText = element.textContent;
+            const startValue = isNaN(parseInt(startValueText, 10)) ? 0 : parseInt(startValueText, 10);
+            const finalEndValue = parseInt(endValue, 10);
+            if (startValue === finalEndValue) return;
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const currentValue = Math.floor(progress * (finalEndValue - startValue) + startValue);
+                element.textContent = currentValue;
+                if (progress < 1) { window.requestAnimationFrame(step); }
+                else { element.textContent = finalEndValue; }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        function animateProgressText(element, currentNumber, totalNumber, duration = 300) {
+            if (!element || totalNumber <= 0) { if(element) element.textContent = "-"; return; }
+            const match = element.textContent.match(/(\d+)\/(\d+)/);
+            const startNumber = match ? parseInt(match[1], 10) : 0;
+            const finalCurrentNumberToShow = Math.min(parseInt(currentNumber, 10), parseInt(totalNumber, 10));
+            const finalTotalNumber = parseInt(totalNumber, 10);
+            if (startNumber === finalCurrentNumberToShow && match && parseInt(match[2], 10) === finalTotalNumber) return;
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const animatedCurrentValue = Math.floor(progress * (finalCurrentNumberToShow - startNumber) + startNumber);
+                element.textContent = `${animatedCurrentValue}/${finalTotalNumber}`;
+                if (progress < 1) { window.requestAnimationFrame(step); }
+                else { element.textContent = `${finalCurrentNumberToShow}/${finalTotalNumber}`; }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+         function getStatusMessageClass(message) {
+             if (message.includes("Mükemmel") || message.includes("Başarılı") || message.includes("Çok iyi")) return "success-message";
+             if (message.includes("gayret") || message.includes("gerekli") || message.includes("Tamamlandı")) return "improvement-message";
+             if (message.includes("Sonuç") || message.includes("İnceleme")) return "final-review-message";
+             return "";
+        }
+
+        function showContainer(containerId) {
+             const containers = [quizContainerEl, resultContainerEl, learningOfferContainerEl, learningRoundContainerEl, finalReviewContainerEl];
+             containers.forEach(container => {
+                const el = document.getElementById(container.id);
+                if(el) el.style.display = (container.id === containerId) ? 'block' : 'none';
+             });
+              window.scrollTo(0, 0);
+        }
+
+        function updateStatsDisplay(animate = false, animationDuration = 300) {
+            let roundText = "-";
+            switch (currentRound) {
+                case 'TEST_1': roundText = "1. Tur"; break;
+                case 'LEARN_1_OFFER': roundText = "1. Tur Sonu"; break;
+                case 'LEARN_1': roundText = "Öğrenme"; break;
+                case 'TEST_2': roundText = "2. Tur"; break;
+                case 'LEARN_2_OFFER': roundText = "2. Tur Sonu"; break;
+                case 'LEARN_2': roundText = "Öğrenme"; break;
+                case 'TEST_3': roundText = "Final Tur"; break;
+                case 'RESULTS': roundText = "Sonuç"; break;
+                case 'FINAL_REVIEW': roundText = "İnceleme"; break;
+                default: roundText = "Başlıyor";
+            }
+            if(statsCurrentRoundEl) statsCurrentRoundEl.textContent = roundText;
+
+            const currentDisplayNumber = currentQuestionIndexInRound + 1;
+            const totalForProgressBar = stats.currentRoundTotal > 0 ? stats.currentRoundTotal : 1;
+            const progressPercent = Math.min(100, (stats.currentRoundTotal > 0 ? (currentQuestionIndexInRound / stats.currentRoundTotal) * 100 : 0));
+
+            if (currentRound.startsWith('TEST_') && stats.currentRoundTotal > 0) {
+                 if (animate) { animateProgressText(statsRoundProgressEl, currentDisplayNumber, stats.currentRoundTotal, animationDuration); }
+                 else {
+                    const finalDisplayNumber = currentQuestionIndexInRound >= stats.currentRoundTotal ? stats.currentRoundTotal : currentDisplayNumber;
+                    if(statsRoundProgressEl) statsRoundProgressEl.textContent = `${Math.min(finalDisplayNumber, stats.currentRoundTotal)}/${stats.currentRoundTotal}`;
+                 }
+            } else { if(statsRoundProgressEl) statsRoundProgressEl.textContent = '-'; }
+            if(progressBarFillEl) progressBarFillEl.style.width = `${progressPercent}%`;
+
+             if (animate) {
+                 animateIntegerChange(statsRoundCorrectEl, stats.currentRoundCorrect, animationDuration);
+                 animateIntegerChange(statsRoundIncorrectEl, stats.currentRoundIncorrect, animationDuration);
+             } else {
+                if(statsRoundCorrectEl) statsRoundCorrectEl.textContent = stats.currentRoundCorrect;
+                if(statsRoundIncorrectEl) statsRoundIncorrectEl.textContent = stats.currentRoundIncorrect;
+             }
+
+             const displayScore = (el, score) => {
+                 if (!animate) {
+                     if (score > 0 || (score === 0 && el && el.textContent !== '-')) {
+                          if(el) { el.textContent = Math.round(score) + '%'; el.style.color = getScoreColor(score); }
+                     } else { if(el) { el.textContent = '-'; el.style.color = ''; } }
+                 } else if (el && el.textContent === '-') {
+                    el.textContent = '0%'; el.style.color = getScoreColor(0);
+                 }
+             };
+             displayScore(statsRound1ScoreEl, stats.round1Score);
+             displayScore(statsRound2ScoreEl, stats.round2Score);
+             displayScore(statsRound3ScoreEl, stats.round3Score);
+
+            if(statsStatusMessageEl) {
+                statsStatusMessageEl.textContent = stats.statusMessage;
+                statsStatusMessageEl.className = getStatusMessageClass(stats.statusMessage);
+            }
+        }
+
+        function initializeQuiz() {
+            currentRound = 'TEST_1';
+            questionsForRound = [...allQuestions];
+            incorrectInRound1 = [];
+            incorrectInRound2 = [];
+            currentQuestionIndexInRound = 0;
+            userAnswers = {};
+            stats = {
+                round1Correct: 0, round1Incorrect: 0, round2Correct: 0, round2Incorrect: 0, round3Correct: 0,
+                round1Score: 0, round2Score: 0, round3Score: 0,
+                round1TotalQuestions: totalQuestionsCount, round2TotalQuestions: 0, round3TotalQuestions: 0,
+                currentRoundCorrect: 0, currentRoundIncorrect: 0, currentRoundTotal: totalQuestionsCount,
+                statusMessage: "1. Tur Devam Ediyor..."
+            };
+            if(feedbackEl) { feedbackEl.textContent = ''; feedbackEl.className = ''; feedbackEl.style.display = 'none'; }
+            if(quizTitleEl) quizTitleEl.textContent = "1. Tur Test Soruları";
+            updateStatsDisplay(false);
+            if(statsRound1ScoreEl) { statsRound1ScoreEl.textContent = '-'; statsRound1ScoreEl.style.color = ''; }
+            if(statsRound2ScoreEl) { statsRound2ScoreEl.textContent = '-'; statsRound2ScoreEl.style.color = ''; }
+            if(statsRound3ScoreEl) { statsRound3ScoreEl.textContent = '-'; statsRound3ScoreEl.style.color = ''; }
+            if(progressBarFillEl) progressBarFillEl.style.width = '0%';
+            showContainer('quiz-container');
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+             if(feedbackEl) feedbackEl.style.display = 'none';
+             if(optionsEl) optionsEl.classList.remove('options-disabled');
+
+            if (currentQuestionIndexInRound >= questionsForRound.length) {
+                if(progressBarFillEl) progressBarFillEl.style.width = '100%';
+                if(stats.currentRoundTotal > 0 && statsRoundProgressEl) statsRoundProgressEl.textContent = `${stats.currentRoundTotal}/${stats.currentRoundTotal}`;
+                updateStatsDisplay(false);
+                finishRound();
+                return;
+            }
+
+            const currentQuestion = questionsForRound[currentQuestionIndexInRound];
+            if(questionEl) questionEl.innerHTML = currentQuestion.question;
+            if(optionsEl) optionsEl.innerHTML = '';
+
+             currentQuestion.options.forEach((option, index) => {
+                const optionId = `option_${currentQuestion.id}_${index}`;
+                const label = document.createElement('label');
+                label.htmlFor = optionId;
+                label.classList.add('option-label');
+                const input = document.createElement('input');
+                input.type = 'radio';
+                input.id = optionId;
+                input.name = `option_${currentQuestion.id}`;
+                input.value = option;
+                const span = document.createElement('span');
+                span.textContent = option;
+                const correctIcon = document.createElement('span');
+                correctIcon.classList.add('feedback-icon', 'correct');
+                correctIcon.innerHTML = '&#10004;';
+                const incorrectIcon = document.createElement('span');
+                incorrectIcon.classList.add('feedback-icon', 'incorrect');
+                incorrectIcon.innerHTML = '&#10006;';
+                label.appendChild(input);
+                label.appendChild(span);
+                label.appendChild(correctIcon);
+                label.appendChild(incorrectIcon);
+                if(optionsEl) optionsEl.appendChild(label);
+             });
+
+            if(submitBtn) submitBtn.disabled = false;
+            updateStatsDisplay(true);
+        }
+
+        function checkAnswer() {
+            const currentQuestion = questionsForRound[currentQuestionIndexInRound];
+            const selectedOptionInput = optionsEl.querySelector(`input[name="option_${currentQuestion.id}"]:checked`);
+
+            if (!selectedOptionInput) { alert('Lütfen bir cevap seçin!'); return; }
+
+            if(submitBtn) submitBtn.disabled = true;
+            if(optionsEl) optionsEl.classList.add('options-disabled');
+            const userAnswer = selectedOptionInput.value;
+            const correctAnswer = currentQuestion.correctAnswer;
+            userAnswers[currentQuestion.id] = userAnswer;
+
+            let wasCorrect = false;
+            const optionLabels = optionsEl.querySelectorAll('.option-label');
+
+            optionLabels.forEach(label => {
+                const input = label.querySelector('input');
+                if (input.value === correctAnswer) { label.classList.add('correct-option'); }
+                if (input.checked) {
+                    label.classList.add('user-selected');
+                    if (input.value !== correctAnswer) { label.classList.add('incorrect-option'); }
+                    else { wasCorrect = true; }
+                }
+            });
+
+            if (wasCorrect) {
+                stats.currentRoundCorrect++;
+                if (currentRound === 'TEST_1') stats.round1Correct++;
+                else if (currentRound === 'TEST_2') stats.round2Correct++;
+                else if (currentRound === 'TEST_3') stats.round3Correct++;
+            } else {
+                stats.currentRoundIncorrect++;
+                if (currentRound === 'TEST_1') { stats.round1Incorrect++; incorrectInRound1.push(currentQuestion); }
+                else if (currentRound === 'TEST_2') { stats.round2Incorrect++; incorrectInRound2.push(currentQuestion); }
+            }
+
+             animateIntegerChange(statsRoundCorrectEl, stats.currentRoundCorrect, 300);
+             animateIntegerChange(statsRoundIncorrectEl, stats.currentRoundIncorrect, 300);
+
+            currentQuestionIndexInRound++;
+
+            setTimeout(() => { loadQuestion(); }, 1800);
+        }
+
+        function finishRound() {
+            const prevScore1Text = statsRound1ScoreEl ? statsRound1ScoreEl.textContent : '-';
+            const prevScore2Text = statsRound2ScoreEl ? statsRound2ScoreEl.textContent : '-';
+            const prevScore3Text = statsRound3ScoreEl ? statsRound3ScoreEl.textContent : '-';
+            const animationTime = 600;
+            const resultDelay = animationTime + 100;
+
+            if(progressBarFillEl) progressBarFillEl.style.width = '100%';
+            if(stats.currentRoundTotal > 0 && statsRoundProgressEl) statsRoundProgressEl.textContent = `${stats.currentRoundTotal}/${stats.currentRoundTotal}`;
+
+            switch (currentRound) {
+                case 'TEST_1':
+                    stats.round1Score = stats.round1TotalQuestions > 0 ? Math.round((stats.round1Correct / stats.round1TotalQuestions) * 100) : 100;
+                    animateValue(statsRound1ScoreEl, prevScore1Text, stats.round1Score, animationTime);
+                    if (incorrectInRound1.length === 0) {
+                        stats.statusMessage = "Sonuçlar Hazırlanıyor..."; currentRound = 'RESULTS'; setTimeout(showResults, resultDelay);
+                    } else {
+                        stats.statusMessage = "1. Tur Tamamlandı"; currentRound = 'LEARN_1_OFFER'; offerLearningRound(1);
+                    }
+                    break;
+                case 'TEST_2':
+                    stats.round2TotalQuestions = incorrectInRound1.length;
+                    stats.round2Score = stats.round2TotalQuestions > 0 ? Math.round((stats.round2Correct / stats.round2TotalQuestions) * 100) : 100;
+                    animateValue(statsRound2ScoreEl, prevScore2Text, stats.round2Score, animationTime);
+                    if (incorrectInRound2.length === 0) {
+                         stats.statusMessage = "Sonuçlar Hazırlanıyor..."; currentRound = 'RESULTS'; setTimeout(showResults, resultDelay);
+                    } else {
+                        stats.statusMessage = "2. Tur Tamamlandı"; currentRound = 'LEARN_2_OFFER'; offerLearningRound(2);
+                    }
+                    break;
+                case 'TEST_3':
+                    stats.round3TotalQuestions = incorrectInRound2.length;
+                    stats.round3Score = stats.round3TotalQuestions > 0 ? Math.round((stats.round3Correct / stats.round3TotalQuestions) * 100) : 100;
+                    animateValue(statsRound3ScoreEl, prevScore3Text, stats.round3Score, animationTime);
+                    stats.statusMessage = "Sonuçlar Hazırlanıyor..."; currentRound = 'RESULTS'; setTimeout(showResults, resultDelay);
+                    break;
+            }
+            updateStatsDisplay(false);
+        }
+
+        function offerLearningRound(roundNumber) {
+             const incorrectList = (roundNumber === 1) ? incorrectInRound1 : incorrectInRound2;
+             const incorrectCount = incorrectList.length;
+             if(offerTitleEl) offerTitleEl.textContent = `${roundNumber}. Tur Sonu Değerlendirme`;
+             if(offerMessageEl) offerMessageEl.textContent = `Bu turda ${incorrectCount} soruyu yanlış yanıtladınız. İsterseniz bu sorular için bir öğretim turuna katılabilir veya doğrudan bu soruları tekrar çözmeye geçebilirsiniz.`;
+             if(startLearningBtn) startLearningBtn.onclick = () => startLearningRound(roundNumber);
+             if(startNextTestBtn) startNextTestBtn.onclick = () => startNextTestRound(roundNumber + 1);
+             showContainer('learning-offer-container');
+             stats.statusMessage = `${roundNumber}. Tur Tamamlandı - Seçim Bekleniyor`;
+             updateStatsDisplay(false);
+        }
+
+        function startLearningRound(roundNumber) {
+             const incorrectList = (roundNumber === 1) ? incorrectInRound1 : incorrectInRound2;
+             if(learningTitleEl) learningTitleEl.textContent = `${roundNumber}. Öğrenme Turu (Yanlışlar)`;
+             if(learningContentEl) learningContentEl.innerHTML = '';
+
+             incorrectList.forEach(q => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('learning-item');
+                const questionTitle = document.createElement('h4');
+                questionTitle.textContent = q.question.substring(q.question.indexOf('.') + 1).trim();
+                const answerLine = document.createElement('p');
+                answerLine.classList.add('answer-line');
+                answerLine.innerHTML = `Doğru Cevap: <span class="correct-answer">${q.correctAnswer}</span>`;
+                if(userAnswers[q.id] && userAnswers[q.id] !== q.correctAnswer){
+                     answerLine.innerHTML += `<span class="user-answer-incorrect">(Sizin Cevabınız: ${userAnswers[q.id]})</span>`;
+                }
+
+                const explanationP = document.createElement('p');
+                explanationP.classList.add('explanation');
+                if (q.explanation) { explanationP.textContent = q.explanation; }
+                else { explanationP.textContent = "Bu soru için ek açıklama bulunmamaktadır."; explanationP.style.fontStyle = 'italic'; }
+
+                const toggleButton = document.createElement('button');
+                toggleButton.textContent = "Açıklama Göster";
+                toggleButton.classList.add('explanation-toggle');
+                toggleButton.onclick = () => {
+                    const isHidden = explanationP.style.display === 'none' || explanationP.style.display === '';
+                    explanationP.style.display = isHidden ? 'block' : 'none';
+                    toggleButton.textContent = isHidden ? 'Açıklama Gizle' : 'Açıklama Göster';
+                };
+
+                answerLine.appendChild(toggleButton);
+                itemDiv.appendChild(questionTitle);
+                itemDiv.appendChild(answerLine);
+                itemDiv.appendChild(explanationP);
+                if(learningContentEl) learningContentEl.appendChild(itemDiv);
+             });
+
+             if(continueToNextTestBtn) continueToNextTestBtn.onclick = () => startNextTestRound(roundNumber + 1);
+             currentRound = (roundNumber === 1) ? 'LEARN_1' : 'LEARN_2';
+             stats.statusMessage = `${roundNumber}. Öğrenme Turu`;
+             if(statsRoundProgressEl) statsRoundProgressEl.textContent = '-';
+             if(progressBarFillEl) progressBarFillEl.style.width = '0%';
+             if(statsRoundCorrectEl) statsRoundCorrectEl.textContent = '-';
+             if(statsRoundIncorrectEl) statsRoundIncorrectEl.textContent = '-';
+             updateStatsDisplay(false);
+             showContainer('learning-round-container');
+        }
+
+        function startNextTestRound(roundNumber) {
+             let title = "";
+             if (roundNumber === 2) {
+                currentRound = 'TEST_2';
+                questionsForRound = [...incorrectInRound1];
+                title = "2. Tur Test Soruları (Yanlışlar)";
+                stats.statusMessage = "2. Tur Devam Ediyor...";
+                stats.round2TotalQuestions = questionsForRound.length;
+             } else if (roundNumber === 3) {
+                currentRound = 'TEST_3';
+                questionsForRound = [...incorrectInRound2];
+                title = "Final Turu Test Soruları (Yanlışlar)";
+                stats.statusMessage = "Final Turu Devam Ediyor...";
+                stats.round3TotalQuestions = questionsForRound.length;
+             } else {
+                 console.error("Geçersiz tur numarası:", roundNumber);
+                 currentRound = 'RESULTS'; showResults(); return;
+             }
+
+             if(quizTitleEl) quizTitleEl.textContent = title;
+             currentQuestionIndexInRound = 0;
+             stats.currentRoundCorrect = 0;
+             stats.currentRoundIncorrect = 0;
+             stats.currentRoundTotal = questionsForRound.length;
+
+             updateStatsDisplay(false);
+             if (roundNumber === 2) {
+                 if(statsRound2ScoreEl) { statsRound2ScoreEl.textContent = '-'; statsRound2ScoreEl.style.color = ''; }
+                 if(statsRound3ScoreEl) { statsRound3ScoreEl.textContent = '-'; statsRound3ScoreEl.style.color = ''; }
+             } else if (roundNumber === 3) {
+                 if(statsRound3ScoreEl) { statsRound3ScoreEl.textContent = '-'; statsRound3ScoreEl.style.color = ''; }
+             }
+             if(progressBarFillEl) progressBarFillEl.style.width = '0%';
+
+             showContainer('quiz-container');
+             loadQuestion();
+        }
+
+        function showResults() {
+             let message = "";
+             let messageClass = "";
+
+            if (stats.round1Score === 100) {
+                message = "Mükemmel! İlk turda tüm soruları doğru bildiniz. Tebrikler!"; messageClass = "success-message";
+            } else if (incorrectInRound1.length > 0 && incorrectInRound2.length === 0 && currentRound === 'RESULTS') {
+                message = `Çok iyi! İlk turdaki ${stats.round1Incorrect} yanlışınızı ikinci turda düzelttiniz. Başarılı!`; messageClass = "success-message";
+            } else if (incorrectInRound2.length > 0 && currentRound === 'RESULTS') {
+                 const finalCorrectAnswersInLastRound = stats.round3Correct;
+                 const totalQuestionsInLastRound = stats.round3TotalQuestions;
+                 let extraMessage = "";
+                 if (totalQuestionsInLastRound > 0 && finalCorrectAnswersInLastRound < totalQuestionsInLastRound) { extraMessage = ` Final turunda ${totalQuestionsInLastRound - finalCorrectAnswersInLastRound} soruyu hala yanlış yanıtladınız.`; }
+                 else if (totalQuestionsInLastRound > 0 && finalCorrectAnswersInLastRound === totalQuestionsInLastRound) { extraMessage = ` Final turunda kalan tüm yanlışları başarıyla düzelttiniz!`; }
+                 message = `Test tamamlandı. İlk tur skorunuz %${stats.round1Score} idi.${extraMessage} İsterseniz tüm soruları ve cevapları inceleyebilirsiniz.`;
+                 if (extraMessage.includes("düzelttiniz")) { messageClass = "success-message"; }
+                 else { messageClass = "improvement-message"; }
+            } else {
+                 message = `Test tamamlandı. İlk turdaki skorunuz: %${stats.round1Score}.`; messageClass = "improvement-message";
+            }
+
+             if(scoreInfoEl) {
+                 scoreInfoEl.textContent = `İlk Tur Skoru: ${stats.round1Score}% (${stats.round1Correct}/${stats.round1TotalQuestions})`;
+                 if (stats.round2TotalQuestions > 0) { scoreInfoEl.innerHTML += `<br>2. Tur Skoru (Yanlışlar Üzerinden): ${stats.round2Score}% (${stats.round2Correct}/${stats.round2TotalQuestions})`; }
+                 if (stats.round3TotalQuestions > 0) { scoreInfoEl.innerHTML += `<br>Final Tur Skoru (Yanlışlar Üzerinden): ${stats.round3Score}% (${stats.round3Correct}/${stats.round3TotalQuestions})`; }
+             }
+
+             if(finalMessageEl) { finalMessageEl.textContent = message; finalMessageEl.className = messageClass; }
+             stats.statusMessage = "Test Tamamlandı";
+             currentRound = 'RESULTS';
+             updateStatsDisplay(false);
+             if(statsRoundProgressEl) statsRoundProgressEl.textContent = '-';
+             if(progressBarFillEl) progressBarFillEl.style.width = '100%';
+             if(statsRoundCorrectEl) statsRoundCorrectEl.textContent = '-';
+             if(statsRoundIncorrectEl) statsRoundIncorrectEl.textContent = '-';
+
+             showContainer('result-container');
+        }
+
+        function showFinalReview() {
+             if(!finalReviewContentEl) return;
+             finalReviewContentEl.innerHTML = '';
+             currentRound = 'FINAL_REVIEW';
+             stats.statusMessage = "Genel İnceleme";
+
+             allQuestions.forEach(q => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('learning-item');
+                const questionTitle = document.createElement('h4');
+                questionTitle.textContent = q.question;
+                const answerLine = document.createElement('p');
+                answerLine.classList.add('answer-line');
+                answerLine.innerHTML = `Doğru Cevap: <span class="correct-answer">${q.correctAnswer}</span>`;
+                if(userAnswers[q.id]){
+                    if(userAnswers[q.id] !== q.correctAnswer) {
+                         answerLine.innerHTML += `<span class="user-answer-incorrect">(Sizin Cevabınız: ${userAnswers[q.id]})</span>`;
+                    }
+                }
+
+                itemDiv.appendChild(questionTitle);
+                itemDiv.appendChild(answerLine);
+                if (q.explanation) {
+                    const explanationP = document.createElement('p');
+                    explanationP.classList.add('explanation');
+                    explanationP.textContent = q.explanation;
+                    explanationP.style.display = 'block';
+                    itemDiv.appendChild(explanationP);
+                }
+                finalReviewContentEl.appendChild(itemDiv);
+            });
+             if(statsRoundProgressEl) statsRoundProgressEl.textContent = '-';
+             if(progressBarFillEl) progressBarFillEl.style.width = '0%';
+             if(statsRoundCorrectEl) statsRoundCorrectEl.textContent = '-';
+             if(statsRoundIncorrectEl) statsRoundIncorrectEl.textContent = '-';
+             updateStatsDisplay(false);
+             showContainer('final-review-container');
+        }
+
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                document.body.classList.add('dark-mode');
+                if(themeToggleButton) themeToggleButton.textContent = '☀️';
+            } else {
+                document.body.classList.remove('dark-mode');
+                 if(themeToggleButton) themeToggleButton.textContent = '🌓';
+            }
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            applyTheme(newTheme);
+            try {
+                localStorage.setItem('quizTheme', newTheme);
+            } catch (e) {
+                console.error("LocalStorage kullanılamıyor.", e);
+            }
+        }
+
+        function initializeTheme() {
+             let preferredTheme;
+             try {
+                preferredTheme = localStorage.getItem('quizTheme');
+             } catch (e) {
+                 console.error("LocalStorage okunamıyor.", e);
+             }
+             if (!preferredTheme) {
+                 preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+             }
+             applyTheme(preferredTheme || 'light');
+         }
+
+
+        if(submitBtn) submitBtn.addEventListener('click', checkAnswer);
+        if(showFinalReviewBtn) showFinalReviewBtn.addEventListener('click', showFinalReview);
+        if(themeToggleButton) themeToggleButton.addEventListener('click', toggleTheme);
+
+        document.addEventListener('DOMContentLoaded', () => {
+             initializeTheme();
+             initializeQuiz();
+        });
+
+    </script></body>
+</html>

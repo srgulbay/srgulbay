@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uzm.Dr. Sait Ramazan Gülbay - Eğitim Materyalleri</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --hue-primary: 210;
+            --hue-success: 145;
+            --hue-error: 355;
+            --hue-warning: 45;
+            --saturation-strong: 80%;
+            --saturation-moderate: 65%;
+            --saturation-light: 45%;
+
+            /* Açık Tema Renkleri */
+            --bg-primary-light: #f4f7f9;
+            --bg-secondary-light: #ffffff;
+            --bg-tertiary-light: #f1f3f5;
+            --text-primary-light: #212529;
+            --text-secondary-light: #495057;
+            --text-muted-light: #6c757d;
+            --text-on-accent-light: #ffffff;
+            --accent-primary-light: hsl(var(--hue-primary), var(--saturation-strong), 53%);
+            --accent-primary-darker-light: hsl(var(--hue-primary), var(--saturation-strong), 43%);
+            --accent-secondary-light: #6c757d;
+            --accent-secondary-darker-light: #5a6268;
+            --border-primary-light: #e9ecef;
+            --border-secondary-light: #f1f3f5;
+            --shadow-color-light: rgba(0, 0, 0, 0.07);
+            --shadow-hover-color-light: rgba(0, 0, 0, 0.12);
+            --success-light: hsl(var(--hue-success), var(--saturation-moderate), 40%);
+            --error-light: hsl(var(--hue-error), var(--saturation-strong), 55%);
+            --warning-light: hsl(var(--hue-warning), var(--saturation-strong), 55%);
+            --success-bg-light: hsl(var(--hue-success), var(--saturation-light), 94%);
+            --error-bg-light: hsl(var(--hue-error), var(--saturation-light), 95%);
+            --success-border-light: hsl(var(--hue-success), var(--saturation-light), 85%);
+            --error-border-light: hsl(var(--hue-error), var(--saturation-light), 88%);
+
+            /* Koyu Tema Renkleri */
+            --bg-primary-dark: #1a1a1a;
+            --bg-secondary-dark: #242424;
+            --bg-tertiary-dark: #303030;
+            --text-primary-dark: #e8e8e8;
+            --text-secondary-dark: #b8b8b8;
+            --text-muted-dark: #909090;
+            --text-on-accent-dark: #ffffff;
+            --accent-primary-dark: hsl(var(--hue-primary), var(--saturation-moderate), 65%);
+            --accent-primary-darker-dark: hsl(var(--hue-primary), var(--saturation-moderate), 55%);
+            --accent-secondary-dark: #8a959d;
+            --accent-secondary-darker-dark: #a0a9b0;
+            --border-primary-dark: #3a3a3a;
+            --border-secondary-dark: #2f2f2f;
+            --shadow-color-dark: rgba(255, 255, 255, 0.04);
+            --shadow-hover-color-dark: rgba(255, 255, 255, 0.07);
+            --success-dark: hsl(var(--hue-success), var(--saturation-light), 70%);
+            --error-dark: hsl(var(--hue-error), var(--saturation-light), 75%);
+            --warning-dark: hsl(var(--hue-warning), var(--saturation-moderate), 70%);
+            --success-bg-dark: rgba(40, 167, 69, 0.15);
+            --error-bg-dark: rgba(220, 53, 69, 0.15);
+            --success-border-dark: rgba(40, 167, 69, 0.25);
+            --error-border-dark: rgba(220, 53, 69, 0.25);
+
+            /* Aktif Tema (Default: Açık) */
+            --bg-primary: var(--bg-primary-light);
+            --bg-secondary: var(--bg-secondary-light);
+            --bg-tertiary: var(--bg-tertiary-light);
+            --text-primary: var(--text-primary-light);
+            --text-secondary: var(--text-secondary-light);
+            --text-muted: var(--text-muted-light);
+            --text-on-accent: var(--text-on-accent-light);
+            --accent-primary: var(--accent-primary-light);
+            --accent-primary-darker: var(--accent-primary-darker-light);
+            --accent-secondary: var(--accent-secondary-light);
+            --accent-secondary-darker: var(--accent-secondary-darker-light);
+            --border-primary: var(--border-primary-light);
+            --border-secondary: var(--border-secondary-light);
+            --shadow-color: var(--shadow-color-light);
+            --shadow-hover-color: var(--shadow-hover-color-light);
+            --success: var(--success-light);
+            --error: var(--error-light);
+            --warning: var(--warning-light);
+            --success-bg: var(--success-bg-light);
+            --error-bg: var(--error-bg-light);
+            --success-border: var(--success-border-light);
+            --error-border: var(--error-border-light);
+
+            --border-radius-sm: 0.25rem;
+            --border-radius-md: 0.5rem;
+            --border-radius-lg: 0.75rem;
+            --font-family: 'Poppins', sans-serif;
+            --transition-speed: 0.25s;
+            --transition-easing: cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        body.dark-mode {
+            --bg-primary: var(--bg-primary-dark);
+            --bg-secondary: var(--bg-secondary-dark);
+            --bg-tertiary: var(--bg-tertiary-dark);
+            --text-primary: var(--text-primary-dark);
+            --text-secondary: var(--text-secondary-dark);
+            --text-muted: var(--text-muted-dark);
+            --text-on-accent: var(--text-on-accent-dark);
+            --accent-primary: var(--accent-primary-dark);
+            --accent-primary-darker: var(--accent-primary-darker-dark);
+            --accent-secondary: var(--accent-secondary-dark);
+            --accent-secondary-darker: var(--accent-secondary-darker-dark);
+            --border-primary: var(--border-primary-dark);
+            --border-secondary: var(--border-secondary-dark);
+            --shadow-color: var(--shadow-color-dark);
+            --shadow-hover-color: var(--shadow-hover-color-dark);
+            --success: var(--success-dark);
+            --error: var(--error-dark);
+            --warning: var(--warning-dark);
+            --success-bg: var(--success-bg-dark);
+            --error-bg: var(--error-bg-dark);
+            --success-border: var(--success-border-dark);
+            --error-border: var(--error-border-dark);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            transition: background-color var(--transition-speed) var(--transition-easing), color var(--transition-speed) var(--transition-easing);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1140px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        #main-header {
+            background-color: var(--bg-secondary);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: background-color var(--transition-speed) var(--transition-easing), border-color var(--transition-speed) var(--transition-easing);
+            border-bottom: 1px solid var(--border-primary);
+        }
+        #main-header .container { display: flex; justify-content: space-between; align-items: center; }
+        #main-header h1 { font-size: 1.4rem; font-weight: 600; color: var(--text-primary); margin: 0; transition: color var(--transition-speed) var(--transition-easing); }
+        #main-header nav ul { list-style: none; display: flex; gap: 25px; }
+        #main-header nav a { text-decoration: none; color: var(--text-secondary); font-weight: 500; font-size: 0.95rem; padding-bottom: 5px; border-bottom: 2px solid transparent; transition: color var(--transition-speed) var(--transition-easing), border-color var(--transition-speed) var(--transition-easing); }
+        #main-header nav a:hover,
+        #main-header nav a.active { color: var(--accent-primary); border-bottom-color: var(--accent-primary); }
+
+        #hero {
+            background: linear-gradient(to bottom, color-mix(in srgb, var(--accent-primary) 10%, transparent), var(--bg-primary)),
+                        url('https://images.unsplash.com/photo-1579154204603-197457051596?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8ZWR1Y2F0aW9uLHNjaWVuY2UsYmFja2dyb3VuZHx8fHx8fDE3MTI5NTU4NTA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080') no-repeat center center/cover;
+            color: var(--text-primary);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            background-blend-mode: multiply;
+        }
+         body.dark-mode #hero { background-blend-mode: luminosity; color: var(--text-primary-dark); }
+        #hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.1); z-index: 1; }
+        body.dark-mode #hero::before { background-color: rgba(0, 0, 0, 0.5); }
+        #hero .container { position: relative; z-index: 2; }
+        #hero h2 { font-size: 2.5rem; margin-bottom: 15px; font-weight: 700; color: inherit; letter-spacing: -1px; }
+        #hero p { font-size: 1.1rem; margin-bottom: 30px; color: inherit; opacity: 0.9; }
+        .btn { padding: 12px 30px; font-size: 1rem; font-weight: 500; text-decoration: none; border-radius: var(--border-radius-md); cursor: pointer; transition: all var(--transition-speed) var(--transition-easing); display: inline-block; margin: 5px; border: none; box-shadow: var(--shadow-sm); }
+        .btn-primary { background-color: var(--accent-primary); color: var(--text-on-accent); }
+        .btn-primary:hover { background-color: var(--accent-primary-darker); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .btn-secondary { background-color: var(--accent-secondary); color: var(--text-on-accent); }
+        .btn-secondary:hover { background-color: var(--accent-secondary-darker); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+         .btn:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 2px; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-primary) 30%, transparent); }
+
+        .content-section {
+            padding: 70px 0;
+            border-bottom: 1px solid var(--border-primary);
+            transition: border-color var(--transition-speed) var(--transition-easing);
+        }
+         .content-section:last-of-type { border-bottom: none; }
+        .content-section h2 {
+            text-align: center; font-size: 1.8rem; margin-bottom: 50px; color: var(--text-primary); font-weight: 600; position: relative; padding-bottom: 15px; letter-spacing: -0.5px; display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+         .content-section h2::after {
+             content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 3px; background-color: var(--accent-primary); border-radius: 2px;
+         }
+         .content-section h2 i.fas {
+             color: var(--accent-primary); font-size: 0.9em; transition: color var(--transition-speed) var(--transition-easing);
+         }
+
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; }
+        .card {
+            background-color: var(--bg-secondary); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md); padding: 30px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all var(--transition-speed) var(--transition-easing); border: 1px solid var(--border-primary);
+        }
+        .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+        .card-icon {
+            width: 60px; height: 60px; border-radius: 50%; background-color: color-mix(in srgb, var(--accent-primary) 15%, transparent); display: flex; justify-content: center; align-items: center; margin-bottom: 20px; transition: background-color var(--transition-speed) var(--transition-easing);
+        }
+        .card-icon i.fas { font-size: 1.8rem; color: var(--accent-primary); transition: color var(--transition-speed) var(--transition-easing); }
+        .card h3 { font-size: 1.25rem; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; transition: color var(--transition-speed) var(--transition-easing); }
+        .card p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px; flex-grow: 1; transition: color var(--transition-speed) var(--transition-easing); }
+        .audience-tags { margin-bottom: 18px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+        .audience-tag { display: inline-block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; padding: 4px 9px; border-radius: var(--border-radius-sm); background-color: var(--bg-tertiary); color: var(--text-muted); border: 1px solid var(--border-secondary); transition: background-color var(--transition-speed) var(--transition-easing), color var(--transition-speed) var(--transition-easing), border-color var(--transition-speed) var(--transition-easing); }
+        .audience-tag.tıp { border-color: #64b5f6; color: #1976d2; background-color: #e3f2fd;}
+        .audience-tag.diş { border-color: #81c784; color: #388e3c; background-color: #e8f5e9;}
+        body.dark-mode .audience-tag.tıp { border-color: #2196f3; color: #90caf9; background-color: rgba(33, 150, 243, 0.15);}
+        body.dark-mode .audience-tag.diş { border-color: #4caf50; color: #a5d6a7; background-color: rgba(76, 175, 80, 0.15);}
+
+        .card-link { display: inline-block; text-decoration: none; color: var(--accent-primary); font-weight: 500; margin-top: auto; padding: 9px 18px; border: 1px solid var(--border-primary); border-radius: var(--border-radius-md); transition: all var(--transition-speed) var(--transition-easing); background-color: var(--bg-secondary); }
+        .card-link:hover { background-color: var(--accent-primary); color: var(--text-on-accent); border-color: var(--accent-primary); }
+        .card-link.disabled { pointer-events: none; color: var(--text-muted); background-color: var(--bg-tertiary); border-color: var(--border-secondary); opacity: 0.6; }
+         .card-link:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 2px; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-primary) 30%, transparent); }
+
+
+        #construction-message p {
+             text-align: center; font-style: italic; color: var(--text-muted); padding: 40px 20px; background-color: var(--bg-tertiary); border-radius: var(--border-radius-md); border: 1px dashed var(--border-primary); transition: background-color var(--transition-speed) var(--transition-easing), color var(--transition-speed) var(--transition-easing), border-color var(--transition-speed) var(--transition-easing); display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        #construction-message i.fas { font-size: 1.5rem; color: var(--warning); transition: color var(--transition-speed) var(--transition-easing); }
+
+        #main-footer {
+            background-color: var(--bg-tertiary); color: var(--text-muted); text-align: center; padding: 30px 0; margin-top: 50px; font-size: 0.9rem; border-top: 1px solid var(--border-primary); transition: background-color var(--transition-speed) var(--transition-easing), color var(--transition-speed) var(--transition-easing), border-color var(--transition-speed) var(--transition-easing);
+        }
+
+         #theme-toggle-btn {
+            background-color: var(--bg-secondary); color: var(--text-secondary); border: 1px solid var(--border-primary); border-radius: 50%; width: 40px; height: 40px; font-size: 1.4rem; cursor: pointer; box-shadow: var(--shadow-sm); transition: all var(--transition-speed) var(--transition-easing); display: flex; justify-content: center; align-items: center; padding: 0; margin-left: 15px;
+        }
+        #theme-toggle-btn:hover { background-color: var(--bg-tertiary); color: var(--text-primary); box-shadow: var(--shadow-md); transform: scale(1.1) rotate(-10deg); }
+         #theme-toggle-btn:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 3px; }
+
+        @media (max-width: 992px) {
+             #main-header .container { flex-direction: column; gap: 15px; }
+             #main-header nav { margin-top: 10px; }
+             #hero h2 { font-size: 2rem; }
+             #hero p { font-size: 1rem; }
+             .content-section h2 { font-size: 1.6rem; }
+             .card-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+        }
+         @media (max-width: 768px) {
+             body { padding-top: 0; }
+             #main-header { position: static; }
+             #hero { margin-top: 0; padding: 60px 0; }
+             .card-grid { grid-template-columns: 1fr; }
+             #main-header nav ul { gap: 15px; justify-content: center; flex-wrap: wrap;}
+             #theme-toggle-btn { position: fixed; bottom: 20px; right: 20px; z-index: 1001; }
+             .content-section { padding: 50px 0; }
+             #main-header h1 { text-align: center; }
+             .content-section h2 { font-size: 1.5rem; }
+         }
+         @media (max-width: 480px) {
+             #main-header h1 { font-size: 1.3rem; }
+             #main-header nav a { font-size: 0.9rem; }
+             #hero h2 { font-size: 1.8rem; }
+             #hero p { font-size: 0.95rem; }
+             .btn { width: calc(100% - 20px); margin: 8px 10px;}
+             .content-section h2 { font-size: 1.4rem; }
+             .card { padding: 25px; }
+             .card h3 { font-size: 1.15rem; }
+             #theme-toggle-btn { width: 38px; height: 38px; font-size: 1.3rem;}
+         }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="container">
+            <h1>Uzm.Dr. Sait Ramazan Gülbay</h1>
+            <nav>
+                <ul>
+                    <li><a href="#hero" class="active">Ana Sayfa</a></li>
+                    <li><a href="#konular">Konu Anlatımları</a></li>
+                    <li><a href="#quizler">Quizler</a></li>
+                    <li><a href="#hakkinda">Hakkında</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle-btn" aria-label="Temayı Değiştir">🌓</button>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h2>Tıp ve Diş Hekimliği Öğrencileri İçin Eğitim Kaynakları</h2>
+            <p>Güncel ders notları, sunumlar ve interaktif quizlerle öğreniminizi destekleyin.</p>
+            <a href="#konular" class="btn btn-secondary">Konu Anlatımları (Yakında)</a>
+            <a href="#quizler" class="btn btn-primary">İnteraktif Quizler</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="konular" class="content-section">
+            <h2><i class="fas fa-book-open"></i> Konu Anlatımları</h2>
+            <div id="construction-message">
+                <p><i class="fas fa-wrench"></i> Bu bölüm şu anda yapım aşamasındadır. Yakında ders notları ve sunumlar eklenecektir. Anlayışınız için teşekkürler!</p>
+            </div>
+        </section>
+
+        <section id="quizler" class="content-section">
+            <h2><i class="fas fa-question-circle"></i> İnteraktif Quizler </h2>
+            <div class="card-grid">
+                 <div class="card quiz-card">
+                    <div class="card-icon"><i class="fas fa-microscope"></i></div>
+                    <h3>İmmünoloji Giriş ve Hücreler</h3>
+                    <p>Bağışıklık sistemine giriş yapın ve görev alan ana hücreleri tanıyın.</p>
+                    <div class="audience-tags">
+                        <span class="audience-tag diş">Diş</span>
+                    </div>
+                    <a href="quiz_giris_hucreler.html" class="card-link">Quizi Başlat</a>
+                </div>
+                <div class="card quiz-card">
+                    <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Doğal İmmün Yanıt</h3>
+                    <p>Doğuştan gelen bağışıklık mekanizmalarını ve bileşenlerini test edin.</p>
+                     <div class="audience-tags">
+                        <span class="audience-tag diş">Diş</span>
+                    </div>
+                    <a href="quiz_dogal_yanit.html" class="card-link">Quizi Başlat</a>
+               </div>
+                <div class="card quiz-card">
+                    <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Kazanılmış İmmün Yanıt</h3>
+                    <p>Antijene özgü T ve B hücre yanıtları hakkındaki bilginizi ölçün.</p>
+                     <div class="audience-tags">
+                        <span class="audience-tag diş">Diş</span>
+                    </div>
+                    <a href="quiz_kazanilmis_yanit.html" class="card-link">Quizi Başlat</a>
+               </div>
+               <div class="card quiz-card">
+                   <div class="card-icon"><i class="fas fa-shield-virus"></i></div>
+                   <h3>Antikorlar (İmmünoglobulinler)</h3>
+                   <p>Antikorların yapısı, sınıfları ve fonksiyonları üzerine odaklanın.</p>
+                    <div class="audience-tags">
+                       <span class="audience-tag diş">Diş</span>
+                    </div>
+                   <a href="quiz_antikorlar.html" class="card-link">Quizi Başlat</a>
+              </div>
+            </div>
+        </section>
+
+         <section id="hakkinda" class="content-section">
+            <h2><i class="fas fa-info-circle"></i> Hakkında</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto;">Uzm. Dr. Sait Ramazan Gülbay, [Uzmanlık Alanı Eklenecek] alanında uzmanlaşmış bir akademisyendir. Özellikle Diş Hekimliği Fakültesi öğrencileri için güncel ve anlaşılır eğitim materyalleri hazırlayarak, temel bilimler ve klinik bilgiler arasındaki köprüyü kurmayı hedeflemektedir.</p>
+         </section>
+    </main>
+
+    <footer id="main-footer">
+        <div class="container">
+            <p>&copy; <span id="copyright-year"></span> Uzm.Dr. Sait Ramazan Gülbay. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+
+
+    <script>
+        const themeToggleButton = document.getElementById('theme-toggle-btn');
+
+        function applyTheme(theme) {
+             if (theme === 'dark') {
+                document.body.classList.add('dark-mode');
+                if(themeToggleButton) themeToggleButton.textContent = '☀️';
+            } else {
+                document.body.classList.remove('dark-mode');
+                 if(themeToggleButton) themeToggleButton.textContent = '🌓';
+            }
+        }
+
+        function toggleTheme() {
+              const currentTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            applyTheme(newTheme);
+            try {
+                localStorage.setItem('homepageTheme', newTheme);
+            } catch (e) {
+                console.error("LocalStorage kullanılamıyor.", e);
+            }
+        }
+
+         function initializeTheme() {
+              let preferredTheme;
+             try {
+                preferredTheme = localStorage.getItem('homepageTheme');
+             } catch (e) {
+                 console.error("LocalStorage okunamıyor.", e);
+             }
+             if (!preferredTheme) {
+                 preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+             }
+             applyTheme(preferredTheme || 'light');
+         }
+
+         if(themeToggleButton) {
+            themeToggleButton.addEventListener('click', toggleTheme);
+         }
+
+         const copyrightYearEl = document.getElementById('copyright-year');
+         if(copyrightYearEl) copyrightYearEl.textContent = new Date().getFullYear();
+
+         document.addEventListener('DOMContentLoaded', initializeTheme);
+
+         document.querySelectorAll('#main-header nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const isHeroLink = targetId === '#hero';
+
+                document.querySelectorAll('#main-header nav a').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+
+                if (isHeroLink) {
+                     window.scrollTo({ top: 0, behavior: "smooth" });
+                } else {
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        const headerElement = document.getElementById('main-header');
+                        const headerOffset = headerElement ? headerElement.offsetHeight : 60;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
