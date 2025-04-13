@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uzm.Dr. Sait Ramazan Gülbay - Eğitim Materyalleri & Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Combined and Refined CSS from both files */
+        :root {
+            --hue-primary: 210;
+            --hue-success: 145;
+            --hue-error: 355;
+            --hue-warning: 45;
+            --saturation-strong: 80%;
+            --saturation-moderate: 65%;
+            --saturation-light: 45%;
+
+            /* Açık Tema Renkleri (Merged & Refined) */
+            --bg-primary-light: #f8f9fa; /* Slightly lighter page background */
+            --bg-secondary-light: #ffffff;
+            --bg-tertiary-light: #f1f3f5; /* Slightly darker tertiary */
+            --text-primary-light: #212529;
+            --text-secondary-light: #495057;
+            --text-muted-light: #6c757d;
+            --text-on-accent-light: #ffffff;
+            --accent-primary-light: hsl(var(--hue-primary), var(--saturation-strong), 53%); /* Slightly brighter blue */
+            --accent-primary-darker-light: hsl(var(--hue-primary), var(--saturation-strong), 43%);
+            --accent-secondary-light: #6c757d;
+            --accent-secondary-darker-light: #5a6268;
+            --border-primary-light: #e9ecef; /* Lighter border */
+            --border-secondary-light: #f1f3f5; /* Even lighter */
+            --shadow-color-light: rgba(0, 0, 0, 0.05); /* Softer shadow */
+            --shadow-hover-color-light: rgba(0, 0, 0, 0.1);
+            --shadow-sm: 0 1px 3px var(--shadow-color-light), 0 1px 2px var(--shadow-color-light);
+            --shadow-md: 0 4px 6px -1px var(--shadow-color-light), 0 2px 4px -1px var(--shadow-color-light);
+            --shadow-lg: 0 10px 15px -3px var(--shadow-color-light), 0 4px 6px -2px var(--shadow-color-light);
+            --success-light: hsl(var(--hue-success), var(--saturation-moderate), 40%);
+            --error-light: hsl(var(--hue-error), var(--saturation-strong), 55%);
+            --warning-light: hsl(var(--hue-warning), var(--saturation-strong), 55%);
+            --success-bg-light: hsl(var(--hue-success), var(--saturation-light), 94%);
+            --error-bg-light: hsl(var(--hue-error), var(--saturation-light), 95%);
+            --success-border-light: hsl(var(--hue-success), var(--saturation-light), 85%);
+            --error-border-light: hsl(var(--hue-error), var(--saturation-light), 88%);
+
+            /* Koyu Tema Renkleri (Merged & Refined) */
+            --bg-primary-dark: #1a1a1a; /* Slightly lighter dark */
+            --bg-secondary-dark: #242424;
+            --bg-tertiary-dark: #303030;
+            --text-primary-dark: #e8e8e8;
+            --text-secondary-dark: #b8b8b8;
+            --text-muted-dark: #909090;
+            --text-on-accent-dark: #ffffff;
+            --accent-primary-dark: hsl(var(--hue-primary), var(--saturation-moderate), 65%);
+            --accent-primary-darker-dark: hsl(var(--hue-primary), var(--saturation-moderate), 55%);
+            --accent-secondary-dark: #8a959d; /* Lighter gray */
+            --accent-secondary-darker-dark: #a0a9b0;
+            --border-primary-dark: #3a3a3a; /* Adjusted */
+            --border-secondary-dark: #2f2f2f;
+            --shadow-color-dark: rgba(0, 0, 0, 0.3); /* Darker shadow for dark mode */
+            --shadow-hover-color-dark: rgba(0, 0, 0, 0.4);
+             --shadow-sm-dark: 0 1px 3px var(--shadow-color-dark), 0 1px 2px var(--shadow-color-dark);
+            --shadow-md-dark: 0 4px 6px -1px var(--shadow-color-dark), 0 2px 4px -1px var(--shadow-color-dark);
+            --shadow-lg-dark: 0 10px 15px -3px var(--shadow-color-dark), 0 4px 6px -2px var(--shadow-color-dark);
+            --success-dark: hsl(var(--hue-success), var(--saturation-light), 70%);
+            --error-dark: hsl(var(--hue-error), var(--saturation-light), 75%);
+            --warning-dark: hsl(var(--hue-warning), var(--saturation-moderate), 70%);
+            --success-bg-dark: rgba(40, 167, 69, 0.15); /* Adjusted alpha */
+            --error-bg-dark: rgba(220, 53, 69, 0.15); /* Adjusted alpha */
+            --success-border-dark: rgba(40, 167, 69, 0.25);
+            --error-border-dark: rgba(220, 53, 69, 0.25);
+
+            /* Aktif Tema (Default: Açık) */
+            --bg-primary: var(--bg-primary-light);
+            --bg-secondary: var(--bg-secondary-light);
+            --bg-tertiary: var(--bg-tertiary-light);
+            --text-primary: var(--text-primary-light);
+            --text-secondary: var(--text-secondary-light);
+            --text-muted: var(--text-muted-light);
+            --text-on-accent: var(--text-on-accent-light);
+            --accent-primary: var(--accent-primary-light);
+            --accent-primary-darker: var(--accent-primary-darker-light);
+            --accent-secondary: var(--accent-secondary-light);
+            --accent-secondary-darker: var(--accent-secondary-darker-light);
+            --border-primary: var(--border-primary-light);
+            --border-secondary: var(--border-secondary-light);
+            --shadow-color: var(--shadow-color-light);
+            --shadow-hover-color: var(--shadow-hover-color-light);
+            --shadow-sm: var(--shadow-sm-light);
+            --shadow-md: var(--shadow-md-light);
+            --shadow-lg: var(--shadow-lg-light);
+            --success: var(--success-light);
+            --error: var(--error-light);
+            --warning: var(--warning-light);
+            --success-bg: var(--success-bg-light);
+            --error-bg: var(--error-bg-light);
+            --success-border: var(--success-border-light);
+            --error-border: var(--error-border-light);
+
+            --border-radius-sm: 0.25rem;
+            --border-radius-md: 0.5rem;
+            --border-radius-lg: 0.75rem;
+            --font-family: 'Poppins', sans-serif;
+            --transition-speed: 0.25s;
+            --transition-easing: cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        body.dark-mode {
+            --bg-primary: var(--bg-primary-dark);
+            --bg-secondary: var(--bg-secondary-dark);
+            --bg-tertiary: var(--bg-tertiary-dark);
+            --text-primary: var(--text-primary-dark);
+            --text-secondary: var(--text-secondary-dark);
+            --text-muted: var(--text-muted-dark);
+            --text-on-accent: var(--text-on-accent-dark);
+            --accent-primary: var(--accent-primary-dark);
+            --accent-primary-darker: var(--accent-primary-darker-dark);
+            --accent-secondary: var(--accent-secondary-dark);
+            --accent-secondary-darker: var(--accent-secondary-darker-dark);
+            --border-primary: var(--border-primary-dark);
+            --border-secondary: var(--border-secondary-dark);
+            --shadow-color: var(--shadow-color-dark);
+            --shadow-hover-color: var(--shadow-hover-color-dark);
+            --shadow-sm: var(--shadow-sm-dark);
+            --shadow-md: var(--shadow-md-dark);
+            --shadow-lg: var(--shadow-lg-dark);
+            --success: var(--success-dark);
+            --error: var(--error-dark);
+            --warning: var(--warning-dark);
+            --success-bg: var(--success-bg-dark);
+            --error-bg: var(--error-bg-dark);
+            --success-border: var(--success-border-dark);
+            --error-border: var(--error-border-dark);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            transition: background-color var(--transition-speed) var(--transition-easing), color var(--transition-speed) var(--transition-easing);
+            padding-top: 0; /* Initial padding, adjusted when quiz is active */
+        }
+
+        .container { /* Used by homepage sections */
+            width: 90%;
+            max-width: 1140px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        /* --- Homepage Header --- */
+        #main-header {
+            background-color: var(--bg-secondary);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: background-color var(--transition-speed) var(--transition-easing), border-color var(--transition-speed) var(--transition-easing);
+            border-bottom: 1px solid var(--border-primary);
+        }
+        #main-header .container { display: flex; justify-content: space-between; align-items: center; }
+        #main-header h1 { font-size: 1.4rem; font-weight: 600; color: var(--text-primary); margin: 0; transition: color var(--transition-speed) var(--transition-easing); }
+        #main-header nav ul { list-style: none; display: flex; gap: 25px; }
+        #main-header nav a { text-decoration: none; color: var(--text-secondary); font-weight: 500; font-size: 0.95rem; padding-bottom: 5px; border-bottom: 2px solid transparent; transition: color var(--transition-speed) var(--transition-easing), border-color var(--transition-speed) var(--transition-easing); }
+        #main-header nav a:hover,
+        #main-header nav a.active { color: var(--accent-primary); border-bottom-color: var(--accent-primary); }
+
+        /* --- Homepage Hero --- */
+        #hero {
+            background: linear-gradient(to bottom, color-mix(in srgb, var(--accent-primary) 10%, transparent), var(--bg-primary)),
+                        url('https://images.unsplash.com/photo-1579154204603-197457051596?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8ZWR1Y2F0aW9uLHNjaWVuY2UsYmFja2dyb3VuZHx8fHx8fDE3MTI5NTU4NTA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080') no-repeat center center/cover;
+            color: var(--text-primary);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            background-blend-mode: multiply;
+        }
+        body.dark-mode #hero { background-blend-mode: luminosity; color: var(--text-primary-dark); }
+        #hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.1); z-index: 1; }
+        body.dark-mode #hero::before { background-color: rgba(0, 0, 0, 0.5); }
+        #hero .container { position: relative; z-index: 2; }
+        #hero h2 { font-size: 2.5rem; margin-bottom: 15px; font-weight: 700; color: inherit; letter-spacing: -1px; }
+        #hero p { font-size: 1.1rem; margin-bottom: 30px; color: inherit; opacity: 0.9; }
+
+        /* --- General Button Styles (Homepage Base) --- */
+        .btn { padding: 12px 30px; font-size: 1rem; font-weight: 500; text-decoration: none; border-radius: var(--border-radius-md); cursor: pointer; transition: all var(--transition-speed) var(--transition-easing); display: inline-block; margin: 5px; border: none; box-shadow: var(--shadow-sm); vertical-align: middle; }
+        .btn-primary { background-color: var(--accent-primary); color: var(--text-on-accent); }
+        .btn-primary:hover { background-color: var(--accent-primary-darker); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .btn-secondary { background-color: var(--accent-secondary); color: var(--text-on-accent); }
+        .btn-secondary:hover { background-color: var(--accent-secondary-darker); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .btn:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 2px; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-primary) 30%, transparent); }
+
+        /* --- Homepage Content Sections --- */
+        #homepage-content { display: block; } /* Wrapper for easy hide/show */
+
+        .content-section {
+            padding: 70px 0;
+            border-bottom: 1px solid var(--border-primary);
+            transition: border-color var(--transition-speed) var(--transition-easing);
+        }
+        .content-section:last-of-type { border-bottom: none; }
+        .content-section h2 {
+            text-align: center; font-size: 1.8rem; margin-bottom: 50px; color: var(--text-primary); font-weight: 600; position: relative; padding-bottom: 15px; letter-spacing: -0.5px; display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .content-section h2::after {
+            content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 3px; background-color: var(--accent-primary); border-radius: 2px;
+        }
+        .content-section h2 i.fas {
+            color: var(--accent-primary); font-size: 0.9em; transition: color var(--transition-speed) var(--transition-easing);
+        }
+
+        /* --- Homepage Cards (Quiz Links) --- */
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; }
+        .card {
+            background-color: var(--bg-secondary); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md); padding: 30px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all var(--transition-speed) var(--transition-easing); border: 1px solid var(--border-primary);
+        }
+        .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+        .card-icon {
+            width: 60px; height: 60px; border-radius: 50%; background-color: color-mix(in srgb, var(--accent-primary) 15%, transparent); display: flex; justify-content: center; align-items: center; margin-bottom: 20px; transition: background-color var(--transition-speed) var(--transition-easing);
+        }
+        .card-icon i.fas { font-size: 1.8rem; color: var(--accent-primary); transition: color var(--transition-speed) var(--transition-easing); }
+        .card h3 { font-size: 1.25rem; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; transition: color var(--transition-speed) var(--transition-easing); }
+        .card p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px; flex-grow: 1; transition: color var(--transition-speed) var(--transition-easing); }
+        .audience-tags { margin-bottom: 18px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+        .audience-tag { display: inline-block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; padding: 4px 9px; border-radius: var(--border-radius-sm); background-color: var(--bg-tertiary); color: var(--text-muted); border: 1px solid var(--border-secondary); transition: background-color var(--transition-speed) var(--transition-easing), color var(--transition-speed) var(--transition-easing), border-color var(--transition-speed) var(--transition-easing); }
+        .audience-tag.tıp { border-color: #64b5f6; color: #1976d2; background-color: #e3f2fd;}
+        .audience-tag.diş { border-color: #81c784; color: #388e3c; background-color: #e8f5e9;}
+        body.dark-mode .audience-tag.tıp { border-color: #2196f3; color: #90caf9; background-color: rgba(33, 150, 243, 0.15);}
+        body.dark-mode .audience-tag.diş { border-color: #4caf50; color: #a5d6a7; background-color: rgba(76, 175, 80, 0.15);}
+        .card-link { display: inline-block; text-decoration: none; color: var(--accent-primary); font-weight: 500; margin-top: auto; padding: 9px 18px; border: 1px solid var(--border-primary); border-radius: var(--border-radius-md); transition: all var(--transition-speed) var(--transition-easing); background-color: var(--bg-secondary); cursor: pointer; } /* Added cursor */
+        .card-link:hover { background-color: var(--accent-primary); color: var(--text-on-accent); border-color: var(--accent-primary); }
+        .card-link.disabled { pointer-events: none; color: var(--text-muted); background-color: var(--bg-tertiary); border-color: var(--border-secondary); opacity: 0.6; }
+        .card-link:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 2px; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-primary) 30%, transparent); }
+
+
+        #construction-message p {
+             text-align: center; font-style: italic; color: var(--text-muted); padding: 40px 20px; background-color: var(--bg-tertiary); border-radius: var(--border-radius-md); border: 1px dashed var(--border-primary); transition: background-color var(--transition-speed) var(--transition-easing), color var(--transition-speed) var(--transition-easing), border-color var(--transition-speed) var(--transition-easing); display: flex; align-items: center; justify-content: center; gap: 10px;
+         }
+         #construction-message i.fas { font-size: 1.5rem; color: var(--warning); transition: color var(--transition-speed) var(--transition-easing); }
+
+         /* --- Homepage Footer --- */
+        #main-footer {
+            background-color: var(--bg-tertiary); color: var(--text-muted); text-align: center; padding: 30px 0; margin-top: 50px; font-size: 0.9rem; border-top: 1px solid var(--border-primary); transition: background-color var(--transition-speed) var(--transition-easing), color var(--transition-speed) var(--transition-easing), border-color var(--transition-speed) var(--transition-easing);
+        }
+
+         /* --- Quiz Specific Styles --- */
+
+         /* Initially hide quiz elements */
+        #stats-container, .quiz-main-content {
+             display: none;
+         }
+         /* Show quiz elements when body has .quiz-active */
+        body.quiz-active #stats-container {
+            display: flex; /* Or block depending on original */
+        }
+        body.quiz-active .quiz-main-content {
+            display: block;
+        }
+        /* Hide homepage content when quiz is active */
+        body.quiz-active #homepage-content {
+             display: none;
+         }
+         /* Adjust body padding when quiz stats bar is visible */
+         body.quiz-active {
+             padding-top: 85px; /* Match quiz CSS */
+         }
+         @media (max-width: 768px) {
+              body.quiz-active { padding-top: 120px; }
+         }
+         @media (max-width: 480px) {
+             body.quiz-active { padding-top: 150px; }
+         }
+
+
+        #stats-container {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-primary);
+            padding: 10px 5%;
+            width: 100%;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999; /* Below main header if it was sticky */
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px 20px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            transition: background-color var(--transition-speed) var(--transition-easing), border-color var(--transition-speed) var(--transition-easing), box-shadow var(--transition-speed) var(--transition-easing);
+            min-height: 60px;
+        }
+        .stat-item {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.2;
+            transition: color var(--transition-speed) var(--transition-easing);
+        }
+        .stat-item span {
+            font-weight: 600;
+            color: var(--accent-primary);
+            font-size: 1.1em;
+            min-width: 30px;
+            display: inline-block;
+            margin-top: 4px;
+            transition: color var(--transition-speed) var(--transition-easing);
+        }
+        .score-value {
+            font-weight: 600;
+            min-width: 45px;
+            display: inline-block;
+            text-align: center;
+            transition: color 0.5s ease-out;
+        }
+        #stats-status-message {
+           font-weight: 600;
+           transition: color var(--transition-speed) ease-in-out;
+           font-size: 0.8rem;
+           padding: 3px 8px;
+           border-radius: var(--border-radius-sm);
+           color: var(--accent-primary-darker);
+       }
+       .success-message { color: var(--success); font-weight: 600; }
+       .improvement-message { color: var(--warning); font-weight: 600; }
+       .final-review-message { color: var(--accent-primary-darker); font-weight: 600; }
+
+       .progress-stat-container {
+            width: 150px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.2;
+            transition: color var(--transition-speed) var(--transition-easing);
+        }
+        #stats-round-progress {
+            font-weight: 600;
+            color: var(--accent-primary);
+            display: block;
+            margin-top: 4px;
+            min-height: 1.2em;
+            transition: color var(--transition-speed) var(--transition-easing);
+        }
+        #progress-bar-track {
+            background-color: var(--border-secondary);
+            border-radius: 10px;
+            height: 5px;
+            width: 100%;
+            margin-top: 6px;
+            overflow: hidden;
+            position: relative;
+            transition: background-color var(--transition-speed) var(--transition-easing);
+        }
+        #progress-bar-fill {
+            background-color: var(--accent-primary);
+            height: 100%;
+            width: 0%;
+            border-radius: 10px;
+            transition: width 0.4s ease-out, background-color var(--transition-speed) var(--transition-easing);
+        }
+
+        .quiz-main-content { /* Renamed from .main-content */
+            width: 90%;
+            max-width: 700px;
+            margin: 45px auto;
+        }
+
+        #quiz-container,
+        #result-container,
+        #learning-offer-container,
+        #learning-round-container,
+        #final-review-container {
+            background-color: var(--bg-secondary);
+            padding: 40px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 40px;
+            display: none; /* Controlled by JS */
+            text-align: center;
+            animation: fadeIn 0.6s var(--transition-easing);
+            transition: background-color var(--transition-speed) var(--transition-easing), box-shadow var(--transition-speed) var(--transition-easing), border-color var(--transition-speed) var(--transition-easing);
+            border: 1px solid var(--border-primary);
+        }
+        #quiz-container { display: block; } /* Show initially if quiz active, JS will handle */
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Use h2 from homepage styles, maybe adjust quiz h2/h3 if needed */
+        #quiz-container h2, #result-container h2, #learning-offer-container h3, #learning-round-container h3, #final-review-container h3 {
+            color: var(--text-primary);
+            margin-bottom: 35px;
+            font-weight: 600;
+            line-height: 1.4;
+            letter-spacing: -0.5px;
+            transition: color var(--transition-speed) var(--transition-easing);
+            text-align: center; /* Ensure centered */
+            font-size: 1.6rem; /* Consistent size */
+             position: relative; padding-bottom: 15px; /* Consistent styling */
+        }
+         #quiz-container h2::after, #result-container h2::after, #learning-offer-container h3::after, #learning-round-container h3::after, #final-review-container h3::after {
+             content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 3px; background-color: var(--accent-primary); border-radius: 2px;
+         }
+
+
+        #question {
+            font-size: 1.25em;
+            margin-bottom: 40px;
+            min-height: 50px;
+            color: var(--text-primary);
+            text-align: left;
+            line-height: 1.75;
+            font-weight: 500;
+            transition: color var(--transition-speed) var(--transition-easing);
+        }
+
+        #options { display: flex; flex-direction: column; gap: 14px; }
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 15px 50px 15px 20px;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--border-radius-md);
+            cursor: pointer;
+            transition: all var(--transition-speed) var(--transition-easing);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+        .option-label:hover {
+            border-color: var(--accent-primary);
+            background-color: var(--bg-tertiary);
+            transform: none;
+            box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-primary) 20%, transparent);
+        }
+        .option-label input[type="radio"] {
+           margin-right: 15px;
+           flex-shrink: 0;
+           transform: scale(1.15);
+           cursor: pointer;
+           accent-color: var(--accent-primary);
+       }
+       .option-label span {
+           color: var(--text-secondary);
+           flex-grow: 1;
+           line-height: 1.6;
+           transition: color var(--transition-speed) var(--transition-easing);
+       }
+       .option-label.correct-option {
+           background-color: var(--success-bg); border-color: var(--success-border); color: var(--success); font-weight: 500;
+       }
+       .option-label.incorrect-option {
+           background-color: var(--error-bg); border-color: var(--error-border); color: var(--error); opacity: 0.8;
+       }
+       .option-label.user-selected.incorrect-option { opacity: 1.0; }
+       .options-disabled .option-label { pointer-events: none; opacity: 0.85; }
+       .options-disabled .option-label:hover { transform: none; box-shadow: none; background-color: var(--bg-secondary); border-color: var(--border-primary); }
+       .options-disabled .option-label.correct-option,
+       .options-disabled .option-label.user-selected.incorrect-option { opacity: 1; }
+       .feedback-icon {
+           position: absolute; right: 18px; top: 50%; transform: translateY(-50%) scale(0.8); font-size: 1.3em; font-weight: bold; opacity: 0; transition: opacity 0.3s var(--transition-easing), transform 0.3s var(--transition-easing);
+       }
+       .option-label.correct-option .feedback-icon.correct,
+       .option-label.incorrect-option.user-selected .feedback-icon.incorrect { opacity: 1; transform: translateY(-50%) scale(1); }
+       .feedback-icon.correct { color: var(--success); }
+       .feedback-icon.incorrect { color: var(--error); }
+
+        /* --- Quiz Button Styles --- */
+        /* Targeting button elements directly within the quiz area for specific styles */
+       .quiz-main-content button, #stats-container button { /* More specific selector */
+            padding: 12px 32px;
+            font-size: 1rem;
+            font-weight: 500;
+            background-color: var(--accent-primary);
+            color: var(--text-on-accent);
+            border: none;
+            border-radius: var(--border-radius-md);
+            cursor: pointer;
+            margin-top: 35px;
+            margin-right: 12px;
+            transition: all var(--transition-speed) var(--transition-easing);
+            box-shadow: var(--shadow-sm);
+            vertical-align: middle;
+            line-height: 1.5;
+        }
+        .quiz-main-content button:last-child { margin-right: 0; }
+        .quiz-main-content button:hover {
+            background-color: var(--accent-primary-darker);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .quiz-main-content button:active { transform: translateY(1px) scale(0.98); box-shadow: none; }
+        .quiz-main-content button:disabled {
+            background-color: color-mix(in srgb, var(--accent-primary) 35%, transparent);
+            color: color-mix(in srgb, var(--text-on-accent) 50%, transparent);
+            cursor: not-allowed; box-shadow: none; transform: none;
+        }
+         .quiz-main-content button:focus-visible {
+            outline: 3px solid color-mix(in srgb, var(--accent-primary) 50%, transparent);
+            outline-offset: 2px;
+        }
+         .option-label:focus-visible {
+            box-shadow: 0 0 0 2px var(--accent-primary);
+            outline: none;
+        }
+
+        .quiz-main-content button.secondary {
+           background-color: var(--accent-secondary); box-shadow: var(--shadow-sm);
+        }
+        .quiz-main-content button.secondary:hover {
+           background-color: var(--accent-secondary-darker); box-shadow: var(--shadow-md);
+       }
+       .quiz-main-content button.secondary:disabled {
+           background-color: color-mix(in srgb, var(--accent-secondary) 40%, transparent);
+           color: color-mix(in srgb, var(--text-on-accent) 50%, transparent);
+       }
+
+       button.explanation-toggle {
+            font-size: 0.75em; padding: 5px 10px; margin-left: 10px; margin-top: -2px;
+            vertical-align: middle; background-color: var(--bg-tertiary); color: var(--accent-primary);
+            border: 1px solid var(--border-primary); box-shadow: none;
+            transition: background-color var(--transition-speed) var(--transition-easing), color var(--transition-speed) var(--transition-easing), border-color var(--transition-speed) var(--transition-easing);
+        }
+        button.explanation-toggle:hover {
+           background-color: var(--border-secondary); border-color: var(--border-primary); transform: none; box-shadow: none;
+       }
+       button.explanation-toggle:active { transform: scale(0.97); }
+
+        #feedback { display: none; margin-top: 20px; font-weight: 500;} /* Basic feedback styling */
+
+        #result-container p, #learning-offer-container p, #final-review-container > p {
+            font-size: 1.05em; line-height: 1.7; margin-bottom: 25px; text-align: left; color: var(--text-secondary); transition: color var(--transition-speed) ease-in-out;
+        }
+        #score-info {
+            font-weight: 500; font-size: 1.1em; color: var(--text-primary); text-align: center; margin-bottom: 30px; line-height: 1.8; background-color: var(--bg-tertiary); padding: 20px; border-radius: var(--border-radius-md); border: 1px solid var(--border-secondary); transition: color var(--transition-speed) ease-in-out, background-color var(--transition-speed) ease-in-out, border-color var(--transition-speed) ease-in-out;
+        }
+
+        #learning-round-container, #final-review-container { text-align: left; }
+        #learning-round-container > p, #final-review-container > p {
+            text-align: center; margin-bottom: 30px; font-style: italic; color: var(--text-muted); font-size: 0.95em; transition: color var(--transition-speed) ease-in-out;
+        }
+        .learning-item { margin-bottom: 30px; padding-bottom: 25px; border-bottom: 1px solid var(--border-secondary); transition: border-color var(--transition-speed) ease-in-out; }
+        .learning-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .learning-item h4 {
+            font-size: 1.1em; color: var(--text-primary); margin-bottom: 15px; line-height: 1.6; font-weight: 500; transition: color var(--transition-speed) ease-in-out;
+        }
+        .learning-item .answer-line { margin-bottom: 15px; font-size: 1em; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 10px; transition: color var(--transition-speed) ease-in-out; }
+        .learning-item .correct-answer {
+            font-weight: 600; color: var(--success); background-color: var(--success-bg); padding: 4px 8px; border-radius: var(--border-radius-sm); border: 1px solid var(--success-border); transition: background-color var(--transition-speed) ease-in-out, color var(--transition-speed) ease-in-out, border-color var(--transition-speed) ease-in-out;
+        }
+        .learning-item .user-answer-incorrect {
+           font-weight: 600; color: var(--error); font-style: italic; background-color: var(--error-bg); padding: 4px 8px; border-radius: var(--border-radius-sm); border: 1px solid var(--error-border); transition: background-color var(--transition-speed) ease-in-out, color var(--transition-speed) ease-in-out, border-color var(--transition-speed) ease-in-out;
+       }
+       .learning-item .explanation {
+           font-size: 0.95em; color: var(--text-secondary); margin-top: 15px; font-style: normal; line-height: 1.7; padding: 15px; background-color: var(--bg-tertiary); border-radius: var(--border-radius-md); border: 1px solid var(--border-secondary);
+           display: none;
+           animation: fadeInExplanation 0.4s ease-out;
+           transition: color var(--transition-speed) ease-in-out, background-color var(--transition-speed) ease-in-out, border-color var(--transition-speed) ease-in-out;
+       }
+        @keyframes fadeInExplanation { from { opacity: 0; } to { opacity: 1; } }
+
+        #learning-round-container button, #final-review-container button {
+           display: block; margin: 30px auto 0 auto;
+       }
+
+
+         /* --- Theme Toggle Button (Unified Style) --- */
+        #theme-toggle-btn {
+            position: fixed; bottom: 20px; right: 20px; z-index: 1001; background-color: var(--bg-secondary); color: var(--text-secondary); border: 1px solid var(--border-primary); border-radius: 50%; width: 45px; height: 45px; font-size: 1.5rem; cursor: pointer; box-shadow: var(--shadow-md); transition: all var(--transition-speed) var(--transition-easing); display: flex; justify-content: center; align-items: center; padding: 0; margin: 0;
+        }
+        #theme-toggle-btn:hover {
+            background-color: var(--bg-tertiary); color: var(--text-primary); box-shadow: var(--shadow-lg); transform: scale(1.1) rotate(-15deg);
+        }
+        #theme-toggle-btn:active {
+           transform: scale(1);
+           box-shadow: var(--shadow-md);
+       }
+       #theme-toggle-btn:focus-visible {
+           outline: 3px solid var(--accent-primary);
+           outline-offset: 3px;
+       }
+
+        /* --- Responsive Styles --- */
+        @media (max-width: 992px) {
+            #main-header .container { flex-direction: column; gap: 15px; }
+            #main-header nav { margin-top: 10px; }
+            #hero h2 { font-size: 2rem; }
+            #hero p { font-size: 1rem; }
+            .content-section h2 { font-size: 1.6rem; }
+            .card-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+
+             /* Quiz Responsive */
+            #stats-container { justify-content: space-evenly; gap: 10px 15px; }
+            .stat-item { margin: 5px 8px; }
+            .progress-stat-container { width: 150px; }
+        }
+
+        @media (max-width: 768px) {
+            body:not(.quiz-active) { padding-top: 0; } /* Remove padding if quiz isn't active */
+             body.quiz-active { padding-top: 120px; } /* Keep padding if quiz IS active */
+
+             #main-header { position: static; } /* No longer sticky on mobile */
+             #hero { margin-top: 0; padding: 60px 0; }
+             .card-grid { grid-template-columns: 1fr; }
+             #main-header nav ul { gap: 15px; justify-content: center; flex-wrap: wrap;}
+             .content-section { padding: 50px 0; }
+             #main-header h1 { text-align: center; }
+             .content-section h2 { font-size: 1.5rem; }
+             #quiz-container h2, #result-container h2, #learning-offer-container h3, #learning-round-container h3, #final-review-container h3 { font-size: 1.3em; margin-bottom: 25px; }
+
+            /* Quiz Responsive */
+             #stats-container { padding: 12px; gap: 8px 10px; }
+             .stat-item { flex-basis: 30%; font-size: 0.75rem; margin: 2px;}
+             .progress-stat-container { flex-basis: 100%; width: 80%; margin: 8px auto; order: 99; }
+             #stats-status-message { flex-basis: 100%; margin-top: 5px; order: 100;}
+
+            #quiz-container,
+            #result-container,
+            #learning-offer-container,
+            #learning-round-container,
+            #final-review-container { padding: 30px 25px; }
+            #question { font-size: 1.1em; }
+            #options label { padding: 12px 45px 12px 15px; }
+             /* Make quiz buttons full width on mobile */
+            .quiz-main-content button { width: 100%; margin: 15px 0 0 0; padding: 13px; }
+            .learning-item h4 {font-size: 1em;}
+            .learning-item .answer-line { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .learning-item .user-answer-incorrect { margin-left: 0; }
+            button.explanation-toggle { margin-left: 0; margin-top: 5px; }
+             #theme-toggle-btn { bottom: 15px; right: 15px; width: 40px; height: 40px; font-size: 1.3rem;}
+        }
+
+        @media (max-width: 480px) {
+             body.quiz-active { padding-top: 150px; } /* Adjust for smallest screens */
+
+             #main-header h1 { font-size: 1.3rem; }
+             #main-header nav a { font-size: 0.9rem; }
+             #hero h2 { font-size: 1.8rem; }
+             #hero p { font-size: 0.95rem; }
+             /* Make homepage buttons full width on mobile */
+             .btn { width: calc(100% - 20px); margin: 8px 10px;}
+             .content-section h2 { font-size: 1.4rem; }
+            #quiz-container h2, #result-container h2, #learning-offer-container h3, #learning-round-container h3, #final-review-container h3 { font-size: 1.2em;}
+
+             .card { padding: 25px; }
+             .card h3 { font-size: 1.15rem; }
+
+             /* Quiz Responsive */
+            #stats-container { gap: 5px 8px; }
+            .stat-item { flex-basis: 45%; font-size: 0.7rem; }
+            .progress-stat-container { width: 90%; }
+            #question { font-size: 1em; }
+            #options label { padding: 12px 40px 12px 15px; }
+            .feedback-icon { right: 15px; font-size: 1.1em; }
+             #theme-toggle-btn { width: 38px; height: 38px; font-size: 1.3rem;}
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="container">
+            <h1>Uzm.Dr. Sait Ramazan Gülbay</h1>
+            <nav>
+                <ul>
+                    <li><a href="#hero" id="nav-home" class="active">Ana Sayfa</a></li>
+                    <li><a href="#konular" id="nav-konular">Konu Anlatımları</a></li>
+                    <li><a href="#quizler" id="nav-quizler">Quizler</a></li>
+                    <li><a href="#hakkinda" id="nav-hakkinda">Hakkında</a></li>
+                </ul>
+            </nav>
+            </div>
+    </header>
+
+    <div id="homepage-content">
+        <section id="hero">
+            <div class="container">
+                <h2>Tıp ve Diş Hekimliği Öğrencileri İçin Eğitim Kaynakları</h2>
+                <p>Güncel ders notları, sunumlar ve interaktif quizlerle öğreniminizi destekleyin.</p>
+                <a href="#konular" class="btn btn-secondary">Konu Anlatımları (Yakında)</a>
+                <a href="#quizler" class="btn btn-primary">İnteraktif Quizler</a>
+            </div>
+        </section>
+
+        <main class="container">
+            <section id="konular" class="content-section">
+                <h2><i class="fas fa-book-open"></i> Konu Anlatımları</h2>
+                <div id="construction-message">
+                    <p><i class="fas fa-wrench"></i> Bu bölüm şu anda yapım aşamasındadır. Yakında ders notları ve sunumlar eklenecektir. Anlayışınız için teşekkürler!</p>
+                </div>
+            </section>
+
+            <section id="quizler" class="content-section">
+                <h2><i class="fas fa-question-circle"></i> İnteraktif Quizler </h2>
+                <div class="card-grid">
+                    <div class="card quiz-card">
+                        <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>İmmünolojiye Giriş ve İmmün Sistem Hücreleri</h3>
+                        <p>İmmünolojinin temelleri ve immün sistemin hücresel elemanları hakkında bilginizi test edin.</p>
+                        <div class="audience-tags"><span class="audience-tag diş">Diş</span></div>
+                        <a href="#" onclick="event.preventDefault(); startQuiz('immunoloji_giris_hucreler');" class="card-link">Quizi Başlat</a>
+                    </div>
+                    <div class="card quiz-card">
+                        <div class="card-icon"><i class="fas fa-shield-virus"></i></div>
+                        <h3>Antikorlar</h3>
+                        <p>İmmünoglobulinlerin yapısı, sınıfları ve fonksiyonları üzerine odaklanın.</p>
+                        <div class="audience-tags"><span class="audience-tag diş">Diş</span></div>
+                        <a href="#" onclick="event.preventDefault(); startQuiz('antikorlar');" class="card-link">Quizi Başlat</a>
+                    </div>
+                    <div class="card quiz-card">
+                        <div class="card-icon"><i class="fas fa-fire"></i></div>
+                        <h3>Doğal İmmün Yanıt</h3>
+                        <p>Doğuştan gelen bağışıklık mekanizmalarını, reseptörlerini ve kompleman sistemini test edin.</p>
+                         <div class="audience-tags"><span class="audience-tag diş">Diş</span></div>
+                        <a href="#" onclick="event.preventDefault(); startQuiz('dogal_immun_yanit');" class="card-link">Quizi Başlat</a>
+                    </div>
+                    <div class="card quiz-card">
+                        <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+                        <h3>Kazanılmış İmmün Yanıt</h3>
+                        <p>Lenfosit olgunlaşması, aktivasyonu, MHC molekülleri ve aşırı duyarlılık reaksiyonları bilginizi ölçün.</p>
+                         <div class="audience-tags"><span class="audience-tag diş">Diş</span></div>
+                        <a href="#" onclick="event.preventDefault(); startQuiz('kazanilmis_immun_yanit');" class="card-link">Quizi Başlat</a>
+                    </div>
+
+                     <div class="card quiz-card">
+                        <div class="card-icon"><i class="fas fa-lungs-virus"></i></div>
+                        <h3>Anaeroblar</h3>
+                        <p>Oksijensiz ortamda yaşayan bakteriler ve neden oldukları enfeksiyonlar.</p>
+                       <div class="audience-tags"><span class="audience-tag diş">Diş</span></div>
+                        <a href="#" onclick="event.preventDefault(); startQuiz('anaeroblar');" class="card-link">Quizi Başlat</a>
+                    </div>
+                    <div class="card quiz-card">
+                        <div class="card-icon"><i class="fas fa-bacteria"></i></div>
+                        <h3>Spiroketler</h3>
+                        <p>Treponema, Borrelia ve Leptospira gibi önemli spiroketler ve ilişkili hastalıklar.</p>
+                       <div class="audience-tags"><span class="audience-tag diş">Diş</span></div>
+                        <a href="#" onclick="event.preventDefault(); startQuiz('spiroketler');" class="card-link">Quizi Başlat</a>
+                    </div>
+                    <div class="card quiz-card">
+                        <div class="card-icon"><i class="fas fa-vial"></i></div>
+                        <h3>Gram Negatif Non-fermenter Basiller</h3>
+                        <p>Pseudomonas, Burkholderia, Acinetobacter ve Stenotrophomonas türleri.</p>
+                       <div class="audience-tags"><span class="audience-tag diş">Diş</span></div>
+                        <a href="#" onclick="event.preventDefault(); startQuiz('gram_negatif_non_fermenter_basiller');" class="card-link">Quizi Başlat</a>
+                    </div>
+                     <div class="card quiz-card">
+                        <div class="card-icon"><i class="fas fa-dot-circle"></i></div> <h3>Gram Negatif Koklar</h3>
+                        <p>Neisseria (Meningokok, Gonokok) ve Moraxella türleri hakkında bilgiler.</p>
+                        <div class="audience-tags"><span class="audience-tag diş">Diş</span></div>
+                        <a href="#" onclick="event.preventDefault(); startQuiz('gram_negatif_koklar');" class="card-link">Quizi Başlat</a>
+                    </div>
+                    <div class="card quiz-card">
+                        <div class="card-icon"><i class="fas fa-microscope"></i></div>
+                        <h3>Mikobakteriler</h3>
+                        <p>Tüberküloz, lepra etkenleri ve atipik mikobakteriler.</p>
+                       <div class="audience-tags"><span class="audience-tag diş">Diş</span></div>
+                        <a href="#" onclick="event.preventDefault(); startQuiz('mikobakteriler');" class="card-link">Quizi Başlat</a>
+                    </div>
+                     <div class="card quiz-card">
+                        <div class="card-icon"><i class="fas fa-bacterium"></i></div> <h3>Gram Pozitif Basiller</h3>
+                        <p>Bacillus, Clostridium, Listeria, Corynebacterium ve diğerleri.</p>
+                        <div class="audience-tags"><span class="audience-tag diş">Diş</span></div>
+                        <a href="#" onclick="event.preventDefault(); startQuiz('gram_pozitif_basiller');" class="card-link">Quizi Başlat</a>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="hakkinda" class="content-section">
+                <h2><i class="fas fa-info-circle"></i> Hakkında</h2>
+                <p style="text-align: center; max-width: 600px; margin: 0 auto;"> Mikrobiyoloji eğitim materyalleri geliştirerek öğretime katkıda bulunmak , mikrobiyoloji öğretimini  bir adım daha ileriye taşımak için çalışıyoruz. İşimiz vaktimizden çok... </p>
+            </section>
+        </main>
+    </div>
+
+    <div id="stats-container" style="display: none;">
+        <div class="stat-item">Tur: <span id="stats-current-round">-</span></div>
+        <div class="progress-stat-container">
+             Tur İlerleme: <span id="stats-round-progress">-</span>
+             <div id="progress-bar-track"><div id="progress-bar-fill"></div></div>
+        </div>
+        <div class="stat-item">Doğru: <span id="stats-round-correct">0</span></div>
+        <div class="stat-item">Yanlış: <span id="stats-round-incorrect">0</span></div>
+        <div class="stat-item">1. Tur: <span id="stats-round1-score" class="score-value">-</span></div>
+        <div class="stat-item">2. Tur: <span id="stats-round2-score" class="score-value">-</span></div>
+        <div class="stat-item">Final Tur: <span id="stats-round3-score" class="score-value">-</span></div>
+        <div class="stat-item">Durum: <span id="stats-status-message">Başlatılıyor...</span></div>
+    </div>
+
+    <div class="quiz-main-content" style="display: none;">
+        <div id="quiz-container" style="display: none;">
+            <h2 id="quiz-title"></h2>
+            <div id="question">Soru yükleniyor...</div>
+            <div id="options"></div>
+            <button id="submit-btn">Cevabı Kontrol Et</button>
+            <div id="feedback" style="display: none;"></div>
+        </div>
+
+        <div id="learning-offer-container" style="display: none;">
+            <h3 id="offer-title"></h3>
+            <p id="offer-message"></p>
+            <button id="start-learning-btn">Öğretim Turunu Başlat</button>
+            <button id="start-next-test-btn" class="secondary">Sonraki Tur Sorularını Çöz</button>
+        </div>
+
+        <div id="learning-round-container" style="display: none;">
+            <h3 id="learning-title"></h3>
+            <p>Bu turda yanlış yaptığınız soruların doğru cevapları ve açıklamaları aşağıdadır.</p>
+            <div id="learning-content"></div>
+            <button id="continue-to-next-test-btn">Sonraki Tur Sorularını Çöz</button>
+        </div>
+
+        <div id="result-container" style="display: none;">
+            <h2>Test Tamamlandı!</h2>
+            <p id="score-info"></p>
+            <p id="final-message"></p>
+            <button id="show-final-review-btn">Tüm Soruları ve Cevapları İncele</button>
+            <button onclick="goHome();" class="secondary">Ana Sayfaya Dön</button>
+        </div>
+
+        <div id="final-review-container" style="display: none;">
+             <h3>Tüm Sorular ve Cevaplar</h3>
+             <p>Testteki tüm soruların doğru cevaplarını ve açıklamalarını aşağıda bulabilirsiniz.</p>
+             <div id="final-review-content"></div>
+             <button onclick="goHome();">Ana Sayfaya Dön</button>
+         </div>
+    </div>
+
+    <footer id="main-footer">
+        <div class="container">
+            <p>&copy; <span id="copyright-year"></span> Uzm.Dr. Sait Ramazan Gülbay. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <button id="theme-toggle-btn" aria-label="Temayı Değiştir">🌓</button>
+
+    <script>
+        // --- Combined and Adapted JavaScript ---
+
+// --- Quiz Questions Data (Updated Structure for Multiple Quizzes) ---
+ const quizData = {
+     'immunoloji_giris_hucreler': { // From 17-İmmünolojiye Giriş ve İmmün Sistem Hücreleri v2.pptx
+         title: "İmmünolojiye Giriş ve İmmün Sistem Hücreleri",
+         questions: [
+             { id: 1701, question: "1. Patojenle İlişkili Moleküler Kalıplar (PAMP) için hangisi örnek değildir?", options: ["Lipopolisakkarit (LPS)", "Peptidoglikan", "Çift iplikli RNA", "Monosodyum ürat kristalleri", "Fungal glikanlar"], correctAnswer: "Monosodyum ürat kristalleri", explanation: "Monosodyum ürat kristalleri, hücre hasarı sonucu ortaya çıkan DAMP'lara (Hasarla İlişkili Moleküler Kalıplar) örnektir. Diğerleri PAMP'tır." },
+             // Replaced question id: 1702 with New Question 2
+             { id: 1702, question: "2. Doğal immün yanıt ve kazanılmış immün yanıt arasındaki farklardan hangisi yanlıştır?", options: ["Kazanılmış immün yanıtta izotip değişimi ve antikor üretimi vardır", "Doğal immün yanıtta doğuştan gelen bellek hücreleri sayesinde bakterilere karşı spesifik yanıt vardır", "Kazanılmış yanıtın ana hücre grubu lenfositlerdir", "Doğal yanıt ilk karşılaşmada gelişen ama daha etkisiz olan yanıttır", "Bir yaratılış mucizesi olarak kazanılmış yanıttaki bellek hücreleri çok fazla sayıda etkene karşı özelleşebilecek kabiliyettedir"], correctAnswer: "Doğal immün yanıtta doğuştan gelen bellek hücreleri sayesinde bakterilere karşı spesifik yanıt vardır", explanation: "Doğal immün yanıtın hafızası yoktur ve her karşılaşmada aynı şekilde yanıt verir; spesifik bellek kazanılmış yanıta özgüdür." },
+             { id: 1703, question: "3. Hümoral immüniteden sorumlu temel hücre tipi hangisidir?", options: ["T helper lenfosit", "Sitotoksik T lenfosit", "NK hücresi", "B lenfosit", "Makrofaj"], correctAnswer: "B lenfosit", explanation: "B lenfositler ve onların ürünü olan antikorlar hümoral immüniteden sorumludur ve genellikle hücre dışı mikroorganizmalara karşı etkilidir." },
+             { id: 1704, question: "4. Hücresel immüniteden sorumlu temel hücre tipi hangisidir?", options: ["B lenfosit", "Plazma hücresi", "T lenfosit", "Mast hücresi", "Bazofil"], correctAnswer: "T lenfosit", explanation: "T lenfositler (hem Helper hem Sitotoksik) hücresel immüniteden sorumludur ve özellikle hücre içi mikroorganizmalara ve tümör hücrelerine karşı etkilidir." },
+             // Replaced question id: 1705 with New Question 3
+             { id: 1705, question: "5. Hangisinin özelliği yanlış verilmiştir?", options: ["B lenfositler - antijen sunumu", "Plazma hücreleri - antikor üretimi", "T lenfositler - sitokin üretimi", "Makrofajlar - fagositoz", "Dendritik hücreler - Histamin salınımı"], correctAnswer: "Dendritik hücreler - Histamin salınımı", explanation: "Dendritik hücreler profesyonel antijen sunan hücrelerdir; histamin salınımı ise primer olarak mast hücreleri ve bazofillerin görevidir." },
+             { id: 1706, question: "6. Kanda dolaşan ve dokulara geçince makrofajlara farklılaşan hücre hangisidir?", options: ["Lenfosit", "Nötrofil", "Eozinofil", "Monosit", "Bazofil"], correctAnswer: "Monosit", explanation: "Monositler kanda dolaşır ve dokulara girdiklerinde makrofajlara dönüşürler." },
+             { id: 1707, question: "7. Tip I aşırı duyarlılık reaksiyonlarında erken dönemde rol alan ve granüllerinde histamin/heparin bulunan hücre hangisidir?", options: ["Nötrofil", "Makrofaj", "Mast hücresi", "NK hücresi", "T lenfosit"], correctAnswer: "Mast hücresi", explanation: "Bağ dokusu mast hücreleri, histamin ve heparin içeren granülleriyle Tip I aşırı duyarlılık reaksiyonlarının erken fazında anahtar rol oynar." },
+             { id: 1708, question: "8. İmmünoglobulin E (IgE) reseptörü taşıyan ve alerjik reaksiyonlar ile parazit savunmasında görev alan hücreler hangileridir?", options: ["Nötrofil ve Makrofaj", "Mast hücresi ve Bazofil", "T lenfosit ve B lenfosit", "NK hücresi ve Dendritik hücre", "Sadece Eozinofil"], correctAnswer: "Mast hücresi ve Bazofil", explanation: "Mast hücreleri ve bazofiller yüzeylerinde IgE için yüksek afiniteli reseptörler (FcεRI) taşır ve alerjik yanıtlarda önemlidirler. Eozinofiller de IgE ile ilişkili görev yapar." },
+             { id: 1709, question: "9. Doğal Katil (NK) hücrelerinin temel hedefi olmayan hangisidir?", options: ["Virüsle enfekte hücreler", "Tümör hücreleri", "MHC-I ekspresyonu azalmış hücreler", "Bakterilerle enfekte makrofajlar", "Antikorla kaplı hedef hücreler (ADCC)"], correctAnswer: "Bakterilerle enfekte makrofajlar", explanation: "NK hücreleri öncelikle MHC-I ekspresyonu azalmış veya stres ligandları taşıyan hücreleri (viral enfekte, tümör) veya ADCC ile antikor kaplı hücreleri hedefler. Bakterilerle enfekte makrofajlar daha çok T hücreleri tarafından yönetilir." },
+             { id: 1710, question: "10. Tek başına immün yanıt oluşturamayan ancak taşıyıcı bir proteine bağlandığında immünojenik hale gelen küçük moleküllere ne ad verilir?", options: ["Epitop", "Paratop", "Adjuvan", "Hapten", "İmmünojen"], correctAnswer: "Hapten", explanation: "Haptenler, immün yanıtı tek başlarına tetikleyemeyen ancak taşıyıcı bir moleküle (genellikle protein) bağlandıklarında immünojenik özellik kazanan küçük moleküllerdir." },
+             { id: 1711, question: "11. Foliküler dendritik hücrelerin (FDC) temel görevi nedir?", options: ["Antijenleri fagosite etmek", "Antijenleri MHC-II ile CD4 T hücrelerine sunmak", "Antijenleri MHC-I ile CD8 T hücrelerine sunmak", "Antijenleri B lenfositlere sunmak ve germinal merkez reaksiyonunu desteklemek", "Sitokin salgılayarak inflamasyonu başlatmak"], correctAnswer: "Antijenleri B lenfositlere sunmak ve germinal merkez reaksiyonunu desteklemek", explanation: "FDC'ler, MHC-II taşımazlar ancak antijenleri yüzeylerinde uzun süre tutarak germinal merkezlerdeki B hücrelerinin aktivasyonu, afinite olgunlaşması ve izotip değişimi için kritik rol oynarlar." },
+             { id: 1712, question: "12. Primer immün yanıtta üretilen ilk antikor sınıfı nedir?", options: ["IgG", "IgA", "IgM", "IgE", "IgD"], correctAnswer: "IgM", explanation: "Bir antijenle ilk karşılaşıldığında, B lenfositleri tarafından ilk olarak IgM sınıfı antikorlar üretilir." },
+             { id: 1713, question: "13. IgG antikorlarının antijene olan bağlanma gücünün (afinitesinin) IgM'e göre genellikle daha yüksek olmasının temel nedeni nedir?", options: ["IgG'nin daha büyük olması", "IgG'nin pentamerik olması", "Somatik hipermutasyon ve afinite olgunlaşması", "IgG'nin komplemanı daha iyi aktive etmesi", "IgG'nin plasentadan geçebilmesi"], correctAnswer: "Somatik hipermutasyon ve afinite olgunlaşması", explanation: "Kazanılmış yanıt sırasında germinal merkezlerde meydana gelen somatik hipermutasyon ve afinite olgunlaşması süreçleri, daha yüksek antijen ilgisine (afinite) sahip IgG üreten B hücrelerinin seçilmesini sağlar." },
+             { id: 1714, question: "14. Virüsle enfekte hücrelere ve tümör hücrelerine karşı hücresel immün yanıtta ana rolü oynayan T lenfosit alt tipi hangisidir?", options: ["Th1", "Th2", "Th17", "Treg", "CD8+ Sitotoksik T Lenfosit"], correctAnswer: "CD8+ Sitotoksik T Lenfosit", explanation: "CD8+ T lenfositler, MHC Sınıf I molekülleri ile sunulan endojen antijenleri tanıyarak hedef hücreleri (örn. virüsle enfekte, tümör) doğrudan öldürürler." },
+             { id: 1715, question: "15. Makrofajları aktive ederek hücre içi patojenlere karşı savunmayı güçlendiren T helper alt tipi hangisidir?", options: ["Th1", "Th2", "Th17", "Treg", "Tfh"], correctAnswer: "Th1", explanation: "Th1 hücreleri, özellikle IFN-gama salgılayarak makrofajları aktive eder ve hücre içi patojenlere karşı hücresel immün yanıtı yönetir." }
+         ]
+     },
+     'antikorlar': { // From 18-Antikorlar.pptx
+         title: "Antikorlar",
+         questions: [
+             { id: 1801, question: "1. İmmünglobulinlerin ağır zincir (H) farklılıklarına göre sınıflandırılmasına ne ad verilir?", options: ["İdiyotip", "Allotip", "İzotip", "Haplotip", "Serotip"], correctAnswer: "İzotip", explanation: "İzotip, ağır zincir sabit (C) bölgelerindeki farklılıklara göre belirlenen ana immünoglobulin sınıflarını (IgG, IgM, IgA, IgD, IgE) ve alt sınıflarını ifade eder." },
+             { id: 1802, question: "2. Hangi IgG alt sınıfı komplemanı aktive etmez?", options: ["IgG1", "IgG2", "IgG3", "IgG4", "Hiçbiri"], correctAnswer: "IgG4", explanation: "IgG1 ve IgG3 komplemanı en iyi aktive eden IgG alt sınıflarıdır. IgG2 daha zayıf aktive ederken, IgG4 komplemanı klasik yoldan aktive etmez." },
+             { id: 1803, question: "3. Salgısal IgA'nın (sIgA) dimerik yapısını stabilize eden ve transportunu sağlayan komponentler hangileridir?", options: ["Sadece J zinciri", "Sadece Sekretuvar komponent", "J zinciri ve Sekretuvar komponent", "Kappa ve Lambda zincirleri", "FcRn reseptörü"], correctAnswer: "J zinciri ve Sekretuvar komponent", explanation: "İki IgA monomeri J zinciri ile birleşir. Epitel hücresinden lümene transport sırasında eklenen sekretuvar komponent ise dimerik yapıyı proteolizise karşı korur." },
+             { id: 1804, question: "4. IgA proteaz üreterek mukozal savunmadan kaçabilen bakterilere örnek olmayan hangisidir?", options: ["Streptococcus pneumoniae", "Neisseria meningitidis", "Haemophilus influenzae", "Staphylococcus aureus", "Neisseria gonorrhoeae"], correctAnswer: "Staphylococcus aureus", explanation: "Pnömokok, Meningokok, H. influenzae ve Gonokok gibi mukozal patojenler IgA proteaz üreterek sIgA'yı parçalayabilir. S. aureus bu mekanizmayı kullanmaz." },
+             { id: 1805, question: "5. Hangi immünoglobulin hem B hücre reseptörü (BCR) olarak monomerik formda bulunur hem de plazma hücreleri tarafından pentamerik formda salgılanır?", options: ["IgG", "IgA", "IgM", "IgD", "IgE"], correctAnswer: "IgM", explanation: "IgM, B hücre yüzeyinde monomerik BCR olarak bulunur, aktivasyon sonrası plazma hücreleri tarafından J zinciri ile birleşmiş pentamerik formda salgılanır." },
+             { id: 1806, question: "6. Aşağıdaki immünoglobulin fonksiyonlarından hangisi özellikle IgM'in pentamerik yapısı sayesinde çok etkilidir?", options: ["Opsonizasyon", "Plasentadan geçiş", "Alerjik reaksiyon tetikleme", "Aglütinasyon ve Kompleman fiksasyonu", "Mukozal immünite"], correctAnswer: "Aglütinasyon ve Kompleman fiksasyonu", explanation: "IgM'in 10 adet antijen bağlanma bölgesi (Fab) olması aglütinasyonu, çoklu Fc bölgeleri de kompleman (C1q) bağlanmasını çok etkili kılar." },
+             { id: 1807, question: "7. Sadece matür B lenfosit yüzeyinde bulunan ve hücre dışına salgılanmayan immünoglobulin hangisidir?", options: ["IgM", "IgD", "IgG", "IgA", "IgE"], correctAnswer: "IgD", explanation: "IgD, esas olarak matür B lenfosit yüzeyinde IgM ile birlikte BCR kompleksi içinde yer alır ve serumda çok düşük düzeydedir, salgılanmaz." },
+             { id: 1808, question: "8. Antikor Bağımlı Hücresel Sitotoksisite (ADCC) mekanizmasında, NK hücreleri hangi immünoglobulin sınıfı ile kaplı hedef hücrelere bağlanır?", options: ["IgA", "IgM", "IgE", "IgG", "IgD"], correctAnswer: "IgG", explanation: "NK hücreleri, yüzeylerindeki FcγRIII (CD16) reseptörü ile IgG kaplı hedef hücrelerin Fc kısmına bağlanarak ADCC'yi başlatır." },
+             { id: 1809, question: "9. Helmintlere (parazit solucanlar) karşı gelişen ADCC'de eozinofiller hangi immünoglobulin sınıfı ile kaplı parazite bağlanır?", options: ["IgA", "IgM", "IgE", "IgG", "IgD"], correctAnswer: "IgE", explanation: "Eozinofiller yüzeylerinde Fcε reseptörleri taşır ve IgE ile opsonize olmuş helmintlere bağlanarak toksik granüllerini salgılarlar." },
+             // Replaced question id: 1810 with New Question 4
+             { id: 1810, question: "10. Antikor molekülünün antijen bağlayan kısmı aşağıdakilerden hangisidir?", options: ["Fc bölgesi", "Ağır zincir sabit bölgesi", "Fab bölgesi", "J zinciri", "Menteşe bölgesi"], correctAnswer: "Fab bölgesi", explanation: "Fab (Fragment antigen-binding) bölgesi, antikorun değişken bölgelerini içerir ve antijene spesifik olarak bağlanır." },
+             { id: 1811, question: "11. Antikorların mikroorganizmaları veya toksinleri doğrudan bağlayarak konak hücreye girişini veya etkisini engelleme mekanizmasına ne ad verilir?", options: ["Opsonizasyon", "Kompleman aktivasyonu", "Aglütinasyon", "Nötralizasyon", "ADCC"], correctAnswer: "Nötralizasyon", explanation: "Nötralizasyon, antikorların (özellikle IgG, IgM, IgA) patojen yüzeyindeki kritik moleküllere veya toksinlere bağlanarak onları etkisiz hale getirmesidir." },
+             { id: 1812, question: "12. Yenidoğanın bağırsaklarında mukozal korumayı sağlayan ve anne sütünde bol bulunan antikor hangisidir?", options: ["IgG", "IgM", "Sekretuvar IgA", "IgD", "IgE"], correctAnswer: "Sekretuvar IgA", explanation: "Anne sütü, yenidoğanın GİS mukozasını enfeksiyonlardan koruyan sekretuvar IgA açısından çok zengindir." },
+             // Replaced question id: 1813 with New Question 5
+             { id: 1813, question: "13. Plasentadan geçerek fetüsü koruyan ve kanda en bol bulunan antikor sınıfı hangisidir?", options: ["IgA", "IgD", "IgE", "IgG", "IgM"], correctAnswer: "IgG", explanation: "IgG, serumdaki immünoglobulinlerin yaklaşık %75-80'ini oluşturur ve plasentadan geçerek fetüse pasif bağışıklık sağlayan tek antikordur." },
+             { id: 1814, question: "14. Allerjenle ikinci kez karşılaşmada mast hücresi degranülasyonunu tetikleyen olay nedir?", options: ["Alerjenin IgG ile bağlanması", "Alerjenin IgM ile bağlanması", "Mast hücresi yüzeyindeki IgE'lerin alerjenle çapraz bağlanması", "Kompleman aktivasyonu", "NK hücre aktivasyonu"], correctAnswer: "Mast hücresi yüzeyindeki IgE'lerin alerjenle çapraz bağlanması", explanation: "Duyarlı kişide mast hücresi yüzeyine bağlı IgE antikorlarının, tekrar giren alerjen tarafından çapraz bağlanması (cross-linking) hücre içi sinyali tetikler ve degranülasyona yol açar." },
+             { id: 1815, question: "15. Süperantijenlerin neden olduğu aşırı T hücre aktivasyonu ve sitokin fırtınası hangi klinik tabloya yol açabilir?", options: ["Anafilaksi", "Serum hastalığı", "Toksik şok sendromu", "Otoimmün hemolitik anemi", "Kontakt dermatit"], correctAnswer: "Toksik şok sendromu", explanation: "Staphylococcus aureus (TSST-1) ve Streptococcus pyogenes gibi bakterilerin ürettiği süperantijenler, masif T hücre aktivasyonu ve sitokin salınımına neden olarak Toksik Şok Sendromu gibi hayatı tehdit eden durumlara yol açabilir." }
+         ]
+     },
+     'dogal_immun_yanit': { // From 19-Doğal İmmün Yanıt.pptx
+         title: "Doğal İmmün Yanıt",
+         questions: [
+             { id: 1901, question: "1. PAMP'ları tanıyarak doğal immün yanıtı başlatan reseptörlere genel olarak ne ad verilir?", options: ["Antikorlar", "T Hücre Reseptörleri (TCR)", "Patern Tanıma Reseptörleri (PRR)", "B Hücre Reseptörleri (BCR)", "MHC Molekülleri"], correctAnswer: "Patern Tanıma Reseptörleri (PRR)", explanation: "PRR'ler (TLR, NLR, RLR vb.), mikroorganizmalara özgü korunmuş yapılar olan PAMP'ları veya hasarlı hücrelerden salınan DAMP'ları tanır." },
+             { id: 1902, question: "2. Aşağıdakilerden hangisi hücre ilişkili bir PRR değildir?", options: ["TLR (Toll-like receptor)", "NLR (NOD-like receptor)", "Pentraksinler", "RIG-I-like receptor (RLR)", "C-tipi lektin reseptörü"], correctAnswer: "Pentraksinler", explanation: "Pentraksinler (örn: CRP), kollektinler, fikolinler ve kompleman çözünür PRR örnekleridir. TLR, NLR, RLR ve CLR hücre ilişkili PRR'lerdir." },
+             { id: 1903, question: "3. Bakteriyel CpG DNA'yı tanıyan ve endozomlarda bulunan TLR hangisidir?", options: ["TLR3", "TLR4", "TLR5", "TLR7", "TLR9"], correctAnswer: "TLR9", explanation: "TLR9, endozomlarda metillenmemiş CpG oligonükleotidlerini (bakteriyel ve bazı viral DNA'larda bulunur) tanır." },
+             { id: 1904, question: "4. Viral tek iplikli RNA'yı (ssRNA) tanıyan endozomal TLR'ler hangileridir?", options: ["TLR2 ve TLR6", "TLR3 ve TLR9", "TLR4 ve TLR5", "TLR7 ve TLR8", "TLR1 ve TLR10"], correctAnswer: "TLR7 ve TLR8", explanation: "TLR7 ve TLR8, endozomlarda viral ssRNA'yı tanıyarak interferon yanıtını tetikler." },
+             { id: 1905, question: "5. NOD-Like Reseptörler (NLR) aktive olduğunda hangi transkripsiyon faktörünü aktive ederek pro-inflamatuar gen ekspresyonunu uyarır?", options: ["STAT3", "NF-κB", "AP-1", "IRF3", "CREB"], correctAnswer: "NF-κB", explanation: "NLR aktivasyonu, genellikle NF-κB transkripsiyon faktörünü aktive ederek sitokinler, kemokinler ve adhezyon molekülleri gibi inflamatuar genlerin ekspresyonunu artırır." },
+             { id: 1906, question: "6. Çeşitli PAMP ve DAMP'ları algılayarak kaspaz-1'i aktive eden ve IL-1β/IL-18 salınımına yol açan sitozolik protein kompleksine ne ad verilir?", options: ["Fagozom", "Lizozom", "Proteazom", "İnflamazom", "Spliceozom"], correctAnswer: "İnflamazom", explanation: "İnflamazomlar (genellikle NLRP proteinleri içerir), sitozolde PAMP/DAMP'ları tanıyarak kaspaz-1'i aktive eder, bu da pro-IL-1β ve pro-IL-18'i olgunlaştırır." },
+             { id: 1907, question: "7. Lökositlerin damar lümeninden dokuya geçiş sürecine ne ad verilir?", options: ["Marjinasyon", "Rolling (Yuvarlanma)", "Adezyon (Yapışma)", "Transmigrasyon (Diapedez)", "Kemotaksis"], correctAnswer: "Transmigrasyon (Diapedez)", explanation: "Transmigrasyon, lökositlerin endotel hücreleri arasından veya içinden geçerek damar dışına, inflamasyon bölgesine göç etmesidir." },
+             { id: 1908, question: "8. Aşağıdakilerden hangisi güçlü bir nötrofil kemotaktik ajanıdır?", options: ["C3b", "Histamin", "IL-1", "C5a", "TNF-alfa"], correctAnswer: "C5a", explanation: "C5a, kompleman sisteminin bir ürünüdür ve nötrofiller ile makrofajlar için güçlü bir kemotaktik faktördür. IL-8 (CXCL8) de önemli bir nötrofil kemokinidir." },
+             { id: 1909, question: "9. Kompleman sisteminin hangi aktivasyon yolu mikrobiyal yüzeylerdeki mannoz kalıntılarına bağlanarak başlar?", options: ["Klasik yolak", "Lektin yolağı", "Alternatif yolak", "Terminal yolak", "Hiçbiri"], correctAnswer: "Lektin yolağı", explanation: "Lektin yolağı, mannoz bağlayan lektin (MBL) veya fikolinlerin mikrop yüzeyindeki karbonhidratlara (mannoz gibi) bağlanmasıyla aktive olur." },
+             { id: 1910, question: "10. Alternatif kompleman yolunu pozitif yönde düzenleyerek C3 konvertazı stabilize eden protein hangisidir?", options: ["Faktör H", "Faktör I", "Properdin", "DAF (CD55)", "CD59"], correctAnswer: "Properdin", explanation: "Properdin, mikrobiyal yüzeylerde oluşan alternatif yol C3 konvertazını (C3bBb) stabilize ederek kompleman aktivasyonunu artırır." },
+             { id: 1911, question: "11. Makrofajlardan salınan ve hipotalamusta ateş oluşumunu tetikleyen, aynı zamanda kaşeksiye neden olabilen sitokin hangisidir?", options: ["IL-10", "IL-4", "IFN-gama", "TNF-alfa", "IL-8"], correctAnswer: "TNF-alfa", explanation: "TNF-alfa, endotel aktivasyonu, nötrofil aktivasyonu, ateş ve kaşeksi gibi çok çeşitli sistemik etkileri olan pro-inflamatuar bir sitokindir." },
+             { id: 1912, question: "12. Makrofajlar ve nötrofiller tarafından üretilen ve güçlü antimikrobiyal etkiye sahip reaktif nitrojen türü hangisidir?", options: ["Süperoksit anyonu (O2⁻)", "Hidrojen peroksit (H2O2)", "Hipokloröz asit (HOCl)", "Nitrik oksit (NO)", "Ozon (O3)"], correctAnswer: "Nitrik oksit (NO)", explanation: "İndüklenebilir nitrik oksit sentaz (iNOS) enzimi aracılığıyla L-argininden üretilen NO, mikroorganizmalar için toksiktir ve vazodilatasyon gibi başka rolleri de vardır." },
+             { id: 1913, question: "13. Nötrofil granüllerinde bulunan ve demiri bağlayarak bakterilerin demir kullanımını engelleyen protein hangisidir?", options: ["Lizozim", "Defensin", "Katellisidin", "Laktoferrin", "Elastaz"], correctAnswer: "Laktoferrin", explanation: "Laktoferrin, demiri yüksek afiniteyle bağlayarak birçok bakterinin çoğalması için esansiyel olan demiri ortamdan uzaklaştırır." },
+             { id: 1914, question: "14. İnflamazom aktivasyonu ile tetiklenen programlanmış hücre ölümü şekline ne ad verilir?", options: ["Apoptoz", "Nekroz", "Otofaji", "Piropitoz", "Nekroptoz"], correctAnswer: "Piropitoz", explanation: "Piropitoz, inflamazom aktivasyonu ve kaspaz-1 aracılığıyla gerçekleşen, hücre şişmesi, zar yırtılması ve IL-1β/IL-18 salınımı ile karakterize pro-inflamatuar bir hücre ölümü şeklidir." },
+             { id: 1915, question: "15. Klasik makrofaj aktivasyonunu (M1) indükleyen ve NK hücreleri ile Th1 hücreleri tarafından salgılanan temel sitokin hangisidir?", options: ["IL-4", "IL-10", "TGF-beta", "IFN-gama", "IL-5"], correctAnswer: "IFN-gama", explanation: "IFN-gama, makrofajların mikropları öldürme kapasitesini (örn: ROS, NO üretimi) ve MHC-II ekspresyonunu artırarak klasik M1 aktivasyonunu sağlar." }
+         ]
+     },
+     'kazanilmis_immun_yanit': { // From 20-Kazanılmış İmmün Yanıt.pptx
+         title: "Kazanılmış İmmün Yanıt",
+         questions: [
+             { id: 2001, question: "1. T lenfositlerin timusta negatif seçilimi nerede gerçekleşir ve hangi hücreler elimine edilir?", options: ["Korteks / MHC tanıyamayanlar", "Medulla / Self-antijene yüksek afiniteli olanlar", "Korteks / Self-antijene yüksek afiniteli olanlar", "Medulla / MHC tanıyamayanlar", "Kortiko-medüller bileşke / CD4 veya CD8 kaybetmiş olanlar"], correctAnswer: "Medulla / Self-antijene yüksek afiniteli olanlar", explanation: "Negatif seçilim timus medullasında gerçekleşir ve TCR'leri ile vücudun öz antijenlerine yüksek afinite ile bağlanan potansiyel otoreaktif T lenfositler apoptozla elimine edilir." },
+             { id: 2002, question: "2. Timusta hem CD4 hem de CD8 ko-reseptörlerini eksprese eden T lenfosit aşaması hangisidir ve nerede bulunur?", options: ["Double negatif / Korteks üst kısım", "Double pozitif / Korteks", "Single pozitif (CD4+) / Medulla", "Single pozitif (CD8+) / Medulla", "Naif T hücre / Perifer"], correctAnswer: "Double pozitif / Korteks", explanation: "Timositler kortekste ilerlerken double negatiften double pozitif (CD4+CD8+) aşamaya geçerler. Pozitif seçilim bu aşamada gerçekleşir." },
+             { id: 2003, question: "3. Lenf düğümünde B lenfositlerin T lenfosit zonuna (parakorteks) göç etmesini sağlayan kemokin reseptörü hangisidir?", options: ["CXCR5", "CCR7", "CXCR4", "CCR5", "CXCR3"], correctAnswer: "CCR7", explanation: "Antijenle aktive olan B lenfositlerin yüzeyindeki CCR7 ekspresyonu artar. Parakorteksteki T hücre zonunda salgılanan CCR7 ligandları (CCL19, CCL21) B hücrelerini bu bölgeye çeker." },
+             { id: 2004, question: "4. T lenfosit aktivasyonu için gerekli olan sinyal 2 (ko-stimülasyon), APC'deki B7 (CD80/86) molekülünün T hücresindeki hangi molekülle etkileşimiyle oluşur?", options: ["CD4", "CD8", "TCR", "CD28", "CD40L"], correctAnswer: "CD28", explanation: "B7-CD28 etkileşimi, T hücre aktivasyonu için kritik olan ko-stimülatör sinyali sağlar. Bu sinyal olmadan T hücreleri anarjik hale gelebilir." },
+             { id: 2005, question: "5. Aktive olmuş CD4+ T lenfositlerin, B lenfosit aktivasyonu ve izotip değişimi için B hücresindeki CD40 ile etkileşen yüzey molekülü hangisidir?", options: ["CD28", "TCR", "CD3", "CD40L", "LFA-1"], correctAnswer: "CD40L", explanation: "T helper hücre yüzeyindeki CD40 Ligandı (CD154), B hücresindeki CD40'a bağlanarak T-bağımlı B hücre yanıtının önemli bir sinyalini oluşturur." },
+             { id: 2006, question: "6. B lenfositlerde immünoglobulin izotip değişimi ve somatik hipermutasyonun gerçekleştiği lenfoid yapı hangisidir?", options: ["Timus medullası", "Kemik iliği", "Dalak kırmızı pulpa", "Lenf düğümü germinal merkezi", "Peyer plakları T hücre alanı"], correctAnswer: "Lenf düğümü germinal merkezi", explanation: "Aktive B lenfositler foliküllere göç ederek hızla çoğalır ve germinal merkezleri oluşturur. Somatik hipermutasyon ve izotip değişimi bu merkezlerde meydana gelir." },
+             { id: 2007, question: "7. Aşağıdaki sitokinlerden hangisi B lenfositlerde IgE izotipine dönüşümü uyarır?", options: ["IFN-gama", "IL-2", "IL-4", "IL-12", "TGF-beta"], correctAnswer: "IL-4", explanation: "Th2 hücrelerinden salgılanan IL-4, B lenfositlerin IgE sınıfı antikor üretimine yönlenmesini (izotip değişimi) sağlar." },
+             // Replaced question id: 2008 with New Question 1
+             { id: 2008, question: "8. Hücresel immün cevapta görevli hücreleri (makrofaj, sitotoksik T lenfosit) aktifleştiren hücreler hangileridir?", options: ["Makrofajlar", "T helper 2 lenfositler", "B lenfositleri", "Nötrofiller", "T helper 1 lenfositler"], correctAnswer: "T helper 1 lenfositler", explanation: "Th1 hücreleri, salgıladıkları IFN-gama gibi sitokinlerle makrofajları ve sitotoksik T lenfositleri aktive ederek hücresel bağışıklığı yönetir." },
+             { id: 2009, question: "9. Hümoral immün yanıtı (antikor üretimi) ve parazitlere karşı savunmayı destekleyen T helper alt tipi hangisidir?", options: ["Th1", "Th2", "Th17", "Treg", "Tfh"], correctAnswer: "Th2", explanation: "Th2 hücreleri, IL-4, IL-5 ve IL-13 gibi sitokinlerle B hücre aktivasyonunu, IgE üretimini ve eozinofil yanıtını destekleyerek hümoral ve anti-parazit yanıtlarda rol alır." },
+             { id: 2010, question: "10. MHC Sınıf I molekülleri (HLA-A, B, C) hangi T hücre alt tipine antijen sunar?", options: ["CD4+ T helper", "CD8+ Sitotoksik T lenfosit", "Regülatör T hücresi", "Gama-delta T hücresi", "B lenfosit"], correctAnswer: "CD8+ Sitotoksik T lenfosit", explanation: "MHC Sınıf I molekülleri, endojen (hücre içi) antijenleri CD8+ T lenfositlere sunar." },
+             { id: 2011, question: "11. MHC Sınıf II molekülleri (HLA-DP, DQ, DR) hangi T hücre alt tipine antijen sunar?", options: ["CD4+ T helper", "CD8+ Sitotoksik T lenfosit", "NK hücresi", "Nötrofil", "Mast hücresi"], correctAnswer: "CD4+ T helper", explanation: "MHC Sınıf II molekülleri, ekzojen (hücre dışı) antijenleri CD4+ T helper lenfositlere sunar." },
+             { id: 2012, question: "12. Aşağıdakilerden hangisi Tip II aşırı duyarlılık reaksiyonu mekanizması ile gelişen bir duruma örnektir?", options: ["Anafilaksi", "Serum hastalığı", "Kontakt dermatit", "Otoimmün hemolitik anemi", "Astım"], correctAnswer: "Otoimmün hemolitik anemi", explanation: "Tip II reaksiyonlarda IgG veya IgM antikorları hücre yüzeyindeki antijenlere bağlanarak kompleman aktivasyonu veya ADCC yoluyla hücre yıkımına neden olur. Hemolitik anemi buna örnektir." },
+             { id: 2013, question: "13. Dolaşımda çözünür antijen-antikor komplekslerinin dokularda birikmesi ve kompleman aktivasyonu ile karakterize aşırı duyarlılık tipi hangisidir?", options: ["Tip I", "Tip II", "Tip III", "Tip IV", "Tip V"], correctAnswer: "Tip III", explanation: "Tip III (İmmün Kompleks) reaksiyonlarda, oluşan antijen-antikor kompleksleri küçük damarlarda birikerek vaskülit ve doku hasarına yol açar (örn. Serum hastalığı, SLE nefriti)." },
+             { id: 2014, question: "14. Gecikmiş tip hücresel yanıt olarak da bilinen ve T lenfosit aracılı aşırı duyarlılık reaksiyonu hangisidir?", options: ["Tip I", "Tip II", "Tip III", "Tip IV", "Tip V"], correctAnswer: "Tip IV", explanation: "Tip IV reaksiyonlar antikor aracılı değildir; duyarlı T lenfositlerin (CD4+ veya CD8+) antijenle tekrar karşılaşması sonucu aktive olması ve sitokin salınımı veya sitotoksisite ile doku hasarı oluşturmasıdır." },
+             { id: 2015, question: "15. B lenfositlerin yüzeyinde bulunan ve antijen tanıma sonrası hücre içi sinyal iletiminde rol alan immünoglobulinler hangileridir?", options: ["Sadece IgG", "Sadece IgA", "IgM ve IgD", "Sadece IgE", "IgG ve IgM"], correctAnswer: "IgM ve IgD", explanation: "Naif matür B lenfositler yüzeylerinde antijen reseptörü olarak hem IgM hem de IgD taşırlar." }
+         ]
+     },
+     'gram_negatif_koklar': { // From 9-Gram negatif koklar.pptx
+         title: "Gram Negatif Koklar",
+         questions: [
+             { id: 901, question: "1. Neisseria meningitidis ve Neisseria gonorrhoeae için ortak olmayan özellik hangisidir?", options: ["Gram negatif diplokok olmaları", "Oksidaz pozitif olmaları", "IgA proteaz üretmeleri", "Kapsül varlığı", "İnsan patojeni olmaları"], correctAnswer: "Kapsül varlığı", explanation: "N. meningitidis kapsüllüdür (önemli virülans faktörü), ancak N. gonorrhoeae kapsülsüzdür." },
+             { id: 902, question: "2. Hangi Neisseria türü hem glukozu hem de maltozu fermente eder?", options: ["N. gonorrhoeae", "N. meningitidis", "N. lactamica", "N. cinerea", "Moraxella catarrhalis"], correctAnswer: "N. meningitidis", explanation: "Meningokok glukoz ve maltoz pozitif iken, Gonokok sadece glukoz pozitiftir. Bu ayrım tanıda önemlidir." },
+             { id: 903, question: "3. N. gonorrhoeae'nin neden olduğu pelvik inflamatuar hastalığın (PID) karaciğer kapsülünü etkileyen komplikasyonuna ne ad verilir?", options: ["Waterhouse-Friderichsen sendromu", "Reiter sendromu", "Fitz-Hugh-Curtis sendromu", "Guillain-Barré sendromu", "Toxic Shock Syndrome"], correctAnswer: "Fitz-Hugh-Curtis sendromu", explanation: "PID'in bir komplikasyonu olan Fitz-Hugh-Curtis sendromu, karaciğer kapsülü çevresinde inflamasyon ve yapışıklıklarla karakterize perihepatit tablosudur." },
+             { id: 904, question: "4. Meningokok menenjiti profilaksisi için aşağıdaki ilaçlardan hangisi öncelikli olarak tercih edilir?", options: ["Penisilin G", "Seftriakson", "Vankomisin", "Rifampin", "Eritromisin"], correctAnswer: "Rifampin", explanation: "Meningokok taşıyıcılığını eradike etmek ve yakın temaslılarda hastalığı önlemek için Rifampin (veya Siprofloksasin, Seftriakson) profilaktik olarak kullanılır." },
+             { id: 905, question: "5. Hangi Gram negatif kok, sıklıkla beta-laktamaz üreterek penisilinlere direnç gösterir ve otitis media/sinüzit etkenidir?", options: ["N. meningitidis", "N. gonorrhoeae", "N. lactamica", "Moraxella catarrhalis", "Veillonella parvula"], correctAnswer: "Moraxella catarrhalis", explanation: "M. catarrhalis sıklıkla beta-laktamaz üretir, bu nedenle penisilinlere dirençlidir. Çocuklarda otitis media ve sinüzitin, yetişkinlerde KOAH alevlenmelerinin önemli etkenlerindendir." },
+             { id: 906, question: "6. Neisseria türlerinin virülansında rol oynayan ve endotoksik aktivite gösteren yapı hangisidir?", options: ["Kapsül", "Pili", "Lipooligosakkarit (LOS)", "IgA Proteaz", "Opa proteinleri"], correctAnswer: "Lipooligosakkarit (LOS)", explanation: "Neisseria türleri, tipik LPS yerine daha kısa zincirli olan LOS yapısına sahiptir. LOS, endotoksin gibi davranarak septik şok ve inflamasyonda rol oynar." },
+             { id: 907, question: "7. Aşağıdaki klinik durumlardan hangisi tipik olarak Neisseria gonorrhoeae ile ilişkilendirilmez?", options: ["Üretrit", "Servisit / PID", "Septik artrit", "Menenjit", "Neonatal konjonktivit"], correctAnswer: "Menenjit", explanation: "Menenjit, Neisseria meningitidis'in en karakteristik klinik tablosudur. Gonokok enfeksiyonları genellikle ürogenital sistem, eklemler ve yenidoğan gözü ile sınırlıdır, menenjit nadirdir." },
+             { id: 908, question: "8. Meningokoksemi sırasında görülen yaygın deri döküntülerine ve adrenal kanamaya bağlı akut adrenal yetmezliğe ne ad verilir?", options: ["Ektima gangrenozum", "Eritema multiforme", "Purpura fulminans / Waterhouse-Friderichsen", "Stevens-Johnson sendromu", "Eritema nodozum"], correctAnswer: "Purpura fulminans / Waterhouse-Friderichsen", explanation: "Meningokoksemiye bağlı yaygın purpura (purpura fulminans) ve buna eşlik eden adrenal kanama ve yetmezlik Waterhouse-Friderichsen sendromu olarak adlandırılır." },
+             { id: 909, question: "9. Gonokokların konak hücre yüzeylerine tutunmasında ve antijenik çeşitlilik göstermesinde rol oynayan ana yapı hangisidir?", options: ["Kapsül", "Flagella", "Lipooligosakkarit (LOS)", "Pili", "Hücre duvarı"], correctAnswer: "Pili", explanation: "Pili (Fimbria), gonokokların epitel hücrelerine tutunmasını sağlayan ve sıkça antijenik yapı değiştirerek immün sistemden kaçmasına yardımcı olan önemli virülans faktörüdür." },
+             { id: 910, question: "10. Hangi laboratuvar özelliği Moraxella catarrhalis'i Neisseria türlerinden ayırmada kullanılır?", options: ["Gram boyanma özelliği", "Oksidaz testi sonucu", "Şeker fermentasyon yeteneği", "Kapsül varlığı", "IgA proteaz üretimi"], correctAnswer: "Şeker fermentasyon yeteneği", explanation: "Neisseria türleri genellikle glukoz ve/veya maltozu fermente ederken, Moraxella catarrhalis sakkarolitik değildir (şekerleri fermente etmez)." },
+             { id: 911, question: "11. Nazofarenks florasında bulunabilen ve hem glukoz hem de maltoz negatif olan, ancak laktaz aktivitesi gösteren Neisseria türü hangisidir?", options: ["N. meningitidis", "N. gonorrhoeae", "N. lactamica", "N. cinerea", "M. catarrhalis"], correctAnswer: "N. lactamica", explanation: "N. lactamica, laktozu fermente etmesiyle diğerlerinden ayrılır ve genellikle patojenik değildir." },
+             { id: 912, question: "12. Membran Atak Kompleksi (C5-C9) eksikliği olan bireylerde hangi enfeksiyon riski belirgin olarak artar?", options: ["Stafilokok enfeksiyonları", "Streptokok enfeksiyonları", "Tekrarlayan Neisseria enfeksiyonları", "Anaerobik enfeksiyonlar", "Mantar enfeksiyonları"], correctAnswer: "Tekrarlayan Neisseria enfeksiyonları", explanation: "MAC, Neisseria türleri gibi ince duvarlı Gram negatif kokların lizisinde önemlidir. Eksikliğinde özellikle tekrarlayan meningokok enfeksiyonları görülür." },
+             { id: 913, question: "13. Gonokok enfeksiyonlarında görülen septik artrit genellikle hangi özellikte seyreder?", options: ["Poliartiküler, simetrik, büyük eklemleri tutan", "Monoartiküler, asimetrik, küçük eklemleri tutan", "Genellikle gezici tarzda poliartralji veya tenosinovitle başlar, sonra monoartiküler pürülan artrite dönüşebilir", "Sadece sakroiliak eklemi tutan", "Vertebraları tutan spondilodiskit şeklinde"], correctAnswer: "Genellikle gezici tarzda poliartralji veya tenosinovitle başlar, sonra monoartiküler pürülan artrite dönüşebilir", explanation: "Dissemine gonokok enfeksiyonunda artrit sık görülür ve tipik olarak başlangıçta gezici poliartralji/tenosinovit ile başlar, ardından bir veya birkaç eklemde (diz, el bileği, ayak bileği) pürülan artrit gelişebilir." },
+             { id: 914, question: "14. Kültürde 'kayan koloni' özelliği gösterebilen Gram negatif diplokok hangisidir?", options: ["N. meningitidis", "N. gonorrhoeae", "N. lactamica", "N. sicca", "Moraxella catarrhalis"], correctAnswer: "Moraxella catarrhalis", explanation: "Moraxella catarrhalis kolonileri besiyerinde öze ile itildiğinde 'buz hokeyi diski' gibi bütün olarak kayma eğilimindedir." },
+             { id: 915, question: "15. Neisseria meningitidis'in insandan insana primer bulaş yolu nedir?", options: ["Cinsel temas", "Fekal-oral yol", "Vektör (kene, bit)", "Solunum yolu damlacıkları", "Kontamine su"], correctAnswer: "Solunum yolu damlacıkları", explanation: "Meningokok, enfekte kişilerin nazofarenks sekresyonlarının damlacık yoluyla solunması ile bulaşır." }
+         ]
+     },
+     'gram_pozitif_basiller': { // From 7-Gram Pozitif Basiller.pptx
+         title: "Gram Pozitif Basiller",
+         questions: [
+             { id: 701, question: "1. Aşağıdaki Gram pozitif basillerden hangisi spor oluşturur?", options: ["Listeria monocytogenes", "Corynebacterium diphtheriae", "Bacillus anthracis", "Erysipelothrix rhusiopathiae", "Actinomyces israelii"], correctAnswer: "Bacillus anthracis", explanation: "Bacillus ve Clostridium cinsleri spor oluşturan önemli Gram pozitif basillerdir. Diğerleri sporsuzdur." },
+             { id: 702, question: "2. Bacillus anthracis'in kapsülü hangi yapıdadır ve hangi reaksiyonla gösterilir?", options: ["Polisakkarit / Quellung", "Polipeptid (Poli-D-glutamik asit) / M'Fadyan", "Lipopolisakkarit / Gümüşleme", "Peptidoglikan / Gram", "Mikolik asit / Ziehl-Neelsen"], correctAnswer: "Polipeptid (Poli-D-glutamik asit) / M'Fadyan", explanation: "B. anthracis kapsülü protein yapısındadır (Poli-D-glutamik asit) ve metilen mavisi ile pembe/mor renkte boyanır (M'Fadyan reaksiyonu)." },
+             { id: 703, question: "3. Şarbon toksinini oluşturan üç komponent hangileridir?", options: ["Toksin A, Toksin B, Toksin C", "Alfa toksin, Beta toksin, Gama toksin", "Protektif Antijen (PA), Ödem Faktörü (EF), Letal Faktör (LF)", "Hemolizin, Lesitinaz, Nörotoksin", "Enterotoksin, Sitotoksin, Nöraminidaz"], correctAnswer: "Protektif Antijen (PA), Ödem Faktörü (EF), Letal Faktör (LF)", explanation: "Şarbon toksini üç ayrı proteinden oluşur: PA hücreye bağlanmayı sağlar, EF adenilat siklaz aktivitesiyle ödeme, LF ise MAP kinazı parçalayarak hücre ölümüne yol açar." },
+             { id: 704, question: "4. En sık görülen şarbon formu hangisidir ve tipik lezyonu nedir?", options: ["Akciğer şarbonu / Hemorajik mediastinit", "Gastrointestinal şarbon / Kanlı ishal", "Deri şarbonu / Ağrısız siyah eskar", "Menenjit şarbonu / Hemorajik menenjit", "Sistemik şarbon / Sepsis"], correctAnswer: "Deri şarbonu / Ağrısız siyah eskar", explanation: "Deri şarbonu vakaların %95'ini oluşturur ve tipik olarak ortasında siyah nekrotik bir kabuk (eskar) bulunan, etrafı ödemli, ağrısız bir lezyonla karakterizedir." },
+             { id: 705, question: "5. Bacillus cereus'un neden olduğu 'kısa inkübasyonlu' besin zehirlenmesi (kusma tipi) hangi toksinle ilişkilidir ve hangi besinle sık görülür?", options: ["HLET / Et ürünleri", "HSET (Serülid) / Pirinç", "Alfa Toksin / Konserve", "Enterotoksin / Süt ürünleri", "Nekrotik Toksin / Sebzeler"], correctAnswer: "HSET (Serülid) / Pirinç", explanation: "Isıya dayanıklı HSET toksini (serülid), özellikle pişirilip bekletilmiş pirinçli yiyeceklerde bulunur ve 1-6 saat gibi kısa sürede kusma ile seyreden besin zehirlenmesine neden olur." },
+             { id: 706, question: "6. Clostridium botulinum toksini hangi nörotransmitterin salınımını engelleyerek flask paraliziye neden olur?", options: ["Asetilkolin", "GABA", "Glisin", "Dopamin", "Serotonin"], correctAnswer: "Asetilkolin", explanation: "Botulinum nörotoksini, nöromusküler kavşakta asetilkolin salınımını bloke ederek kasların kasılamamasına ve gevşek (flask) paraliziye yol açar." },
+             { id: 707, question: "7. Clostridium tetani toksini (tetanospazmin) hangi nörotransmitterlerin salınımını engelleyerek spastik paraliziye neden olur?", options: ["Asetilkolin ve Noradrenalin", "GABA ve Glisin", "Dopamin ve Serotonin", "Glutamat ve Aspartat", "Sadece Asetilkolin"], correctAnswer: "GABA ve Glisin", explanation: "Tetanospazmin, spinal korddaki inhibitör nöronlardan GABA ve glisin gibi inhibitör nörotransmitterlerin salınımını engelleyerek motor nöronların aşırı uyarılmasına ve spastik paraliziye yol açar." },
+             { id: 708, question: "8. Gazlı gangrenin en sık etkeni olan Clostridium türü hangisidir ve en önemli virülans faktörü nedir?", options: ["C. difficile / Toksin B", "C. botulinum / Nörotoksin", "C. tetani / Tetanospazmin", "C. perfringens / Alfa Toksin (Lesitinaz)", "C. septicum / Beta Toksin"], correctAnswer: "C. perfringens / Alfa Toksin (Lesitinaz)", explanation: "C. perfringens, gazlı gangrenin en sık etkenidir. Alfa toksini (fosfolipaz C/lesitinaz) hücre membranlarını parçalayarak masif doku nekrozu ve hemolize neden olur." },
+             { id: 709, question: "9. Antibiyotik kullanımı sonrası gelişen psödomembranöz enterokolitin en önemli etkeni hangisidir?", options: ["Bacillus cereus", "Clostridium perfringens", "Clostridioides difficile", "Listeria monocytogenes", "Staphylococcus aureus (MRSA)"], correctAnswer: "Clostridioides difficile", explanation: "Antibiyotik kullanımı (özellikle Klindamisin, Sefalosporinler, Florokinolonlar) normal bağırsak florasını bozarak C. difficile'nin aşırı çoğalmasına ve toksinleri (A ve B) ile psödomembranöz kolite neden olmasına yol açar." },
+             { id: 710, question: "10. Listeria monocytogenes için karakteristik olmayan özellik hangisidir?", options: ["Gram pozitif basil", "Fakültatif intraselüler", "Oda sıcaklığında takla atar gibi hareketli", "Soğukta (+4°C) üreyebilme", "Zorunlu anaerob olması"], correctAnswer: "Zorunlu anaerob olması", explanation: "Listeria monocytogenes fakültatif anaerobdur (hem oksijenli hem oksijensiz ortamda üreyebilir), zorunlu anaerob değildir. Diğer özellikler karakteristiktir." },
+             { id: 711, question: "11. Listeria monocytogenes'in fagozomdan sitoplazmaya kaçmasını sağlayan temel virülans faktörü nedir?", options: ["Internalin A/B", "Listeriolizin O (LLO)", "ActA", "Fosfolipaz C", "Sideroforlar"], correctAnswer: "Listeriolizin O (LLO)", explanation: "LLO, kolesterol bağımlı bir sitolizindir ve fagozomun asidik pH'ında aktive olarak fagozom zarını deler, bakterinin sitoplazmaya kaçışını ve hücre içinde çoğalmasını sağlar." },
+             { id: 712, question: "12. Balıkçılarda veya kasaplarda travma sonrası elde gelişen, mor renkli, kenarları kabarık, ağrılı ve kaşıntılı deri lezyonuna (erizipeloid) neden olan bakteri hangisidir?", options: ["Bacillus anthracis", "Clostridium perfringens", "Listeria monocytogenes", "Erysipelothrix rhusiopathiae", "Corynebacterium diphtheriae"], correctAnswer: "Erysipelothrix rhusiopathiae", explanation: "Erizipeloid, E. rhusiopathiae'nin neden olduğu karakteristik bir deri enfeksiyonudur ve genellikle hayvan ürünleriyle (özellikle balık, domuz) temas sonrası travma bölgesinde gelişir." },
+             { id: 713, question: "13. Corynebacterium diphtheriae'nin toksin üretimi hangi faktör tarafından düzenlenir?", options: ["Ortamdaki glukoz miktarı", "Ortamdaki oksijen seviyesi", "Bakterinin spor oluşturması", "Lizojenik faj varlığı ve ortamdaki demir miktarı", "Bakterinin kapsül varlığı"], correctAnswer: "Lizojenik faj varlığı ve ortamdaki demir miktarı", explanation: "Difteri toksin geni (tox) bir bakteriyofaj tarafından taşınır (lizojenik konversiyon) ve üretimi kromozomal DTxR geni tarafından ortamdaki demir miktarına göre negatif olarak düzenlenir (düşük demirde üretim artar)." },
+             { id: 714, question: "14. Difteri toksini, hücrelerde hangi mekanizmayla protein sentezini inhibe eder?", options: ["Ribozomun 50S alt birimine bağlanarak", "mRNA translasyonunu bloke ederek", "Elongasyon Faktör-2'yi (EF-2) ADP-ribozilleyerek", "DNA girazı inhibe ederek", "Aminoasil-tRNA'nın ribozoma bağlanmasını engelleyerek"], correctAnswer: "Elongasyon Faktör-2'yi (EF-2) ADP-ribozilleyerek", explanation: "Difteri toksininin A parçası, EF-2'yi ADP-ribozilasyon ile inaktive eder, bu da protein sentezinin durmasına ve hücre ölümüne yol açar. Pseudomonas ekzotoksin A da aynı mekanizmayla çalışır." },
+             { id: 715, question: "15. Aktinomikozun en sık görülen klinik formu hangisidir ve lezyonlardan alınan drenaj materyalinde tipik olarak ne görülür?", options: ["Torasik / Kazeifiye nekroz", "Abdominal / Psödomembran", "Pelvik / Mantar topu", "Servikofasiyal / Sülfür granülleri", "Kutanöz / Siyah eskar"], correctAnswer: "Servikofasiyal / Sülfür granülleri", explanation: "Aktinomikozun en sık formu servikofasiyal tiptir ve genellikle diş çekimi gibi travmalar sonrası gelişir. Drenaj yapan sinüs yollarından çıkan materyalde makroskopik olarak görülebilen sarı renkli sülfür granülleri (bakteri kümeleri) karakteristiktir." }
+         ]
+     },
+     'mikobakteriler': { // From 8-Mikobakteriler v2.pptx
+         title: "Mikobakteriler",
+         questions: [
+              { id: 801, question: "1. Mikobakterilerin aside dirençli boyanmasını sağlayan hücre duvarı bileşeni hangisidir?", options: ["Peptidoglikan", "Lipopolisakkarit", "Mikolik asit", "Arabinogalaktan", "Kord faktör"], correctAnswer: "Mikolik asit", explanation: "Mikobakterilerin hücre duvarındaki yüksek oranda bulunan uzun zincirli yağ asitleri olan mikolik asitler, Ziehl-Neelsen veya Kinyoun gibi boyama yöntemlerinde asitle yıkamaya karşı direnç gösterir." },
+              { id: 802, question: "2. Mycobacterium tuberculosis'in virülansında rol oynayan, yılan benzeri kordonlar oluşturmasını sağlayan ve lökosit göçünü inhibe eden glikolipid hangisidir?", options: ["Mikolik asit", "Arabinogalaktan", "Lipoarabinomannan (LAM)", "Kord faktör (Trehaloz dimikolat)", "Fosfatidilinozitol mannozid (PIM)"], correctAnswer: "Kord faktör (Trehaloz dimikolat)", explanation: "Kord faktör, M. tuberculosis'in kültürde karakteristik kordonlar oluşturmasından, granülom oluşumundan ve virülansından sorumlu önemli bir glikolipiddir." },
+              { id: 803, question: "3. Primer tüberküloz enfeksiyonunda akciğerdeki parankimal lezyon (Ghon odağı) ile bölgesel hiler lenf nodu tutulumunun birlikte oluşturduğu yapıya ne ad verilir?", options: ["Granülom", "Kavite", "Tüberkülom", "Ghon kompleksi", "Miliyer lezyon"], correctAnswer: "Ghon kompleksi", explanation: "Primer tüberkülozda akciğerdeki ilk lezyon odağı (Ghon odağı) ve drene olan lenf nodlarındaki tutulum birlikte Ghon kompleksini oluşturur." },
+              { id: 804, question: "4. Tüberküloz granülomunun histolojik incelemesinde tipik olarak bulunan dev hücre tipi hangisidir?", options: ["Touton dev hücresi", "Yabancı cisim dev hücresi", "Langhans dev hücresi", "Osteoklast", "Megakaryosit"], correctAnswer: "Langhans dev hücresi", explanation: "Tüberküloz granülomlarında, makrofajların füzyonu ile oluşan ve nükleusları periferde at nalı şeklinde dizilmiş Langhans tipi dev hücreler karakteristiktir." },
+              { id: 805, question: "5. Reaktivasyon (sekonder) tüberkülozu genellikle akciğerin hangi bölümünde kavite oluşumu ile karakterizedir?", options: ["Alt lobların bazali", "Orta lob", "Lingula", "Apeks (üst loblar)", "Hilus bölgesi"], correctAnswer: "Apeks (üst loblar)", explanation: "M. tuberculosis zorunlu aerob olduğu için oksijen konsantrasyonunun yüksek olduğu akciğer apkeslerinde reaktive olma ve kavite oluşturma eğilimindedir." },
+              { id: 806, question: "6. Ekstrapulmoner tüberkülozun en sık görüldüğü yer neresidir?", options: ["Vertebralar (Pott hastalığı)", "Böbrekler", "Menenksler", "Perikard", "Servikal lenf bezleri (Skrofula)"], correctAnswer: "Servikal lenf bezleri (Skrofula)", explanation: "Ekstrapulmoner tüberküloz olgularında en sık tutulum yeri servikal lenf nodlarıdır (skrofula)." },
+              { id: 807, question: "7. Tüberküloz menenjitinde beyin omurilik sıvısı (BOS) bulgularından hangisi tipik değildir?", options: ["Protein artışı", "Şeker düşüklüğü", "Klor düşüklüğü", "Lenfositik pleositoz", "Nötrofilik pleositoz"], correctAnswer: "Nötrofilik pleositoz", explanation: "Tüberküloz menenjitinde BOS'ta genellikle protein artar, şeker ve klor düşer, hücre sayımı artmıştır ve bu artış ağırlıklı olarak lenfositlerden oluşur (lenfositik pleositoz). Nötrofil hakimiyeti bakteriyel menenjitlerde daha sıktır." },
+              { id: 808, question: "8. M. tuberculosis kültürü için kullanılan yumurta bazlı besiyeri hangisidir ve hangi madde diğer bakterilerin üremesini inhibe eder?", options: ["Middlebrook 7H10 / Albumin", "Löwenstein-Jensen / Maleşit yeşili", "Tiyoglikolat buyyon / Sodyum tiyoglikolat", "Çikolata agar / Vankomisin", "MacConkey agar / Safra tuzları"], correctAnswer: "Löwenstein-Jensen / Maleşit yeşili", explanation: "Löwenstein-Jensen, yumurta bazlı bir besiyeridir ve içerdiği maleşit yeşili boyası kontaminant bakterilerin üremesini baskılar." },
+              { id: 809, question: "9. Mycobacterium bovis'i, Mycobacterium tuberculosis'ten ayıran temel özelliklerden biri nedir?", options: ["Aside dirençli boyanmaması", "Niasin testinin pozitif olması", "Gliserollü besiyerinde üreyememesi", "Kord faktör oluşturmaması", "Zorunlu anaerob olması"], correctAnswer: "Gliserollü besiyerinde üreyememesi", explanation: "M. bovis, M. tuberculosis'ten farklı olarak gliserolü karbon kaynağı olarak kullanamaz ve niasin testi negatiftir. Üremesi için pirüvat eklenmesi gerekir." },
+              { id: 810, question: "10. Tüberkülin deri testinin (PPD) pozitifliği hangi tip immün yanıtın varlığını gösterir?", options: ["Humoral immünite (Antikor)", "Doğal immünite", "Tip I aşırı duyarlılık", "Tip IV gecikmiş tip hücresel immünite", "Tip III immün kompleks"], correctAnswer: "Tip IV gecikmiş tip hücresel immünite", explanation: "PPD testi, M. tuberculosis antijenlerine karşı gelişmiş olan T hücre aracılı (Tip IV) gecikmiş tip aşırı duyarlılık yanıtını ölçer." },
+              { id: 811, question: "11. Aşağıdaki anti-tüberküloz ilaçlardan hangisi mikolik asit sentezini inhibe ederek etki gösterir?", options: ["Rifampin", "İzoniazid", "Pirazinamid", "Etambutol", "Streptomisin"], correctAnswer: "İzoniazid", explanation: "İzoniazid, mikobakterilerin hücre duvarının temel bileşeni olan mikolik asitlerin sentezini inhibe eden bakterisidal bir ilaçtır." },
+              { id: 812, question: "12. Hangi anti-tüberküloz ilacın en önemli yan etkisi reversibl optik nöropatidir?", options: ["İzoniazid", "Rifampin", "Pirazinamid", "Etambutol", "Streptomisin"], correctAnswer: "Etambutol", explanation: "Etambutol, arabinogalaktan sentezini inhibe eder ve en önemli doza bağımlı yan etkisi geri dönüşümlü optik nöropatidir (renk görme bozukluğu, görme keskinliğinde azalma)." },
+              { id: 813, question: "13. Hem İzoniazid hem de Rifampin'e dirençli tüberküloz suşları nasıl adlandırılır?", options: ["Primer dirençli TB (PDR-TB)", "Sekonder dirençli TB (SDR-TB)", "Çok ilaca dirençli TB (MDR-TB)", "Yaygın ilaca dirençli TB (XDR-TB)", "Total ilaca dirençli TB (TDR-TB)"], correctAnswer: "Çok ilaca dirençli TB (MDR-TB)", explanation: "MDR-TB, en etkili iki birinci kuşak anti-tüberküloz ilaç olan İzoniazid ve Rifampin'e karşı direnç olarak tanımlanır." },
+              { id: 814, question: "14. Lepra (Cüzzam) hastalığının etkeni olan mikobakteri hangisidir ve in vitro üretilebilir mi?", options: ["M. tuberculosis / Evet", "M. bovis / Evet", "M. leprae / Hayır", "M. kansasii / Evet", "M. avium complex / Hayır"], correctAnswer: "M. leprae / Hayır", explanation: "Lepra etkeni M. leprae, zorunlu intraselüler bir patojendir ve yapay besiyerlerinde üretilemez; sadece canlı dokularda (örn. armadillo) çoğaltılabilir." },
+              { id: 815, question: "15. Lepramin deri testi pozitif olan, granülomların görüldüğü ve az sayıda basil içeren lepra formu hangisidir?", options: ["Lepromatöz Lepra", "Sınırda Lepromatöz Lepra", "Sınırda Tüberküloid Lepra", "Tüberküloid Lepra", "İndetermine Lepra"], correctAnswer: "Tüberküloid Lepra", explanation: "Tüberküloid leprada (paucibasiller) hücresel immün yanıt güçlüdür, bu nedenle lepramin testi pozitiftir, lezyonlarda granülomlar oluşur ve basil sayısı azdır." }
+          ]
+      },
+     'gram_negatif_non_fermenter_basiller': { // From 11-Gram Negatif non-fermenter basiller v2.pptx
+         title: "Gram Negatif Non-fermenter Basiller",
+         questions: [
+              { id: 1101, question: "1. Aşağıdaki bakterilerden hangisi oksidaz pozitif, non-fermenter Gram negatif bir basildir?", options: ["Escherichia coli", "Klebsiella pneumoniae", "Pseudomonas aeruginosa", "Acinetobacter baumannii", "Stenotrophomonas maltophilia"], correctAnswer: "Pseudomonas aeruginosa", explanation: "P. aeruginosa ve Burkholderia türleri oksidaz pozitif non-fermenterlerdir. Acinetobacter ve Stenotrophomonas oksidaz negatiftir. E. coli ve Klebsiella fermenterdir." },
+              { id: 1102, question: "2. Pseudomonas aeruginosa'nın ürettiği ve kültürde mavi-yeşil renk veren karakteristik pigment hangisidir?", options: ["Piyoverdin", "Piyorubin", "Piyomelanin", "Piyosiyanin", "İndigo"], correctAnswer: "Piyosiyanin", explanation: "Piyosiyanin, sadece P. aeruginosa tarafından üretilen, mavi renkli, suda çözünebilen bir pigmenttir ve virülansa katkıda bulunur. Piyoverdin yeşil ve floresandır." },
+              { id: 1103, question: "3. Pseudomonas aeruginosa'nın EF-2'yi inhibe ederek protein sentezini durduran ve doku nekrozuna yol açan en önemli ekzotoksini hangisidir?", options: ["Elastaz (LasB)", "Ekzotoksin A", "Fosfolipaz C", "Alginat", "Lipopolisakkarit (LPS)"], correctAnswer: "Ekzotoksin A", explanation: "Ekzotoksin A, difteri toksinine benzer şekilde EF-2'yi ADP-ribozilleyerek protein sentezini inhibe eder ve ciddi doku hasarına neden olur." },
+              { id: 1104, question: "4. Özellikle yanık hastaları ve nötropenik hastalarda görülen, P. aeruginosa'ya bağlı hemorajik ve nekrotik cilt lezyonlarına ne ad verilir?", options: ["Eritema migrans", "Ektima gangrenozum", "Pyoderma gangrenozum", "Selülit", "Erizipel"], correctAnswer: "Ektima gangrenozum", explanation: "Ektima gangrenozum, genellikle P. aeruginosa bakteriyemisi sırasında damar invazyonu ve tromboz sonucu gelişen, ortası nekrotik, etrafı eritemli karakteristik cilt lezyonlarıdır." },
+              { id: 1105, question: "5. Kistik fibrozisli hastalarda kronik akciğer enfeksiyonlarına neden olan ve mukoid (alginat üreten) koloniler oluşturan bakteri hangisidir?", options: ["Burkholderia cepacia", "Stenotrophomonas maltophilia", "Acinetobacter baumannii", "Pseudomonas aeruginosa", "Haemophilus influenzae"], correctAnswer: "Pseudomonas aeruginosa", explanation: "P. aeruginosa, özellikle kistik fibrozisli hastaların akciğerlerinde alginat (bir tür biyofilm) üreterek mukoid koloniler oluşturur ve kronikleşerek eradikasyonu zorlaştırır." },
+              { id: 1106, question: "6. Kistik fibrozisli veya Kronik Granülomatoz Hastalığı (KGH) olan hastalarda ciddi pnömoni ve 'cepacia sendromu'na neden olabilen bakteri hangisidir?", options: ["Pseudomonas aeruginosa", "Burkholderia cepacia", "Burkholderia pseudomallei", "Acinetobacter baumannii", "Stenotrophomonas maltophilia"], correctAnswer: "Burkholderia cepacia", explanation: "B. cepacia kompleksi, özellikle KF ve KGH hastalarında fırsatçı enfeksiyonlara, bazen de hızla kötüleşen fatal 'cepacia sendromu'na yol açabilir." },
+              { id: 1107, question: "7. Güneydoğu Asya ve Kuzey Avustralya'da endemik olan, toprak ve sudan bulaşarak 'Melioidozis' (Whitmore Hastalığı) adı verilen ciddi enfeksiyona neden olan bakteri hangisidir?", options: ["Burkholderia cepacia", "Burkholderia mallei", "Burkholderia pseudomallei", "Pseudomonas aeruginosa", "Acinetobacter baumannii"], correctAnswer: "Burkholderia pseudomallei", explanation: "B. pseudomallei, kontamine toprak veya suyla temas sonucu melioidozis hastalığına neden olur. Bu hastalık akut sepsis veya kronik granülomatöz enfeksiyon şeklinde görülebilir." },
+              { id: 1108, question: "8. Esas olarak atlarda 'Ruam' hastalığına neden olan, insanlara enfekte hayvanlardan bulaşabilen ve biyoterörizm ajanı olarak kabul edilen bakteri hangisidir?", options: ["Burkholderia cepacia", "Burkholderia mallei", "Burkholderia pseudomallei", "Francisella tularensis", "Yersinia pestis"], correctAnswer: "Burkholderia mallei", explanation: "B. mallei, atlarda ruam etkenidir, insanlara nadiren bulaşır ve akut veya kronik enfeksiyona yol açabilir. Hareketsiz olmasıyla B. pseudomallei'den ayrılır." },
+              { id: 1109, question: "9. Hastane ortamında, özellikle yoğun bakım ünitelerinde ventilatör ilişkili pnömoni (VİP) ve kateter enfeksiyonlarının sık etkenlerinden olan, oksidaz negatif, non-fermenter kokobasil hangisidir?", options: ["Pseudomonas aeruginosa", "Burkholderia cepacia", "Stenotrophomonas maltophilia", "Acinetobacter baumannii", "Klebsiella pneumoniae"], correctAnswer: "Acinetobacter baumannii", explanation: "A. baumannii, hastane ortamına oldukça dayanıklı, çoklu ilaç direnci gösterebilen, oksidaz negatif bir non-fermenterdir ve özellikle VİP başta olmak üzere nozokomiyal enfeksiyonların önemli bir etkenidir." },
+              { id: 1110, question: "10. Acinetobacter baumannii'nin Gram boyamada Neisseria türleri ile karışabilmesinin nedeni nedir?", options: ["Oksidaz pozitif olması", "Kokobasil veya kok şeklinde görülebilmesi", "Hareketli olması", "Spor oluşturması", "Kapsüllü olması"], correctAnswer: "Kokobasil veya kok şeklinde görülebilmesi", explanation: "Acinetobacter türleri pleomorfik olup bazen kokoid formlar oluşturabilir, bu da Gram boyamada Neisseria gibi diplokoklarla karışmasına neden olabilir. Ancak oksidaz negatif olmasıyla Neisseria'dan ayrılır." },
+              { id: 1111, question: "11. Çoklu ilaç direnci gösteren Acinetobacter baumannii enfeksiyonlarının tedavisinde sıklıkla son çare olarak kullanılan antibiyotik hangisidir?", options: ["Penisilin G", "Seftriakson", "Azitromisin", "Vankomisin", "Kolistin"], correctAnswer: "Kolistin", explanation: "A. baumannii suşları genellikle karbapenemler dahil birçok antibiyotiğe dirençlidir. Bu nedenle polimiksin grubu bir antibiyotik olan Kolistin, sıklıkla MDR Acinetobacter enfeksiyonlarında kullanılan son seçeneklerden biridir." },
+              { id: 1112, question: "12. Kültürde lavanta yeşili pigmentasyon ve amonyak benzeri koku oluşturabilen, oksidaz negatif, non-fermenter basil hangisidir?", options: ["Pseudomonas aeruginosa", "Burkholderia cepacia", "Acinetobacter baumannii", "Stenotrophomonas maltophilia", "Escherichia coli"], correctAnswer: "Stenotrophomonas maltophilia", explanation: "S. maltophilia, kanlı agarda genellikle lavanta yeşili-gri koloniler ve karakteristik amonyak kokusu oluşturur. Oksidaz negatiftir." },
+              { id: 1113, question: "13. Stenotrophomonas maltophilia enfeksiyonlarının tedavisinde genellikle ilk tercih edilen antibiyotik hangisidir?", options: ["Meropenem", "Seftazidim", "Piperasilin-Tazobaktam", "Trimetoprim-Sülfametoksazol (TMP-SXT)", "Gentamisin"], correctAnswer: "Trimetoprim-Sülfametoksazol (TMP-SXT)", explanation: "S. maltophilia, karbapenemler dahil birçok beta-laktama doğal dirençlidir. Tedavisinde genellikle TMP-SXT ilk seçenektir." },
+              { id: 1114, question: "14. Pseudomonas aeruginosa'nın özellikle kistik fibrozisli hastalarda akciğerde oluşturduğu ve antibiyotik penetrasyonunu zorlaştıran yapının adı nedir?", options: ["Kapsül", "Spor", "Biyofilm (Alginat)", "Granülom", "Abse"], correctAnswer: "Biyofilm (Alginat)", explanation: "P. aeruginosa'nın ürettiği alginat, mukoid bir ekzopolisakkarittir ve akciğerlerde biyofilm oluşturarak bakteriyi fagositozdan ve antibiyotik etkisinden korur." },
+              { id: 1115, question: "15. Aşağıdaki non-fermenter Gram negatif basillerden hangisi 42°C'de üreyemez?", options: ["Pseudomonas aeruginosa", "Burkholderia pseudomallei", "Acinetobacter baumannii", "Burkholderia cepacia", "Stenotrophomonas maltophilia"], correctAnswer: "Burkholderia cepacia", explanation: "P. aeruginosa, B. pseudomallei ve A. baumannii 42°C'de üreyebilirken, B. cepacia genellikle bu sıcaklıkta üreyemez. Bu özellik ayrımda kullanılabilir." }
+         ]
+     },
+     'spiroketler': { // From 15-Spiroketler.pptx
+         title: "Spiroketler",
+         questions: [
+              { id: 1501, question: "1. Spiroketlerin karakteristik hareketini sağlayan yapı hangisidir?", options: ["Flagella (Ekzoflagella)", "Pili", "Kapsül", "Endoflagella (Aksiyal filaman)", "Fimbria"], correctAnswer: "Endoflagella (Aksiyal filaman)", explanation: "Spiroketler, periplazmik boşlukta yer alan ve hücre gövdesine sarılı olan endoflagellaları (aksiyal filamanlar) sayesinde burgu şeklinde hareket ederler." },
+              { id: 1502, question: "2. Sifiliz (Frengi) etkeni olan spiroket hangisidir?", options: ["Borrelia burgdorferi", "Leptospira interrogans", "Treponema pallidum", "Borrelia recurrentis", "Treponema denticola"], correctAnswer: "Treponema pallidum", explanation: "Treponema pallidum subspecies pallidum, cinsel yolla bulaşan sifiliz hastalığının etkenidir." },
+              { id: 1503, question: "3. Primer sifiliz lezyonu olan 'şankr'ın tipik özelliği nedir?", options: ["Ağrılı, yumuşak, pürülan ülser", "Ağrısız, sert tabanlı, temiz ülser", "Veziküler döküntü", "Nekrotik siyah eskar", "Kaşıntılı papül"], correctAnswer: "Ağrısız, sert tabanlı, temiz ülser", explanation: "Primer sifilizde enfeksiyon yerinde oluşan şankr, genellikle tek, ağrısız, endüre (sert) tabanlı ve kenarları belirgin bir ülserdir." },
+              { id: 1504, question: "4. Sekonder sifilizin en karakteristik bulgusu nedir?", options: ["Şankr", "Gumma", "Yaygın makülopapüler döküntü (el ve ayak tabanları dahil)", "Aortit", "Tabes dorsalis"], correctAnswer: "Yaygın makülopapüler döküntü (el ve ayak tabanları dahil)", explanation: "Sekonder sifiliz, genellikle primer şankrdan haftalar sonra ortaya çıkar ve en belirgin bulgusu avuç içi ve ayak tabanlarını da tutabilen yaygın, non-pruritik (kaşıntısız) makülopapüler döküntüdür." },
+              { id: 1505, question: "5. Tersiyer sifilizde görülen granülomatöz lezyonlara ne ad verilir?", options: ["Şankr", "Kondiloma lata", "Gumma", "Eritema migrans", "Tüberkülom"], correctAnswer: "Gumma", explanation: "Gumma, tersiyer sifilizde deri, kemik ve iç organlarda görülebilen, merkezinde nekroz bulunan granülomatöz, yıkıcı lezyonlardır." },
+              { id: 1506, question: "6. Sifiliz tanısında kullanılan non-treponemal testler (VDRL, RPR) neyi ölçer ve ne için kullanılır?", options: ["Spesifik Treponema antikorlarını / Doğrulama", "Kardiyolipine karşı antikorları (Reagin) / Tarama ve takip", "Treponema DNA'sını / Erken tanı", "Canlı spiroketleri / Kültür", "IgM antikorlarını / Konjenital sifiliz tanısı"], correctAnswer: "Kardiyolipine karşı antikorları (Reagin) / Tarama ve takip", explanation: "Non-treponemal testler, sifiliz enfeksiyonu sırasında hasarlanan hücrelerden açığa çıkan lipitlere (kardiyolipin) karşı oluşan antikorları (reagin) saptar. Tarama ve tedavi takibinde kullanılırlar, ancak spesifik değillerdir." },
+              { id: 1507, question: "7. Sifiliz tanısında kullanılan treponemal testler (FTA-ABS, TPHA) neyi ölçer ve ne için kullanılır?", options: ["Reagin antikorlarını / Tarama", "Spesifik Treponema pallidum antikorlarını / Doğrulama", "Treponema RNA'sını / Tedavi takibi", "Komplemanı / Hastalık aktivitesi", "IgE antikorlarını / Alerji tespiti"], correctAnswer: "Spesifik Treponema pallidum antikorlarını / Doğrulama", explanation: "Treponemal testler, T. pallidum'a özgü antikorları saptar ve non-treponemal test pozitifliğini doğrulamak için kullanılırlar. Genellikle ömür boyu pozitif kalırlar." },
+              { id: 1508, question: "8. Konjenital sifilizin geç dönem bulgularından olan Hutchinson triadı hangi üç bulguyu içerir?", options: ["Sarılık, Hepatosplenomegali, Döküntü", "Keratit, Sağırlık, Diş anomalisi (Hutchinson dişleri)", "Şankr, Alopesi, Lenfadenopati", "Artrit, Kardit, Nörit", "Saddle nose, Sabre shin, Frontal bossing"], correctAnswer: "Keratit, Sağırlık, Diş anomalisi (Hutchinson dişleri)", explanation: "Geç konjenital sifilizin karakteristik bulgularından biri olan Hutchinson triadı; interstisyel keratit (göz), 8. sinir tutulumuna bağlı sağırlık ve üst kesici dişlerde çentikleşmeyi (Hutchinson dişleri) içerir." },
+              { id: 1509, question: "9. Lyme hastalığının etkeni olan spiroket hangisidir ve hangi vektörle bulaşır?", options: ["Treponema pallidum / Sivrisinek", "Leptospira interrogans / Fare idrarı", "Borrelia recurrentis / Bit", "Borrelia burgdorferi / Ixodes kenesi", "Treponema pertenue / Deri teması"], correctAnswer: "Borrelia burgdorferi / Ixodes kenesi", explanation: "Lyme hastalığının etkeni Borrelia burgdorferi'dir ve Ixodes cinsi sert kenelerin ısırmasıyla bulaşır." },
+              { id: 1510, question: "10. Erken lokalize Lyme hastalığının en karakteristik deri bulgusu nedir?", options: ["Şankr", "Vezikül", "Eritema migrans (Boğa gözü döküntü)", "Peteşi", "Gumma"], correctAnswer: "Eritema migrans (Boğa gözü döküntü)", explanation: "Eritema migrans, kene ısırığı yerinde ortaya çıkan, ortası soluk, kenarları kırmızı, halka şeklinde genişleyen karakteristik Lyme döküntüsüdür." },
+              { id: 1511, question: "11. Lyme hastalığının geç döneminde en sık görülen komplikasyon hangisidir?", options: ["Menenjit", "Kardit (AV blok)", "Yüz felci", "Kronik artrit (özellikle diz)", "Eritema migrans"], correctAnswer: "Kronik artrit (özellikle diz)", explanation: "Tedavi edilmeyen Lyme hastalığının geç döneminde (aylar-yıllar sonra) en sık görülen bulgu, genellikle büyük eklemleri (özellikle diz) tutan kronik veya tekrarlayan artrittir." },
+              { id: 1512, question: "12. Tekrarlayan ateş (Rekürren ateş) hastalığının etkeni nedir ve hangi vektörle bulaşır?", options: ["Borrelia burgdorferi / Kene", "Borrelia recurrentis / Bit", "Leptospira interrogans / Fare idrarı", "Treponema pallidum / Cinsel temas", "Rickettsia prowazekii / Bit"], correctAnswer: "Borrelia recurrentis / Bit", explanation: "Epidemik rekürren ateşin etkeni B. recurrentis'tir ve insan vücut biti (Pediculus humanus corporis) ile bulaşır. Endemik formlar kenelerle bulaşan farklı Borrelia türlerinden kaynaklanır." },
+              { id: 1513, question: "13. Rekürren ateşteki tekrarlayan ateş ataklarının nedeni nedir?", options: ["Bakterinin toksin salgılaması", "Konak immün sisteminin zayıflaması", "Borrelia'nın yüzey antijenlerini değiştirmesi", "Bakterinin spor oluşturması", "Kompleman sisteminin aşırı aktivasyonu"], correctAnswer: "Borrelia'nın yüzey antijenlerini değiştirmesi", explanation: "Borrelia türleri, yüzeylerindeki ana proteinleri (VMP veya VIsE gibi) genetik mekanizmalarla değiştirerek konak antikor yanıtından kaçar ve bu durum tekrarlayan ateş ve bakteriyemi ataklarına neden olur." },
+              { id: 1514, question: "14. Leptospiroz etkeni olan Leptospira interrogans'ın ana rezervuarı ve bulaş yolu nedir?", options: ["İnsanlar / Solunum yolu", "Keneler / Kene ısırığı", "Sivrisinekler / Sivrisinek ısırığı", "Enfekte hayvanlar (özellikle kemirgenler) / Kontamine su veya toprak", "Kuşlar / Fekal-oral yol"], correctAnswer: "Enfekte hayvanlar (özellikle kemirgenler) / Kontamine su veya toprak", explanation: "Leptospira'nın ana rezervuarı enfekte hayvanlardır (özellikle fareler). Bakteri hayvan idrarıyla kontamine olmuş su veya topraktan, derideki sıyrıklar veya mukozalar yoluyla insanlara bulaşır." },
+              { id: 1515, question: "15. Leptospirozun sarılık, böbrek yetmezliği ve kanama ile seyreden ağır formuna ne ad verilir?", options: ["Lyme Karditi", "Rekürren Ateş", "Weil Hastalığı", "Nörosifiliz", "Eritema Migrans"], correctAnswer: "Weil Hastalığı", explanation: "Weil hastalığı, leptospirozun ikter (sarılık), böbrek yetmezliği, hemorajik diyatez (kanama eğilimi) ve bazen pulmoner tutulum ile seyreden ciddi ve potansiyel olarak ölümcül formudur." }
+          ]
+      },
+     'anaeroblar': { // From 16-Anaeroblar.pptx
+         title: "Anaeroblar",
+         questions: [
+              { id: 1601, question: "1. Oksijenin varlığında üremesi engellenen veya ölen bakterilere ne ad verilir?", options: ["Zorunlu aerob", "Fakültatif anaerob", "Mikroaerofil", "Anaerob", "Kapnofil"], correctAnswer: "Anaerob", explanation: "Anaerob bakteriler, oksijenli solunum için gerekli enzimleri (sitokromlar, SOD, katalaz vb.) içermediklerinden oksijen onlar için toksiktir ve oksijensiz ortamda ürerler." },
+              { id: 1602, question: "2. Hem aerobik hem de anaerobik koşullarda üreyebilen bakterilere ne ad verilir?", options: ["Zorunlu aerob", "Fakültatif anaerob", "Mikroaerofil", "Zorunlu anaerob", "Aerotoleran anaerob"], correctAnswer: "Fakültatif anaerob", explanation: "Fakültatif anaeroblar, oksijen varlığında aerobik solunum, oksijen yokluğunda ise fermantasyon veya anaerobik solunum yapabilirler (örn. E.coli, S.aureus)." },
+              { id: 1603, question: "3. Anaerob bakterilerin oksijene tolerans gösterememesinin temel nedeni nedir?", options: ["Hücre duvarlarının ince olması", "Kapsül oluşturamamaları", "Sitokrom sistemi, SOD, katalaz gibi enzimleri içermemeleri", "Flagellalarının olmaması", "Endotoksin üretmeleri"], correctAnswer: "Sitokrom sistemi, SOD, katalaz gibi enzimleri içermemeleri", explanation: "Aerobik solunum sırasında oluşan toksik oksijen radikallerini (süperoksit, hidrojen peroksit) detoksifiye eden süperoksit dismutaz (SOD) ve katalaz/peroksidaz gibi enzimlerin yokluğu, anaerobları oksijenin toksik etkisine maruz bırakır." },
+              { id: 1604, question: "4. Aşağıdakilerden hangisi insan kalın bağırsağında en bol bulunan anaerob bakteri grubudur?", options: ["Clostridium türleri", "Actinomyces türleri", "Bacteroides fragilis grubu", "Peptostreptococcus türleri", "Fusobacterium türleri"], correctAnswer: "Bacteroides fragilis grubu", explanation: "Kalın bağırsak florasının büyük çoğunluğunu (%99'dan fazlasını) anaerob bakteriler oluşturur ve bunlar içinde Bacteroides fragilis grubu en baskın olanıdır." },
+              { id: 1605, question: "5. Ağız florasında sıkça bulunan ve periodontal hastalıklar ile baş-boyun enfeksiyonlarında rol oynayan pigmentli anaerob bakteri cinsi hangisidir?", options: ["Bacteroides", "Prevotella (pigmentli)", "Fusobacterium", "Actinomyces", "Veillonella"], correctAnswer: "Prevotella (pigmentli)", explanation: "Pigmentli Prevotella türleri (örn. P. intermedia, P. melaninogenica) ve Porphyromonas türleri ağız florasında bulunur ve diş eti hastalıkları, dental apseler ve diğer baş-boyun enfeksiyonlarında sıkça izole edilir." },
+              { id: 1606, question: "6. Deri florasında bol bulunan ve akne vulgarisin patogenezinde rol oynayan anaerob (veya aerotoleran) bakteri hangisidir?", options: ["Clostridium perfringens", "Bacteroides fragilis", "Propionibacterium acnes (Cutibacterium acnes)", "Actinomyces israelii", "Peptostreptococcus magnus"], correctAnswer: "Propionibacterium acnes (Cutibacterium acnes)", explanation: "P. acnes, deri florasının (özellikle kıl foliküllerinin) yaygın bir üyesidir ve ürettiği lipazlar ve inflamatuar mediyatörlerle akne oluşumuna katkıda bulunur." },
+              { id: 1607, question: "7. Anaerobik enfeksiyonların çoğu zaman polimikrobiyal olmasının temel nedeni nedir?", options: ["Anaerobların tek başına virülansının düşük olması", "Enfeksiyonların genellikle endojen flora kaynaklı olması", "Fakültatif anaerobların ortamı anaeroblar için uygun hale getirmesi", "Antibiyotik direncinin yaygın olması", "Hepsi"], correctAnswer: "Hepsi", explanation: "Anaerobik enfeksiyonlar sıklıkla normal floranın bozulmasıyla (endojen) başlar. Fakültatif bakteriler ortamdaki oksijeni tüketerek anaerobların üremesini kolaylaştırır (sinerji). Tek başına anaeroblar daha az invaziv olabilir. Bu faktörlerin birleşimi polimikrobiyal enfeksiyonlara yol açar." },
+              { id: 1608, question: "8. Bacteroides fragilis'in en önemli virülans faktörü hangisidir ve ne işe yarar?", options: ["Enterotoksin / Diyare yapar", "Kapsüler polisakkarit / Fagositozu önler ve abse oluşumunu destekler", "Nöraminidaz / Mukusu parçalar", "Fibrinolizin / Pıhtıyı eritir", "Hemaglutinin / Eritrositleri aglütine eder"], correctAnswer: "Kapsüler polisakkarit / Fagositozu önler ve abse oluşumunu destekler", explanation: "B. fragilis'in kapsülü, fagositoza karşı koruma sağlar ve konak immün hücresini uyararak abse oluşumunu indükler. Bu, intraabdominal enfeksiyonlardaki önemini açıklar." },
+              { id: 1609, question: "9. Clostridium perfringens'in neden olduğu gazlı gangrende doku nekrozundan sorumlu ana toksin hangisidir?", options: ["Beta toksin", "Enterotoksin", "Alfa toksin (Fosfolipaz C / Lesitinaz)", "Tetanospazmin", "Botulinum toksini"], correctAnswer: "Alfa toksin (Fosfolipaz C / Lesitinaz)", explanation: "Alfa toksin, hücre membranlarındaki lesitini (fosfatidilkolin) parçalayarak masif hücre lizizine, doku nekrozuna ve gazlı gangrenin karakteristik bulgularına yol açar." },
+              { id: 1610, question: "10. Clostridium tetani'nin ürettiği tetanospazmin hangi mekanizmayla spastik paraliziye neden olur?", options: ["Asetilkolin salınımını bloke ederek", "İnhibitör nörotransmitter (GABA, Glisin) salınımını engelleyerek", "Kas hücrelerini doğrudan parçalayarak", "Motor nöronları uyararak", "Dopamin reseptörlerini bloke ederek"], correctAnswer: "İnhibitör nörotransmitter (GABA, Glisin) salınımını engelleyerek", explanation: "Tetanospazmin, spinal korddaki Renshaw hücreleri gibi inhibitör internöronlardan GABA ve Glisin salınımını bloke eder, bu da motor nöronların sürekli ateşlemesine ve spastik paraliziye yol açar." },
+              { id: 1611, question: "11. Anaerobik bir enfeksiyondan şüphelenmeyi gerektiren bulgulardan biri olmayan hangisidir?", options: ["Lezyondan kötü koku gelmesi", "Enfeksiyon yerinin mukozal yüzeye yakınlığı", "Gram boyamada bakteri görülüp aerop kültürde üreme olmaması", "Dokuda gaz varlığı (krepitasyon)", "Aminoglikozid tedavisine iyi yanıt alınması"], correctAnswer: "Aminoglikozid tedavisine iyi yanıt alınması", explanation: "Aminoglikozidler (Gentamisin, Amikasin vb.) genellikle anaerob bakterilere etkisizdir. Bu nedenle aminoglikozid tedavisine yanıt alınamaması, anaerobik bir enfeksiyonu düşündürebilir." },
+              { id: 1612, question: "12. Hangi anaerobik bakteri grubu, özellikle pigmentli türleri, UV ışığı altında kırmızı floresans verebilir?", options: ["Bacteroides", "Clostridium", "Prevotella/Porphyromonas (pigmentli)", "Fusobacterium", "Peptostreptococcus"], correctAnswer: "Prevotella/Porphyromonas (pigmentli)", explanation: "Bazı pigmentli Prevotella ve Porphyromonas türleri, porfirin pigmentleri ürettikleri için UV ışığı altında kırmızı veya turuncu renkte floresans gösterebilirler." },
+              { id: 1613, question: "13. Aktinomikoz lezyonlarından alınan drenaj materyalinde görülen makroskopik sarı partiküllere ne ad verilir?", options: ["Kazeöz nekroz", "Gumma", "Sülfür granülleri", "Psödomembran", "Mantar topu"], correctAnswer: "Sülfür granülleri", explanation: "Aktinomikozda, özellikle Actinomyces israelii enfeksiyonlarında, lezyondan drene olan pürülan materyal içinde çıplak gözle görülebilen, sert, sarı renkli sülfür granülleri (aslında bakteri kolonileri ve kalsiyum fosfat) tipiktir." },
+              { id: 1614, question: "14. Aşağıdaki antibiyotiklerden hangisi genellikle anaerobik bakterilere karşı etkilidir?", options: ["Gentamisin", "Siprofloksasin", "Trimetoprim-Sulfametoksazol", "Metronidazol", "Aztreonam"], correctAnswer: "Metronidazol", explanation: "Metronidazol, özellikle Bacteroides, Clostridium, Fusobacterium gibi birçok zorunlu anaeroba karşı oldukça etkilidir. Klindamisin, karbapenemler, bazı beta-laktam/beta-laktamaz inhibitör kombinasyonları da etkilidir." },
+              { id: 1615, question: "15. Toksik oksijen radikallerinden süperoksiti (O2⁻) daha az toksik olan H2O2'ye dönüştüren enzim hangisidir?", options: ["Katalaz", "Peroksidaz", "Süperoksit dismutaz (SOD)", "NADPH oksidaz", "Sitokrom oksidaz"], correctAnswer: "Süperoksit dismutaz (SOD)", explanation: "SOD, aerobik ve fakültatif anaerobik organizmalarda süperoksit radikalini hidrojen peroksit ve oksijene dönüştürerek hücreyi oksidatif hasardan korur. Zorunlu anaeroblarda genellikle bulunmaz." }
+          ]
+      }
+     // Henüz eklenmemiş diğer quizler için buraya benzer yapılar eklenecek
+     // 'quiz_11': { title: "Quiz 11 Başlık", questions: [ /* ... sorular ... */ ] },
+     // ...
+ };
+            // --- Quiz State Variables ---
+            let currentQuizId = null; // Track the ID of the currently active quiz
+            let currentQuizData = null; // Holds title and questions for the current quiz
+            let currentRound = 'INIT'; // 'INIT', 'TEST_1', 'LEARN_1_OFFER', 'LEARN_1', 'TEST_2', ... 'RESULTS', 'FINAL_REVIEW'
+            let questionsForRound = [];
+            let incorrectInRound1 = [];
+            let incorrectInRound2 = [];
+            let currentQuestionIndexInRound = 0;
+            let userAnswers = {}; // { questionId: userAnswer, ... }
+
+            let stats = {
+                round1Correct: 0, round1Incorrect: 0,
+                round2Correct: 0, round2Incorrect: 0,
+                round3Correct: 0,
+                round1Score: 0, round2Score: 0, round3Score: 0,
+                round1TotalQuestions: 0, // Will be set based on selected quiz
+                round2TotalQuestions: 0, round3TotalQuestions: 0,
+                currentRoundCorrect: 0, currentRoundIncorrect: 0,
+                currentRoundTotal: 0,
+                statusMessage: "Başlatılıyor..."
+            };
+
+            // --- DOM Element References ---
+            const statsCurrentRoundEl = document.getElementById('stats-current-round');
+            const statsRoundProgressEl = document.getElementById('stats-round-progress');
+            const statsRoundCorrectEl = document.getElementById('stats-round-correct');
+            const statsRoundIncorrectEl = document.getElementById('stats-round-incorrect');
+            const statsRound1ScoreEl = document.getElementById('stats-round1-score');
+            const statsRound2ScoreEl = document.getElementById('stats-round2-score');
+            const statsRound3ScoreEl = document.getElementById('stats-round3-score');
+            const statsStatusMessageEl = document.getElementById('stats-status-message');
+            const progressBarFillEl = document.getElementById('progress-bar-fill');
+
+            const quizContainerEl = document.getElementById('quiz-container');
+            const quizTitleEl = document.getElementById('quiz-title');
+            const questionEl = document.getElementById('question');
+            const optionsEl = document.getElementById('options');
+            const submitBtn = document.getElementById('submit-btn');
+            const feedbackEl = document.getElementById('feedback');
+
+            const learningOfferContainerEl = document.getElementById('learning-offer-container');
+            const offerTitleEl = document.getElementById('offer-title');
+            const offerMessageEl = document.getElementById('offer-message');
+            const startLearningBtn = document.getElementById('start-learning-btn');
+            const startNextTestBtn = document.getElementById('start-next-test-btn');
+
+            const learningRoundContainerEl = document.getElementById('learning-round-container');
+            const learningTitleEl = document.getElementById('learning-title');
+            const learningContentEl = document.getElementById('learning-content');
+            const continueToNextTestBtn = document.getElementById('continue-to-next-test-btn');
+
+            const resultContainerEl = document.getElementById('result-container');
+            const scoreInfoEl = document.getElementById('score-info');
+            const finalMessageEl = document.getElementById('final-message');
+            const showFinalReviewBtn = document.getElementById('show-final-review-btn');
+
+            const finalReviewContainerEl = document.getElementById('final-review-container');
+            const finalReviewContentEl = document.getElementById('final-review-content');
+            const themeToggleButton = document.getElementById('theme-toggle-btn');
+            const homepageContentEl = document.getElementById('homepage-content');
+            const statsContainerEl = document.getElementById('stats-container');
+            const quizMainContentEl = document.querySelector('.quiz-main-content');
+
+
+            // --- Helper Functions (Animation, Color, etc.) ---
+            function getScoreColor(score) {
+                const clampedScore = Math.max(0, Math.min(100, score));
+                // Hue from red (0) to green (120)
+                const hue = clampedScore * 1.2;
+                // Make low scores less saturated/lighter, high scores more vibrant
+                const saturation = 40 + clampedScore * 0.5; // 40% to 90%
+                const lightness = 45 + clampedScore * 0.1;  // 45% to 55% (Adjust for dark mode contrast maybe?)
+                return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+                // Simpler version: return `hsl(${hue}, 85%, 40%)`;
+            }
+
+            function animateValue(element, start, end, duration) {
+                if (!element) return;
+                const startValue = (start === '-' || isNaN(parseFloat(start))) ? 0 : parseFloat(start);
+                const endValue = Math.round(end);
+                if (startValue === endValue && element.textContent === endValue + '%') return;
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const currentValue = Math.floor(progress * (endValue - startValue) + startValue);
+                    element.textContent = currentValue + '%';
+                    element.style.color = getScoreColor(currentValue);
+                    if (progress < 1) { window.requestAnimationFrame(step); }
+                    else { element.textContent = endValue + '%'; element.style.color = getScoreColor(endValue); }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+            function animateIntegerChange(element, endValue, duration = 300) {
+                if (!element) return;
+                const startValueText = element.textContent;
+                const startValue = isNaN(parseInt(startValueText, 10)) ? 0 : parseInt(startValueText, 10);
+                const finalEndValue = parseInt(endValue, 10);
+                if (startValue === finalEndValue) return;
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const currentValue = Math.floor(progress * (finalEndValue - startValue) + startValue);
+                    element.textContent = currentValue;
+                    if (progress < 1) { window.requestAnimationFrame(step); }
+                    else { element.textContent = finalEndValue; }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+             function animateProgressText(element, currentNumber, totalNumber, duration = 300) {
+                if (!element || totalNumber <= 0) { if(element) element.textContent = "-"; return; }
+                const match = element.textContent.match(/(\d+)\/(\d+)/);
+                const startNumber = match ? parseInt(match[1], 10) : 0;
+                const finalCurrentNumberToShow = Math.min(parseInt(currentNumber, 10), parseInt(totalNumber, 10));
+                const finalTotalNumber = parseInt(totalNumber, 10);
+
+                // Check if the text content already reflects the target state (including total)
+                if (element.textContent === `${finalCurrentNumberToShow}/${finalTotalNumber}`) return;
+
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const animatedCurrentValue = Math.floor(progress * (finalCurrentNumberToShow - startNumber) + startNumber);
+                    element.textContent = `${animatedCurrentValue}/${finalTotalNumber}`;
+
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        // Ensure final value is set correctly
+                        element.textContent = `${finalCurrentNumberToShow}/${finalTotalNumber}`;
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+
+            function getStatusMessageClass(message) {
+                if (!message) return "";
+                if (message.includes("Mükemmel") || message.includes("Başarılı") || message.includes("Çok iyi")) return "success-message";
+                if (message.includes("gayret") || message.includes("gerekli") || message.includes("Tamamlandı")) return "improvement-message";
+                if (message.includes("Sonuç") || message.includes("İnceleme")) return "final-review-message";
+                return ""; // Default class or no class
+            }
+
+            // --- UI Control Functions ---
+            function showQuizContainer(containerId) {
+                // Only controls containers *within* the quiz-main-content area
+                const containers = [quizContainerEl, resultContainerEl, learningOfferContainerEl, learningRoundContainerEl, finalReviewContainerEl];
+                containers.forEach(container => {
+                    if(container) container.style.display = (container.id === containerId) ? 'block' : 'none';
+                });
+                // Don't scroll here, scroll when entering quiz view
+            }
+
+            function updateStatsDisplay(animate = false, animationDuration = 300) {
+                let roundText = "-";
+                switch (currentRound) {
+                    case 'TEST_1': roundText = "1. Tur"; break;
+                    case 'LEARN_1_OFFER': roundText = "1. Tur Sonu"; break;
+                    case 'LEARN_1': roundText = "Öğrenme"; break;
+                    case 'TEST_2': roundText = "2. Tur"; break;
+                    case 'LEARN_2_OFFER': roundText = "2. Tur Sonu"; break;
+                    case 'LEARN_2': roundText = "Öğrenme"; break;
+                    case 'TEST_3': roundText = "Final Tur"; break;
+                    case 'RESULTS': roundText = "Sonuç"; break;
+                    case 'FINAL_REVIEW': roundText = "İnceleme"; break;
+                    case 'INIT':
+                    default: roundText = "Başlıyor";
+                }
+                if(statsCurrentRoundEl) statsCurrentRoundEl.textContent = roundText;
+
+                // Progress Text & Bar Logic
+                const currentDisplayNumber = currentQuestionIndexInRound + 1;
+                const totalForRound = stats.currentRoundTotal;
+                let progressText = "-";
+                let progressPercent = 0;
+
+                if (currentRound.startsWith('TEST_') && totalForRound > 0) {
+                    progressText = `${Math.min(currentDisplayNumber, totalForRound)}/${totalForRound}`;
+                    progressPercent = Math.min(100, (currentQuestionIndexInRound / totalForRound) * 100);
+
+                    if (animate) {
+                        animateProgressText(statsRoundProgressEl, currentDisplayNumber, totalForRound, animationDuration);
+                    } else {
+                        if(statsRoundProgressEl) statsRoundProgressEl.textContent = progressText;
+                    }
+                } else {
+                   if(statsRoundProgressEl) statsRoundProgressEl.textContent = '-';
+                }
+                 if(progressBarFillEl) progressBarFillEl.style.width = `${progressPercent}%`;
+
+
+                if (animate) {
+                    animateIntegerChange(statsRoundCorrectEl, stats.currentRoundCorrect, animationDuration);
+                    animateIntegerChange(statsRoundIncorrectEl, stats.currentRoundIncorrect, animationDuration);
+                } else {
+                    if(statsRoundCorrectEl) statsRoundCorrectEl.textContent = stats.currentRoundCorrect;
+                    if(statsRoundIncorrectEl) statsRoundIncorrectEl.textContent = stats.currentRoundIncorrect;
+                }
+
+                const displayScore = (el, score, roundNum) => {
+                     // Determine if the score for this specific round should be displayed
+                     let scoreIsSet = false;
+                     if (roundNum === 1 && (currentRound !== 'INIT' && currentRound !== 'TEST_1' || stats.round1Score > 0)) {
+                         scoreIsSet = true;
+                     } else if (roundNum === 2 && stats.round2TotalQuestions > 0 && (currentRound === 'TEST_3' || currentRound === 'LEARN_2_OFFER' || currentRound === 'LEARN_2' || currentRound === 'RESULTS' || currentRound === 'FINAL_REVIEW' || stats.round2Score > 0)) {
+                         scoreIsSet = true;
+                     } else if (roundNum === 3 && stats.round3TotalQuestions > 0 && (currentRound === 'RESULTS' || currentRound === 'FINAL_REVIEW' || stats.round3Score > 0)) {
+                         scoreIsSet = true;
+                     }
+
+
+                    if (!animate) {
+                        if (scoreIsSet) {
+                           if(el) { el.textContent = Math.round(score) + '%'; el.style.color = getScoreColor(score); }
+                        } else { if(el) { el.textContent = '-'; el.style.color = ''; } }
+                    } else if (el && el.textContent === '-' && scoreIsSet && score === 0) {
+                        // Animate from '-' to '0%' only if score is actually 0 and set
+                        el.textContent = '0%'; el.style.color = getScoreColor(0);
+                    } else if (el && scoreIsSet && stats[`round${roundNum}Score`] > 0) {
+                        // Let animateValue handle animation from existing value or '-' to the new score
+                        // Call animateValue only when the round finishes (in finishRound)
+                         // If not animating right now, just display
+                         if(el) { el.textContent = Math.round(score) + '%'; el.style.color = getScoreColor(score); }
+                    } else if (!scoreIsSet && el) {
+                        // If score is not yet set, ensure it shows '-'
+                         el.textContent = '-'; el.style.color = '';
+                    }
+                };
+
+                // Call displayScore for each round score element
+                displayScore(statsRound1ScoreEl, stats.round1Score, 1);
+                displayScore(statsRound2ScoreEl, stats.round2Score, 2);
+                displayScore(statsRound3ScoreEl, stats.round3Score, 3);
+
+                if(statsStatusMessageEl) {
+                    statsStatusMessageEl.textContent = stats.statusMessage;
+                    statsStatusMessageEl.className = getStatusMessageClass(stats.statusMessage);
+                }
+            }
+
+            // --- Quiz Logic Functions ---
+            function initializeQuiz(selectedQuizId, selectedQuizTitle, selectedQuestions) {
+                console.log(`Initializing Quiz: ${selectedQuizId}`);
+                currentQuizId = selectedQuizId; // Store the current quiz ID
+                currentQuizData = quizData[selectedQuizId]; // Store current quiz data
+                currentRound = 'TEST_1';
+                questionsForRound = [...selectedQuestions]; // Use the passed-in questions
+                incorrectInRound1 = [];
+                incorrectInRound2 = [];
+                currentQuestionIndexInRound = 0;
+                userAnswers = {};
+                stats = {
+                    round1Correct: 0, round1Incorrect: 0, round2Correct: 0, round2Incorrect: 0, round3Correct: 0,
+                    round1Score: 0, round2Score: 0, round3Score: 0,
+                    round1TotalQuestions: questionsForRound.length, // Use actual length
+                    round2TotalQuestions: 0, round3TotalQuestions: 0,
+                    currentRoundCorrect: 0, currentRoundIncorrect: 0, currentRoundTotal: questionsForRound.length, // Use actual length
+                    statusMessage: "1. Tur Devam Ediyor..."
+                };
+                if(feedbackEl) { feedbackEl.textContent = ''; feedbackEl.className = ''; feedbackEl.style.display = 'none'; }
+                if(quizTitleEl) quizTitleEl.textContent = selectedQuizTitle; // Set the title
+
+                // Reset score displays explicitly
+                if(statsRound1ScoreEl) { statsRound1ScoreEl.textContent = '-'; statsRound1ScoreEl.style.color = ''; }
+                if(statsRound2ScoreEl) { statsRound2ScoreEl.textContent = '-'; statsRound2ScoreEl.style.color = ''; }
+                if(statsRound3ScoreEl) { statsRound3ScoreEl.textContent = '-'; statsRound3ScoreEl.style.color = ''; }
+                if(progressBarFillEl) progressBarFillEl.style.width = '0%';
+
+                updateStatsDisplay(false); // Update display without animation initially
+                showQuizContainer('quiz-container'); // Show the question area
+                loadQuestion();
+            }
+
+             function loadQuestion() {
+                if(feedbackEl) feedbackEl.style.display = 'none';
+                if(optionsEl) optionsEl.classList.remove('options-disabled');
+
+                if (currentQuestionIndexInRound >= questionsForRound.length) {
+                    // Ensure progress bar/text show completion before moving on
+                    if(progressBarFillEl) progressBarFillEl.style.width = '100%';
+                    if(stats.currentRoundTotal > 0 && statsRoundProgressEl) {
+                         // Display the final count immediately when round ends
+                        statsRoundProgressEl.textContent = `${stats.currentRoundTotal}/${stats.currentRoundTotal}`;
+                    }
+                    updateStatsDisplay(false); // Final update before finishing
+                    setTimeout(finishRound, 50); // Short delay before processing results
+                    return;
+                }
+
+                const currentQuestion = questionsForRound[currentQuestionIndexInRound];
+                if(questionEl) questionEl.innerHTML = currentQuestion.question; // Use innerHTML if question has formatting
+                if(optionsEl) optionsEl.innerHTML = '';
+
+                currentQuestion.options.forEach((option, index) => {
+                    const optionId = `option_${currentQuestion.id}_${index}`;
+                    const label = document.createElement('label');
+                    label.htmlFor = optionId;
+                    label.classList.add('option-label');
+                    const input = document.createElement('input');
+                    input.type = 'radio';
+                    input.id = optionId;
+                    input.name = `option_${currentQuestion.id}`;
+                    input.value = option;
+                    const span = document.createElement('span');
+                    span.textContent = option; // Use textContent for security
+                    const correctIcon = document.createElement('span');
+                    correctIcon.classList.add('feedback-icon', 'correct');
+                    correctIcon.innerHTML = '&#10004;'; // Check mark
+                    const incorrectIcon = document.createElement('span');
+                    incorrectIcon.classList.add('feedback-icon', 'incorrect');
+                    incorrectIcon.innerHTML = '&#10006;'; // X mark
+                    label.appendChild(input);
+                    label.appendChild(span);
+                    label.appendChild(correctIcon);
+                    label.appendChild(incorrectIcon);
+                    if(optionsEl) optionsEl.appendChild(label);
+                });
+
+                if(submitBtn) submitBtn.disabled = false;
+                updateStatsDisplay(true); // Animate stats for the new question
+            }
+
+            function checkAnswer() {
+                const currentQuestion = questionsForRound[currentQuestionIndexInRound];
+                const selectedOptionInput = optionsEl ? optionsEl.querySelector(`input[name="option_${currentQuestion.id}"]:checked`) : null;
+
+                if (!selectedOptionInput) {
+                    // Provide feedback without alert
+                    if(feedbackEl) {
+                        feedbackEl.textContent = 'Lütfen bir cevap seçin!';
+                        feedbackEl.style.color = 'var(--warning)'; // Use warning color
+                        feedbackEl.style.display = 'block';
+                        setTimeout(() => { if(feedbackEl) feedbackEl.style.display = 'none'; }, 2000);
+                    }
+                    return;
+                }
+
+                if(submitBtn) submitBtn.disabled = true;
+                if(optionsEl) optionsEl.classList.add('options-disabled');
+                const userAnswer = selectedOptionInput.value;
+                const correctAnswer = currentQuestion.correctAnswer;
+                userAnswers[currentQuestion.id] = userAnswer; // Store user's answer for this question
+
+                let wasCorrect = false;
+                const optionLabels = optionsEl ? optionsEl.querySelectorAll('.option-label') : [];
+
+                optionLabels.forEach(label => {
+                    const input = label.querySelector('input');
+                    if (!input) return;
+                    if (input.value === correctAnswer) { label.classList.add('correct-option'); }
+                    if (input.checked) {
+                        label.classList.add('user-selected');
+                        if (input.value !== correctAnswer) { label.classList.add('incorrect-option'); }
+                        else { wasCorrect = true; }
+                    }
+                });
+
+                if (wasCorrect) {
+                    stats.currentRoundCorrect++;
+                    if (currentRound === 'TEST_1') stats.round1Correct++;
+                    else if (currentRound === 'TEST_2') stats.round2Correct++;
+                    else if (currentRound === 'TEST_3') stats.round3Correct++;
+                } else {
+                    stats.currentRoundIncorrect++;
+                    if (currentRound === 'TEST_1') { stats.round1Incorrect++; incorrectInRound1.push(currentQuestion); }
+                    else if (currentRound === 'TEST_2') { stats.round2Incorrect++; incorrectInRound2.push(currentQuestion); }
+                    // No need to track incorrect in TEST_3 for next round
+                }
+
+                // Animate the correct/incorrect counters for the current round
+                animateIntegerChange(statsRoundCorrectEl, stats.currentRoundCorrect, 300);
+                animateIntegerChange(statsRoundIncorrectEl, stats.currentRoundIncorrect, 300);
+
+                currentQuestionIndexInRound++;
+
+                // Update progress bar/text immediately after answering before the delay
+                const progressPercent = Math.min(100, (stats.currentRoundTotal > 0 ? (currentQuestionIndexInRound / stats.currentRoundTotal) * 100 : 0));
+                if(progressBarFillEl) progressBarFillEl.style.width = `${progressPercent}%`;
+                 // Animate progress text here right after checkAnswer
+                 animateProgressText(statsRoundProgressEl, currentQuestionIndexInRound, stats.currentRoundTotal, 300);
+
+                // Load next question after a delay
+                setTimeout(() => {
+                    loadQuestion();
+                }, 1800); // Delay to show feedback
+            }
+
+            function finishRound() {
+                console.log(`Finishing round: ${currentRound}`);
+                 const prevScore1Text = statsRound1ScoreEl ? statsRound1ScoreEl.textContent : '-';
+                 const prevScore2Text = statsRound2ScoreEl ? statsRound2ScoreEl.textContent : '-';
+                 const prevScore3Text = statsRound3ScoreEl ? statsRound3ScoreEl.textContent : '-';
+                 const animationTime = 600;
+                 const resultDelay = animationTime + 100; // Delay after score animation finishes
+
+                switch (currentRound) {
+                    case 'TEST_1':
+                        stats.round1Score = stats.round1TotalQuestions > 0 ? Math.round((stats.round1Correct / stats.round1TotalQuestions) * 100) : 100;
+                         animateValue(statsRound1ScoreEl, prevScore1Text, stats.round1Score, animationTime);
+                        setTimeout(() => {
+                             if (incorrectInRound1.length === 0) {
+                                stats.statusMessage = "Sonuçlar Hazırlanıyor..."; updateStatsDisplay(false); currentRound = 'RESULTS'; showResults();
+                             } else {
+                                stats.statusMessage = "1. Tur Tamamlandı"; updateStatsDisplay(false); currentRound = 'LEARN_1_OFFER'; offerLearningRound(1);
+                             }
+                         }, resultDelay);
+                        break;
+                    case 'TEST_2':
+                        stats.round2TotalQuestions = incorrectInRound1.length; // Total questions in this round
+                        stats.round2Score = stats.round2TotalQuestions > 0 ? Math.round((stats.round2Correct / stats.round2TotalQuestions) * 100) : 100;
+                         animateValue(statsRound2ScoreEl, prevScore2Text, stats.round2Score, animationTime);
+                         setTimeout(() => {
+                             if (incorrectInRound2.length === 0) {
+                                 stats.statusMessage = "Sonuçlar Hazırlanıyor..."; updateStatsDisplay(false); currentRound = 'RESULTS'; showResults();
+                             } else {
+                                 stats.statusMessage = "2. Tur Tamamlandı"; updateStatsDisplay(false); currentRound = 'LEARN_2_OFFER'; offerLearningRound(2);
+                             }
+                         }, resultDelay);
+                        break;
+                    case 'TEST_3':
+                        stats.round3TotalQuestions = incorrectInRound2.length; // Total questions in this round
+                        stats.round3Score = stats.round3TotalQuestions > 0 ? Math.round((stats.round3Correct / stats.round3TotalQuestions) * 100) : 100;
+                         animateValue(statsRound3ScoreEl, prevScore3Text, stats.round3Score, animationTime);
+                         setTimeout(() => {
+                             stats.statusMessage = "Sonuçlar Hazırlanıyor..."; updateStatsDisplay(false); currentRound = 'RESULTS'; showResults();
+                         }, resultDelay);
+                        break;
+                    default:
+                        console.error("finishRound called in unexpected state:", currentRound);
+                        goHome(); // Fallback: go home
+                }
+                // Update display immediately to show final round progress text if needed
+                 updateStatsDisplay(false);
+            }
+
+            function offerLearningRound(roundNumber) {
+                const incorrectList = (roundNumber === 1) ? incorrectInRound1 : incorrectInRound2;
+                const incorrectCount = incorrectList.length;
+                if(offerTitleEl) offerTitleEl.textContent = `${roundNumber}. Tur Sonu Değerlendirme`;
+                if(offerMessageEl) offerMessageEl.textContent = `Bu turda ${incorrectCount} soruyu yanlış yanıtladınız. İsterseniz bu sorular için bir öğretim turuna katılabilir veya doğrudan bu soruları tekrar çözmeye geçebilirsiniz.`;
+                if(startLearningBtn) startLearningBtn.onclick = () => startLearningRound(roundNumber);
+                if(startNextTestBtn) startNextTestBtn.onclick = () => startNextTestRound(roundNumber + 1);
+                showQuizContainer('learning-offer-container');
+                stats.statusMessage = `${roundNumber}. Tur Tamamlandı - Seçim Bekleniyor`;
+                updateStatsDisplay(false); // Update non-animated stats
+            }
+
+            function startLearningRound(roundNumber) {
+                const incorrectList = (roundNumber === 1) ? incorrectInRound1 : incorrectInRound2;
+                if(learningTitleEl) learningTitleEl.textContent = `${roundNumber}. Öğrenme Turu (Yanlışlar)`;
+                if(learningContentEl) learningContentEl.innerHTML = '';
+
+                incorrectList.forEach(q => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.classList.add('learning-item');
+                    const questionTitle = document.createElement('h4');
+                     // Remove leading number if present
+                    questionTitle.textContent = q.question.replace(/^\d+\.\s*/, '');
+                    const answerLine = document.createElement('p');
+                    answerLine.classList.add('answer-line');
+                    answerLine.innerHTML = `Doğru Cevap: <span class="correct-answer">${q.correctAnswer}</span>`;
+                    if(userAnswers[q.id] && userAnswers[q.id] !== q.correctAnswer){
+                         answerLine.innerHTML += `<span class="user-answer-incorrect">(Sizin Cevabınız: ${userAnswers[q.id]})</span>`;
+                    }
+
+                    const explanationP = document.createElement('p');
+                    explanationP.classList.add('explanation');
+                    explanationP.style.display = 'none'; // Start hidden
+                     if (q.explanation) { explanationP.textContent = q.explanation; }
+                     else { explanationP.textContent = "Bu soru için ek açıklama bulunmamaktadır."; explanationP.style.fontStyle = 'italic'; }
+
+                    const toggleButton = document.createElement('button');
+                    toggleButton.textContent = "Açıklama Göster";
+                    toggleButton.classList.add('explanation-toggle'); // Use specific class
+                    toggleButton.onclick = () => {
+                        const isHidden = explanationP.style.display === 'none';
+                        explanationP.style.display = isHidden ? 'block' : 'none';
+                        toggleButton.textContent = isHidden ? 'Açıklama Gizle' : 'Açıklama Göster';
+                    };
+
+                    answerLine.appendChild(toggleButton); // Add button next to answers
+                    itemDiv.appendChild(questionTitle);
+                    itemDiv.appendChild(answerLine);
+                    itemDiv.appendChild(explanationP);
+                    if(learningContentEl) learningContentEl.appendChild(itemDiv);
+                });
+
+                if(continueToNextTestBtn) continueToNextTestBtn.onclick = () => startNextTestRound(roundNumber + 1);
+                currentRound = (roundNumber === 1) ? 'LEARN_1' : 'LEARN_2';
+                stats.statusMessage = `${roundNumber}. Öğrenme Turu`;
+
+                // Reset round-specific stats display for learning phase
+                if(statsRoundProgressEl) statsRoundProgressEl.textContent = '-';
+                if(progressBarFillEl) progressBarFillEl.style.width = '0%'; // Reset progress bar
+                if(statsRoundCorrectEl) statsRoundCorrectEl.textContent = '-';
+                if(statsRoundIncorrectEl) statsRoundIncorrectEl.textContent = '-';
+
+                updateStatsDisplay(false);
+                showQuizContainer('learning-round-container');
+            }
+
+            function startNextTestRound(roundNumber) {
+                let title = "";
+                if (roundNumber === 2) {
+                    currentRound = 'TEST_2';
+                    questionsForRound = [...incorrectInRound1]; // Get questions from previous incorrects
+                    title = "2. Tur Test Soruları (Yanlışlar)";
+                    stats.statusMessage = "2. Tur Devam Ediyor...";
+                    stats.round2TotalQuestions = questionsForRound.length;
+                } else if (roundNumber === 3) {
+                    currentRound = 'TEST_3';
+                    questionsForRound = [...incorrectInRound2]; // Get questions from previous incorrects
+                    title = "Final Turu Test Soruları (Yanlışlar)";
+                    stats.statusMessage = "Final Turu Devam Ediyor...";
+                    stats.round3TotalQuestions = questionsForRound.length;
+                } else {
+                    console.error("Geçersiz sonraki tur numarası:", roundNumber);
+                    currentRound = 'RESULTS'; showResults(); return; // Should not happen if logic is correct
+                }
+
+                // If no questions to ask in this round, skip to results/next stage
+                if (questionsForRound.length === 0) {
+                    console.log(`No questions for round ${roundNumber}, finishing round.`);
+                    // Set scores to 100% for this empty round if appropriate? Or just skip.
+                    if (roundNumber === 2) { stats.round2Score = 100; stats.round2TotalQuestions = 0;}
+                    if (roundNumber === 3) { stats.round3Score = 100; stats.round3TotalQuestions = 0;}
+                    finishRound(); // finishRound logic will handle moving to RESULTS or next offer
+                    return;
+                }
+
+
+                if(quizTitleEl) quizTitleEl.textContent = title;
+                currentQuestionIndexInRound = 0;
+                stats.currentRoundCorrect = 0;
+                stats.currentRoundIncorrect = 0;
+                stats.currentRoundTotal = questionsForRound.length;
+
+                // Reset score display for the upcoming round
+                if (roundNumber === 2 && statsRound2ScoreEl) { statsRound2ScoreEl.textContent = '-'; statsRound2ScoreEl.style.color = ''; }
+                if (roundNumber === 3 && statsRound3ScoreEl) { statsRound3ScoreEl.textContent = '-'; statsRound3ScoreEl.style.color = ''; }
+                 if(progressBarFillEl) progressBarFillEl.style.width = '0%'; // Reset progress bar
+
+                updateStatsDisplay(false); // Update display before showing question
+                showQuizContainer('quiz-container');
+                loadQuestion();
+            }
+
+            function showResults() {
+                let message = "";
+                let messageClass = "";
+
+                if (stats.round1Score === 100) {
+                    message = "Mükemmel! İlk turda tüm soruları doğru bildiniz. Tebrikler!"; messageClass = "success-message";
+                } else if (stats.round2TotalQuestions > 0 && stats.round2Score === 100) { // Corrected logic: Check round 2 score if round 2 happened
+                    message = `Çok iyi! İlk turdaki ${stats.round1Incorrect} yanlışınızı ikinci turda düzelttiniz. Başarılı!`; messageClass = "success-message";
+                } else if (stats.round3TotalQuestions > 0 && stats.round3Score === 100) { // Corrected logic: Check round 3 score if round 3 happened
+                     message = `Harika! Kalan ${stats.round2Incorrect} yanlışınızı final turunda düzelttiniz. Sonuç mükemmel!`;
+                    messageClass = "success-message";
+                } else if (stats.round3TotalQuestions > 0) { // Final round happened, but not 100%
+                    const finalIncorrectCount = stats.round3TotalQuestions - stats.round3Correct;
+                    if (finalIncorrectCount > 0) {
+                        message = `Test tamamlandı. İlk tur skorunuz %${stats.round1Score}. İkinci turda bazı yanlışları düzelttiniz (%${stats.round2Score}), ancak final turunda hala ${finalIncorrectCount} yanlışınız kaldı. Gelişim için gayret gösterdiniz!`;
+                        messageClass = "improvement-message";
+                    } else {
+                        // This case should technically be caught by the round3Score === 100 check above, but as a fallback:
+                       message = `Harika! Kalan ${stats.round2Incorrect} yanlışınızı final turunda düzelttiniz. Sonuç mükemmel!`;
+                       messageClass = "success-message";
+                    }
+                } else if (stats.round2TotalQuestions > 0) { // Round 2 happened, not 100%, no Round 3
+                    const round2IncorrectCount = stats.round2TotalQuestions - stats.round2Correct;
+                    message = `Test tamamlandı. İlk tur skorunuz %${stats.round1Score}. İkinci turda ${round2IncorrectCount} yanlışınız kaldı (%${stats.round2Score}). Daha fazla pratik faydalı olabilir.`;
+                    messageClass = "improvement-message";
+                } else { // Only round 1 happened, and it wasn't 100%
+                    message = `Test tamamlandı. İlk turdaki skorunuz: %${stats.round1Score}. ${stats.round1Incorrect} yanlışınız var. Daha fazla pratik yapmanız önerilir.`;
+                    messageClass = "improvement-message";
+                }
+
+                if(scoreInfoEl) {
+                    scoreInfoEl.textContent = `İlk Tur Skoru: ${stats.round1Score}% (${stats.round1Correct}/${stats.round1TotalQuestions})`;
+                    if (stats.round2TotalQuestions > 0) { scoreInfoEl.innerHTML += `<br>2. Tur Skoru (Yanlışlar Üzerinden): ${stats.round2Score}% (${stats.round2Correct}/${stats.round2TotalQuestions})`; }
+                    if (stats.round3TotalQuestions > 0) { scoreInfoEl.innerHTML += `<br>Final Tur Skoru (Yanlışlar Üzerinden): ${stats.round3Score}% (${stats.round3Correct}/${stats.round3TotalQuestions})`; }
+                }
+
+                if(finalMessageEl) { finalMessageEl.textContent = message; finalMessageEl.className = messageClass; }
+                stats.statusMessage = "Test Tamamlandı";
+                currentRound = 'RESULTS';
+
+                // Final update to stats bar for results view
+                if(statsRoundProgressEl) statsRoundProgressEl.textContent = '-';
+                if(progressBarFillEl) progressBarFillEl.style.width = '100%'; // Show complete
+                if(statsRoundCorrectEl) statsRoundCorrectEl.textContent = '-';
+                if(statsRoundIncorrectEl) statsRoundIncorrectEl.textContent = '-';
+                updateStatsDisplay(false); // Update non-animated stats for results view
+
+                showQuizContainer('result-container');
+            }
+
+            function showFinalReview() {
+                 // Use currentQuizData which should hold the info for the quiz just completed
+                 if(!finalReviewContentEl || !currentQuizData || !currentQuizData.questions) {
+                     console.error("Final review cannot be shown: Missing elements or quiz data.");
+                     goHome(); // Fallback
+                     return;
+                 }
+                finalReviewContentEl.innerHTML = '';
+                currentRound = 'FINAL_REVIEW';
+                stats.statusMessage = "Genel İnceleme";
+
+                 // Iterate over the questions of the *currently selected* quiz
+                 currentQuizData.questions.forEach(q => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.classList.add('learning-item');
+                    const questionTitle = document.createElement('h4');
+                     // Remove leading number if present
+                     questionTitle.textContent = q.question.replace(/^\d+\.\s*/, '');
+                    const answerLine = document.createElement('p');
+                    answerLine.classList.add('answer-line');
+                    answerLine.innerHTML = `Doğru Cevap: <span class="correct-answer">${q.correctAnswer}</span>`;
+                    if(userAnswers[q.id]){
+                        if(userAnswers[q.id] !== q.correctAnswer) {
+                            answerLine.innerHTML += `<span class="user-answer-incorrect">(Sizin Cevabınız: ${userAnswers[q.id]})</span>`;
+                        }
+                    }
+
+                    const explanationP = document.createElement('p');
+                    explanationP.classList.add('explanation');
+                    if (q.explanation) {
+                        explanationP.textContent = q.explanation;
+                    } else {
+                        explanationP.textContent = "Bu soru için ek açıklama bulunmamaktadır.";
+                        explanationP.style.fontStyle = 'italic';
+                    }
+                    explanationP.style.display = 'block'; // Always show explanation in final review
+
+                    itemDiv.appendChild(questionTitle);
+                    itemDiv.appendChild(answerLine);
+                    itemDiv.appendChild(explanationP);
+                    finalReviewContentEl.appendChild(itemDiv);
+                });
+
+                // Reset stats bar for review view
+                if(statsRoundProgressEl) statsRoundProgressEl.textContent = '-';
+                if(progressBarFillEl) progressBarFillEl.style.width = '0%';
+                if(statsRoundCorrectEl) statsRoundCorrectEl.textContent = '-';
+                if(statsRoundIncorrectEl) statsRoundIncorrectEl.textContent = '-';
+                updateStatsDisplay(false);
+                showQuizContainer('final-review-container');
+            }
+
+            // --- Page Navigation and Theme ---
+            function goHome() {
+                console.log("Returning to homepage view...");
+                // Hide Quiz specific elements
+                if (statsContainerEl) statsContainerEl.style.display = 'none';
+                if (quizMainContentEl) quizMainContentEl.style.display = 'none';
+                // Show Homepage elements
+                if (homepageContentEl) homepageContentEl.style.display = 'block';
+                document.body.classList.remove('quiz-active');
+                window.scrollTo(0, 0); // Scroll to top
+
+                 // Reset quiz state variables so a new quiz starts fresh
+                 currentQuizId = null;
+                 currentQuizData = null;
+                 currentRound = 'INIT';
+                 questionsForRound = [];
+                 incorrectInRound1 = [];
+                 incorrectInRound2 = [];
+                 currentQuestionIndexInRound = 0;
+                 userAnswers = {};
+                 stats = { /* Reset stats object */ }; // Simplified, ensure full reset if needed
+
+                 // Reset stats display to initial state
+                 updateStatsDisplay(false);
+            }
+
+            function startQuiz(quizId) {
+                console.log(`Starting quiz: ${quizId}`);
+                const selectedQuiz = quizData[quizId]; // Get data for the selected quiz
+
+                if (!selectedQuiz || !selectedQuiz.questions || selectedQuiz.questions.length === 0) {
+                    // Find the link element for this quiz to check if it's disabled
+                    const quizLink = document.querySelector(`.card-link[onclick*="startQuiz('${quizId}')"]`);
+                    if (quizLink && quizLink.classList.contains('disabled')) {
+                         alert(`"${quizId}" başlıklı quiz henüz hazır değil.`);
+                    } else {
+                        alert(`Quiz "${quizId}" bulunamadı veya soruları eksik.`);
+                        console.error(`Quiz data not found or empty for id: ${quizId}`);
+                    }
+                    return; // Stop if quiz data doesn't exist or is empty
+                }
+
+                // Hide Homepage elements
+                if (homepageContentEl) homepageContentEl.style.display = 'none';
+                // Show Quiz specific elements
+                if (statsContainerEl) statsContainerEl.style.display = 'flex'; // Make sure it's visible
+                if (quizMainContentEl) quizMainContentEl.style.display = 'block'; // Make sure it's visible
+                document.body.classList.add('quiz-active');
+
+                // Scroll to the top of the quiz area (below the fixed stats bar)
+                window.scrollTo(0, 0);
+
+                // Pass the specific data to initializeQuiz
+                initializeQuiz(quizId, selectedQuiz.title, selectedQuiz.questions);
+            }
+
+
+            function applyTheme(theme) {
+                if (theme === 'dark') {
+                    document.body.classList.add('dark-mode');
+                    if(themeToggleButton) themeToggleButton.textContent = '☀️';
+                } else {
+                    document.body.classList.remove('dark-mode');
+                     if(themeToggleButton) themeToggleButton.textContent = '🌓';
+                }
+            }
+
+            function toggleTheme() {
+                const currentTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                applyTheme(newTheme);
+                try {
+                    localStorage.setItem('quizTheme', newTheme); // Use a consistent key
+                } catch (e) {
+                    console.error("LocalStorage kullanılamıyor.", e);
+                }
+            }
+
+            function initializeTheme() {
+                let preferredTheme;
+                try {
+                    preferredTheme = localStorage.getItem('quizTheme'); // Use a consistent key
+                } catch (e) {
+                     console.error("LocalStorage okunamıyor.", e);
+                }
+                if (!preferredTheme) {
+                     preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                }
+                applyTheme(preferredTheme || 'light');
+            }
+
+            // --- Event Listeners ---
+            if(submitBtn) submitBtn.addEventListener('click', checkAnswer);
+            if(showFinalReviewBtn) showFinalReviewBtn.addEventListener('click', showFinalReview);
+            if(themeToggleButton) themeToggleButton.addEventListener('click', toggleTheme);
+
+             // Smooth Scrolling for Nav Links (Copied from homepage logic)
+             document.querySelectorAll('#main-header nav a[href^="#"]').forEach(anchor => {
+                 anchor.addEventListener('click', function (e) {
+                     // If quiz is active, first go home
+                     if (document.body.classList.contains('quiz-active')) {
+                         goHome();
+                         // Allow the default behavior to proceed after a very short delay
+                         // to ensure the homepage content is displayed before scrolling
+                         setTimeout(() => {
+                             smoothScrollToTarget(this.getAttribute('href'));
+                         }, 50);
+                     } else {
+                          smoothScrollToTarget(this.getAttribute('href'));
+                     }
+                     e.preventDefault(); // Prevent default jump regardless
+                 });
+             });
+
+             function smoothScrollToTarget(targetId) {
+                 const isHeroLink = targetId === '#hero';
+
+                 document.querySelectorAll('#main-header nav a').forEach(link => link.classList.remove('active'));
+                 const activeLink = document.querySelector(`#main-header nav a[href="${targetId}"]`);
+                 if(activeLink) activeLink.classList.add('active');
+
+                 if (isHeroLink) {
+                     window.scrollTo({ top: 0, behavior: "smooth" });
+                 } else {
+                     const targetElement = document.querySelector(targetId);
+                     if(targetElement) {
+                         // Recalculate header offset as it might change (though unlikely in this setup)
+                         const headerElement = document.getElementById('main-header');
+                         const headerOffset = headerElement && getComputedStyle(headerElement).position === 'sticky' ? headerElement.offsetHeight : 0; // Only offset if sticky
+                         const elementPosition = targetElement.getBoundingClientRect().top;
+                         // Use pageYOffset for cross-browser compatibility instead of scrollY
+                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20; // Extra padding
+
+                         window.scrollTo({
+                             top: offsetPosition,
+                             behavior: "smooth"
+                         });
+                     }
+                 }
+             }
+
+
+            // --- Initial Setup ---
+            document.addEventListener('DOMContentLoaded', () => {
+                initializeTheme();
+                // Don't initialize quiz automatically, wait for user click
+                const copyrightYearEl = document.getElementById('copyright-year');
+                if(copyrightYearEl) copyrightYearEl.textContent = new Date().getFullYear();
+
+                // Set initial active nav link based on current view (usually home)
+                const homeNavLink = document.getElementById('nav-home');
+                if(homeNavLink) homeNavLink.classList.add('active');
+
+                // Initially hide quiz elements and show homepage content
+                goHome(); // Ensures correct initial visibility state
+            });
+
+        </script>
+    </body>
+    </html>
