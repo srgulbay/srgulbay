@@ -1097,6 +1097,106 @@ body.dark-mode #hero .btn:focus-visible {
     box-shadow: 0 0 0 var(--focus-ring-offset) rgba(0,0,0,0.7), 0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width)) var(--accent-primary-dark), var(--shadow-xl-dark);
 }
 
+/* --- Hiyerarşik Navigasyon Kart Stilleri --- */
+.hierarchy-nav-card {
+    display: flex; /* İçeriği yan yana hizala */
+    align-items: center; /* Dikeyde ortala */
+    justify-content: space-between; /* İkon/Başlık sol, ok sağ */
+    cursor: pointer;
+    padding: var(--space-m); /* İç boşluk */
+    /* Mevcut kart geçişlerini devralır veya üzerine yazar */
+    transition: transform var(--anim-duration-fast) var(--anim-easing-standard),
+                box-shadow var(--anim-duration-fast) var(--anim-easing-standard),
+                background var(--transition-speed) var(--transition-easing);
+    will-change: transform, box-shadow; /* Animasyon performansı için */
+}
+
+.hierarchy-nav-card .card-icon {
+    flex-shrink: 0; /* İkonun küçülmesini engelle */
+    width: 45px; /* Genişlik */
+    height: 45px; /* Yükseklik */
+    margin-right: var(--space-m); /* Sağ boşluk */
+    /* Miras alınan istenmeyen stilleri sıfırla */
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    /* İçindeki ikonu tam ortalamak için */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Hover animasyonu için geçiş */
+    transition: transform var(--anim-duration-normal) var(--anim-easing-elastic);
+}
+
+.hierarchy-nav-card .card-icon i {
+    font-size: 1.8rem; /* İkon boyutu */
+    color: var(--accent-primary); /* Ana vurgu rengi */
+     /* Hover animasyonu için geçiş */
+    transition: transform var(--anim-duration-normal) var(--anim-easing-elastic);
+}
+
+.hierarchy-nav-card h3 {
+    flex-grow: 1; /* Başlığın mevcut alanı doldurmasını sağla */
+    text-align: left; /* Sola hizala */
+    margin-bottom: 0; /* Alt boşluğu sıfırla */
+    font-size: var(--font-size-lg); /* Yazı boyutu */
+}
+
+.hierarchy-chevron {
+    margin-left: var(--space-m); /* Soldan boşluk */
+    color: var(--text-muted); /* Soluk renk */
+    font-size: 1.2em; /* Boyut */
+    flex-shrink: 0; /* Küçülmesini engelle */
+     /* Hover animasyonu için geçiş */
+    transition: transform var(--anim-duration-fast) var(--anim-easing-standard),
+                color var(--anim-duration-fast) var(--anim-easing-standard);
+}
+
+/* --- Hover Efektleri --- */
+.hierarchy-nav-card:hover {
+    /* Mevcut .card:hover efektleri (transform/shadow) uygulanmalı */
+    background: linear-gradient(155deg, var(--surface-3), var(--surface-2)); /* Arka planı hafif değiştir */
+}
+
+.hierarchy-nav-card:hover .card-icon {
+     transform: scale(1.15) rotate(5deg); /* İkon kutusunu canlandır */
+}
+
+.hierarchy-nav-card:hover .card-icon i {
+     /* İkonun kendisini de canlandırabiliriz (opsiyonel) */
+     /* transform: scale(1.1); */
+}
+
+.hierarchy-nav-card:hover .hierarchy-chevron {
+    transform: translateX(6px); /* Oku sağa kaydır */
+    color: var(--accent-primary); /* Ok rengini vurgula */
+}
+
+/* Focus stilleri (mevcut focus-visible'a ek olarak veya üzerine) */
+.hierarchy-nav-card:focus {
+    /* Klavye dışı focus için outline olmasın */
+    outline: none;
+}
+.hierarchy-nav-card:focus-visible {
+     outline: var(--focus-ring-width) solid var(--focus-ring-color);
+     /* box-shadow ekleyebilir veya mevcut olanı kullanabilir */
+     box-shadow: 0 0 0 var(--focus-ring-offset) var(--bg-secondary);
+     /* Z-index gerekirse */
+     position: relative;
+     z-index: 1;
+}
+
+/* Geri Butonu Stili */
+.hierarchy-back-btn {
+    /* Grid layout kullanılıyorsa: */
+    grid-column: 1 / -1; /* Tüm genişliği kapla */
+    justify-self: start; /* Sola hizala */
+    /* Grid layout yoksa: */
+    display: block; /* veya inline-block */
+    width: fit-content; /* İçeriğe sığdır */
+    margin-bottom: var(--space-l);
+    margin-right: auto;
+}
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
@@ -2215,14 +2315,13 @@ body.mobile-menu-active .mobile-nav {
             <div class="logo-container">
                 <a href="#hero"> <h1>Uzm.Dr. Sait Ramazan Gülbay</h1></a>
             </div>
-            <nav aria-label="Ana Gezinti">
-                <ul>
-                    <li><a href="#hero" id="nav-home" class="active" aria-current="page">Ana Sayfa</a></li>
-                    <li><a href="#konular" id="nav-konular">Konu Anlatımları</a></li>
-                    <li><a href="#quizler" id="nav-quizler">Quizler</a></li>
-                    <li><a href="#hakkinda" id="nav-hakkinda">Hakkında</a></li>
-                </ul>
-            </nav>
+<nav aria-label="Ana Gezinti">
+    <ul>
+        <li><a href="#hero" id="nav-home" class="active" aria-current="page">Ana Sayfa</a></li>
+        <li><a href="#quizler" id="nav-quizler">Konular ve Quizler</a></li>
+        <li><a href="#hakkinda" id="nav-hakkinda">Hakkında</a></li>
+    </ul>
+</nav>
             <div id="header-actions">
                 <button class="search-icon-btn" aria-label="Ara">
                     <i class="fas fa-search" aria-hidden="true"></i>
@@ -2237,12 +2336,11 @@ body.mobile-menu-active .mobile-nav {
 
     <div class="mobile-nav" id="mobile-navigation" aria-hidden="true">
         <button class="mobile-menu-close-btn" aria-label="Menüyü Kapat">&times;</button>
-        <ul>
-            <li><a href="#hero">Ana Sayfa</a></li>
-            <li><a href="#konular">Konu Anlatımları</a></li>
-            <li><a href="#quizler">Quizler</a></li>
-            <li><a href="#hakkinda">Hakkında</a></li>
-        </ul>
+<ul>
+    <li><a href="#hero">Ana Sayfa</a></li>
+    <li><a href="#quizler">Konular ve Quizler</a></li>
+    <li><a href="#hakkinda">Hakkında</a></li>
+</ul>
         <div class="mobile-nav-actions">
             <button class="search-icon-btn" aria-label="Ara (Mobil)">
                  <i class="fas fa-search" aria-hidden="true"></i> Ara
@@ -2257,96 +2355,17 @@ body.mobile-menu-active .mobile-nav {
             <div class="container">
                 <h2 id="hero-heading">Tıp ve Diş Hekimliği Öğrencileri İçin Gelişmiş Eğitim Kaynakları</h2>
                 <p>Güncel, interaktif ders materyalleri, sunumlar ve akıllı quizlerle öğrenme deneyiminizi zenginleştirin.</p>
-                <a href="#konular" class="btn btn-secondary">Konu Anlatımları (Geliştiriliyor)</a>
-                <a href="#quizler" class="btn btn-primary">İnteraktif Quizler</a>
+<a href="#quizler" class="btn btn-primary">İçerikler için tıklayın</a>
             </div>
         </section>
 
-        <main class="container">
-            <section id="konular" class="content-section" aria-labelledby="konular-heading">
-                <h2 id="konular-heading"><i class="fas fa-book-open" aria-hidden="true"></i> Konu Anlatımları</h2>
-                <div id="construction-message" role="alert">
-                    <p><i class="fas fa-wrench" aria-hidden="true"></i> Bu bölüm geliştirme aşamasındadır. Yakında kapsamlı ders notları ve sunumlar eklenecektir. Anlayışınız için teşekkürler!</p>
-                </div>
-            </section>
-            </main>
+
     </div>
 <section id="quizler" class="content-section" aria-labelledby="quizler-heading">
-                <h2 id="quizler-heading"><i class="fas fa-question-circle" aria-hidden="true"></i> İnteraktif Quizler</h2>
-                <div class="card-grid">
-                    <article class="card quiz-card" aria-labelledby="quiz-title-immunoloji_giris_hucreler">
-                        <div class="card-icon"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
-                        <h3 id="quiz-title-immunoloji_giris_hucreler">İmmünolojiye Giriş ve İmmün Sistem Hücreleri</h3>
-                        <p>İmmünolojinin temelleri ve immün sistemin hücresel elemanları hakkında bilginizi test edin.</p>
-                        <div class="audience-tags"><span class="audience-tag diş">Diş</span></div>
-                        <a href="#" onclick="event.preventDefault(); startQuiz('immunoloji_giris_hucreler');" class="card-link">Quizi Başlat</a>
-                    </article>
-                    <article class="card quiz-card" aria-labelledby="quiz-title-antikorlar">
-                        <div class="card-icon"><i class="fas fa-shield-virus" aria-hidden="true"></i></div>
-                        <h3 id="quiz-title-antikorlar">Antikorlar</h3>
-                        <p>İmmünoglobulinlerin yapısı, sınıfları ve fonksiyonları üzerine odaklanın.</p>
-                        <div class="audience-tags"><span class="audience-tag diş">Diş</span></div>
-                        <a href="#" onclick="event.preventDefault(); startQuiz('antikorlar');" class="card-link">Quizi Başlat</a>
-                    </article>
-                    <article class="card quiz-card" aria-labelledby="quiz-title-dogal_immun_yanit">
-                         <div class="card-icon"><i class="fas fa-fire" aria-hidden="true"></i></div>
-                         <h3 id="quiz-title-dogal_immun_yanit">Doğal İmmün Yanıt</h3>
-                         <p>Doğuştan gelen bağışıklık mekanizmalarını, reseptörlerini ve kompleman sistemini test edin.</p>
-                         <div class="audience-tags"><span class="audience-tag diş">Diş</span></div>
-                         <a href="#" onclick="event.preventDefault(); startQuiz('dogal_immun_yanit');" class="card-link">Quizi Başlat</a>
-                    </article>
-                    <article class="card quiz-card" aria-labelledby="quiz-title-kazanilmis_immun_yanit">
-                         <div class="card-icon"><i class="fas fa-bullseye" aria-hidden="true"></i></div>
-                         <h3 id="quiz-title-kazanilmis_immun_yanit">Kazanılmış İmmün Yanıt</h3>
-                         <p>Lenfosit olgunlaşması, aktivasyonu, MHC molekülleri ve aşırı duyarlılık reaksiyonları bilginizi ölçün.</p>
-                         <div class="audience-tags"><span class="audience-tag diş">Diş</span></div>
-                         <a href="#" onclick="event.preventDefault(); startQuiz('kazanilmis_immun_yanit');" class="card-link">Quizi Başlat</a>
-                    </article>
-                    <article class="card quiz-card" aria-labelledby="quiz-title-anaeroblar">
-                        <div class="card-icon"><i class="fas fa-lungs-virus" aria-hidden="true"></i></div>
-                        <h3 id="quiz-title-anaeroblar">Anaeroblar</h3>
-                        <p>Oksijensiz ortamda yaşayan bakteriler ve neden oldukları enfeksiyonlar.</p>
-                       <div class="audience-tags"><span class="audience-tag diş">Diş</span></div>
-                        <a href="#" onclick="event.preventDefault(); startQuiz('anaeroblar');" class="card-link">Quizi Başlat</a>
-                    </article>
-                    <article class="card quiz-card" aria-labelledby="quiz-title-spiroketler">
-                        <div class="card-icon"><i class="fas fa-bacteria" aria-hidden="true"></i></div>
-                        <h3 id="quiz-title-spiroketler">Spiroketler</h3>
-                        <p>Treponema, Borrelia ve Leptospira gibi önemli spiroketler ve ilişkili hastalıklar.</p>
-                       <div class="audience-tags"><span class="audience-tag diş">Diş</span></div>
-                        <a href="#" onclick="event.preventDefault(); startQuiz('spiroketler');" class="card-link">Quizi Başlat</a>
-                    </article>
-                    <article class="card quiz-card" aria-labelledby="quiz-title-gram_negatif_non_fermenter_basiller">
-                         <div class="card-icon"><i class="fas fa-vial" aria-hidden="true"></i></div>
-                         <h3 id="quiz-title-gram_negatif_non_fermenter_basiller">Gram Negatif Non-fermenter Basiller</h3>
-                         <p>Pseudomonas, Burkholderia, Acinetobacter ve Stenotrophomonas türleri.</p>
-                        <div class="audience-tags"><span class="audience-tag diş">Diş</span></div>
-                         <a href="#" onclick="event.preventDefault(); startQuiz('gram_negatif_non_fermenter_basiller');" class="card-link">Quizi Başlat</a>
-                    </article>
-                     <article class="card quiz-card" aria-labelledby="quiz-title-gram_negatif_koklar">
-                         <div class="card-icon"><i class="fas fa-dot-circle" aria-hidden="true"></i></div>
-                         <h3 id="quiz-title-gram_negatif_koklar">Gram Negatif Koklar</h3>
-                         <p>Neisseria (Meningokok, Gonokok) ve Moraxella türleri hakkında bilgiler.</p>
-                         <div class="audience-tags"><span class="audience-tag diş">Diş</span></div>
-                         <a href="#" onclick="event.preventDefault(); startQuiz('gram_negatif_koklar');" class="card-link">Quizi Başlat</a>
-                     </article>
-                    <article class="card quiz-card" aria-labelledby="quiz-title-mikobakteriler">
-                        <div class="card-icon"><i class="fas fa-microscope" aria-hidden="true"></i></div>
-                        <h3 id="quiz-title-mikobakteriler">Mikobakteriler</h3>
-                        <p>Tüberküloz, lepra etkenleri ve atipik mikobakteriler.</p>
-                       <div class="audience-tags"><span class="audience-tag diş">Diş</span></div>
-                        <a href="#" onclick="event.preventDefault(); startQuiz('mikobakteriler');" class="card-link">Quizi Başlat</a>
-                    </article>
-                     <article class="card quiz-card" aria-labelledby="quiz-title-gram_pozitif_basiller">
-                         <div class="card-icon"><i class="fas fa-bacterium" aria-hidden="true"></i></div>
-                         <h3 id="quiz-title-gram_pozitif_basiller">Gram Pozitif Basiller</h3>
-                         <p>Bacillus, Clostridium, Listeria, Corynebacterium ve diğerleri.</p>
-                         <div class="audience-tags"><span class="audience-tag diş">Diş</span></div>
-                         <a href="#" onclick="event.preventDefault(); startQuiz('gram_pozitif_basiller');" class="card-link">Quizi Başlat</a>
-                     </article>
-                </div>
-            </section>
-
+    <h2 id="quizler-heading"><i class="fas fa-sitemap" aria-hidden="true"></i> Konular ve Quizler</h2>
+    <div id="hierarchical-nav-container" class="card-grid">
+        </div>
+</section>
             <section id="hakkinda" class="content-section" aria-labelledby="hakkinda-heading">
                  <h2 id="hakkinda-heading"><i class="fas fa-info-circle" aria-hidden="true"></i> Hakkında</h2>
                  <p style="text-align: center; max-width: 650px; margin: 0 auto; line-height: 1.8;">Mikrobiyoloji eğitim materyalleri geliştirerek öğretime katkıda bulunmak, mikrobiyoloji öğretimini bir adım daha ileriye taşımak için çalışıyoruz. Bilgiyi interaktif ve erişilebilir kılma hedefiyle... İşimiz vaktimizden çok.</p>
@@ -2427,211 +2446,445 @@ body.mobile-menu-active .mobile-nav {
 <style> .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; } </style>
 
 <script>
+const learningHierarchy = {
+  "YDUS": {
+    // Burası şimdilik boş, tıklayınca "içerik yok" mesajı normaldir.
+  },
+  "TUS": {
+    // Burası şimdilik boş, tıklayınca "içerik yok" mesajı normaldir.
+  },
+  "DUS": {
+    // Burası şimdilik boş, tıklayınca "içerik yok" mesajı normaldir.
+  },
+  "Tıp Fakültesi Dersleri": { // Bu kategoriye tıklayınca alt disiplinler görünmeli
+    "İmmünoloji": {
+      "demo": {
+        title: "Demo",
+        description: "İmmünolojinin temelleri ve immün sistemin hücresel elemanları hakkında bilginizi test edin.",
+        lectureAvailable: false,
+        quizId: "demo"
+      },
+       "immunoloji_giris_hucreler": {
+        title: "İmmünolojiye Giriş ve İmmün Sistem Hücreleri",
+        description: "İmmünolojinin temelleri ve immün sistemin hücresel elemanları hakkında bilginizi test edin.",
+        lectureAvailable: false,
+        quizId: "immunoloji_giris_hucreler"
+      },
+      "antikorlar": {
+        title: "Antikorlar",
+        description: "İmmünoglobulinlerin yapısı, sınıfları ve fonksiyonları üzerine odaklanın.",
+        lectureAvailable: false,
+        quizId: "antikorlar"
+      },
+       "dogal_immun_yanit": {
+        title: "Doğal İmmün Yanıt",
+        description: "Doğuştan gelen bağışıklık mekanizmalarını, reseptörlerini ve kompleman sistemini test edin.",
+        lectureAvailable: false,
+        quizId: "dogal_immun_yanit"
+      },
+       "kazanilmis_immun_yanit": {
+        title: "Kazanılmış İmmün Yanıt",
+        description: "Lenfosit olgunlaşması, aktivasyonu, MHC molekülleri ve aşırı duyarlılık reaksiyonları bilginizi ölçün.",
+        lectureAvailable: false,
+        quizId: "kazanilmis_immun_yanit"
+      }
+      // Tıp fakültesi için İmmünoloji altına başka konular eklenebilir
+    },
+    "Bakteriyoloji": {
+        "anaeroblar": { // Ortak konu örneği
+            title: "Anaeroblar",
+            description: "Oksijensiz ortamda yaşayan bakteriler ve neden oldukları enfeksiyonlar.",
+            lectureAvailable: false,
+            quizId: "anaeroblar"
+        },
+        "spiroketler": { // Ortak konu örneği
+            title: "Spiroketler",
+            description: "Treponema, Borrelia ve Leptospira gibi önemli spiroketler ve ilişkili hastalıklar.",
+            lectureAvailable: false,
+            quizId: "spiroketler"
+        },
+        "gram_negatif_non_fermenter_basiller": { // Ortak konu örneği
+            title: "Gram Negatif Non-fermenter Basiller",
+            description: "Pseudomonas, Burkholderia, Acinetobacter ve Stenotrophomonas türleri.",
+            lectureAvailable: false,
+            quizId: "gram_negatif_non_fermenter_basiller"
+        },
+        "gram_negatif_koklar": { // Ortak konu örneği
+            title: "Gram Negatif Koklar",
+            description: "Neisseria (Meningokok, Gonokok) ve Moraxella türleri hakkında bilgiler.",
+            lectureAvailable: false,
+            quizId: "gram_negatif_koklar"
+        },
+         "mikobakteriler": { // Ortak konu örneği
+            title: "Mikobakteriler",
+            description: "Tüberküloz, lepra etkenleri ve atipik mikobakteriler.",
+            lectureAvailable: false,
+            quizId: "mikobakteriler"
+        },
+         "gram_pozitif_basiller": { // Ortak konu örneği
+            title: "Gram Pozitif Basiller",
+            description: "Bacillus, Clostridium, Listeria, Corynebacterium ve diğerleri.",
+            lectureAvailable: false,
+            quizId: "gram_pozitif_basiller"
+        }
+       // Tıp fakültesi için Bakteriyoloji altına başka konular eklenebilir
+    },
+    "Genel Mikrobiyoloji": { /* Şimdilik boş */ },
+    "Viroloji": { /* Şimdilik boş */ },
+    "Mikoloji": { /* Şimdilik boş */ },
+    "Parazitoloji": { /* Şimdilik boş */ },
+    "Enfeksiyon Hastalıkları": { /* Şimdilik boş */ }
+  },
+  "Diş H. Fakültesi Dersleri": { // Bu kategoriye tıklayınca alt disiplinler görünmeli
+     "İmmünoloji": { // Diş H. için İmmünoloji konuları
+      "demo": {
+        title: "Demo",
+        description: "İmmünolojinin temelleri ve immün sistemin hücresel elemanları hakkında bilginizi test edin.",
+        lectureAvailable: false,
+        quizId: "demo"
+      },
+      "immunoloji_giris_hucreler": {
+        title: "İmmünolojiye Giriş ve İmmün Sistem Hücreleri",
+        description: "İmmünolojinin temelleri ve immün sistemin hücresel elemanları hakkında bilginizi test edin.",
+        lectureAvailable: false,
+        quizId: "immunoloji_giris_hucreler"
+      },
+      "antikorlar": {
+        title: "Antikorlar",
+        description: "İmmünoglobulinlerin yapısı, sınıfları ve fonksiyonları üzerine odaklanın.",
+        lectureAvailable: false,
+        quizId: "antikorlar"
+      },
+       "dogal_immun_yanit": {
+        title: "Doğal İmmün Yanıt",
+        description: "Doğuştan gelen bağışıklık mekanizmalarını, reseptörlerini ve kompleman sistemini test edin.",
+        lectureAvailable: false,
+        quizId: "dogal_immun_yanit"
+      },
+       "kazanilmis_immun_yanit": {
+        title: "Kazanılmış İmmün Yanıt",
+        description: "Lenfosit olgunlaşması, aktivasyonu, MHC molekülleri ve aşırı duyarlılık reaksiyonları bilginizi ölçün.",
+        lectureAvailable: false,
+        quizId: "kazanilmis_immun_yanit"
+      }
+      // Diş H. için İmmünoloji altına başka konular eklenebilir
+    },
+    "Bakteriyoloji": { // Diş H. için Bakteriyoloji konuları
+        "anaeroblar": {
+            title: "Anaeroblar",
+            description: "Oksijensiz ortamda yaşayan bakteriler ve neden oldukları enfeksiyonlar.",
+            lectureAvailable: false,
+            quizId: "anaeroblar"
+        },
+        "spiroketler": {
+            title: "Spiroketler",
+            description: "Treponema, Borrelia ve Leptospira gibi önemli spiroketler ve ilişkili hastalıklar.",
+            lectureAvailable: false,
+            quizId: "spiroketler"
+        },
+        "gram_negatif_non_fermenter_basiller": {
+            title: "Gram Negatif Non-fermenter Basiller",
+            description: "Pseudomonas, Burkholderia, Acinetobacter ve Stenotrophomonas türleri.",
+            lectureAvailable: false,
+            quizId: "gram_negatif_non_fermenter_basiller"
+        },
+        "gram_negatif_koklar": {
+            title: "Gram Negatif Koklar",
+            description: "Neisseria (Meningokok, Gonokok) ve Moraxella türleri hakkında bilgiler.",
+            lectureAvailable: false,
+            quizId: "gram_negatif_koklar"
+        },
+         "mikobakteriler": {
+            title: "Mikobakteriler",
+            description: "Tüberküloz, lepra etkenleri ve atipik mikobakteriler.",
+            lectureAvailable: false,
+            quizId: "mikobakteriler"
+        },
+         "gram_pozitif_basiller": {
+            title: "Gram Pozitif Basiller",
+            description: "Bacillus, Clostridium, Listeria, Corynebacterium ve diğerleri.",
+            lectureAvailable: false,
+            quizId: "gram_pozitif_basiller"
+        }
+        // Diş H. için Bakteriyoloji altına başka konular eklenebilir
+    },
+    "Genel Mikrobiyoloji": { /* Şimdilik boş */ },
+    "Viroloji": { /* Şimdilik boş */ },
+    "Mikoloji": { /* Şimdilik boş */ },
+    "Parazitoloji": { /* Şimdilik boş */ },
+    "Enfeksiyon Hastalıkları": { /* Şimdilik boş */ }
+  }
+};const hierarchicalNavContainerEl = document.getElementById('hierarchical-nav-container');
+let hierarchyState = { currentLayer: 1, path: [] };
+
+const hierarchyIconMap = {
+    // Layer 1 Keys
+    "YDUS": "fas fa-medal",
+    "TUS": "fas fa-stethoscope",
+    "DUS": "fas fa-tooth",
+    "Tıp Fakültesi Dersleri": "fas fa-moon", // <<< Değişiklik burada
+    "Diş H. Fakültesi Dersleri": "fas fa-tooth",
+    // Layer 2 Keys (Add more as needed)
+    "İmmünoloji": "fas fa-shield-alt",
+    "Bakteriyoloji": "fas fa-bacteria",
+    "Viroloji": "fas fa-virus",
+    "Mikoloji": "fas fa-mushroom",
+    "Parazitoloji": "fas fa-bug",
+    "Enfeksiyon Hastalıkları": "fas fa-biohazard",
+    "Genel Mikrobiyoloji": "fas fa-microscope",
+    // Add more specific icons for other disciplines
+    "default": "fas fa-folder-open" // Default icon if key not found
+};
+
+function createNavigationCard(key, layerNumber) {
+    const card = document.createElement('article');
+    // Stil ve düzenleme için gerekli sınıfları ekliyoruz
+    card.className = 'card hierarchy-nav-card';
+    card.dataset.key = key;
+    card.dataset.layer = layerNumber;
+    card.setAttribute('role', 'button');
+    card.tabIndex = 0;
+
+    const iconClass = hierarchyIconMap[key] || hierarchyIconMap["default"];
+    const iconDiv = document.createElement('div');
+    iconDiv.className = 'card-icon'; // Ana ikon stilini kullan
+
+    const icon = document.createElement('i');
+    icon.className = iconClass;
+    icon.setAttribute('aria-hidden', 'true');
+    iconDiv.appendChild(icon);
+
+    const title = document.createElement('h3');
+    title.textContent = key; // Stil CSS ile verilecek
+
+    const chevronIcon = document.createElement('i');
+    chevronIcon.className = 'fas fa-chevron-right hierarchy-chevron';
+    chevronIcon.setAttribute('aria-hidden', 'true'); // Stil CSS ile verilecek
+
+    card.appendChild(iconDiv);
+    card.appendChild(title);
+    card.appendChild(chevronIcon);
+
+    card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            navigateToNextLayer(key, layerNumber);
+        }
+    });
+
+    // JS ile hover efekti vermek yerine CSS kullanacağız
+    // card.addEventListener('mouseenter', ...);
+    // card.addEventListener('mouseleave', ...);
+
+    return card;
+}
+function createTopicCard(topicData, topicKey) {
+    const card = document.createElement('article');
+    card.className = 'card hierarchy-topic-card';
+    card.dataset.topicKey = topicKey; // Kartı daha sonra bulmak için eklendi
+
+    const iconDiv = document.createElement('div');
+    iconDiv.className = 'card-icon';
+    const icon = document.createElement('i');
+    icon.className = 'fas fa-graduation-cap';
+    icon.setAttribute('aria-hidden', 'true');
+    iconDiv.appendChild(icon);
+
+    const title = document.createElement('h3');
+    title.textContent = topicData.title;
+
+    const description = document.createElement('p');
+    description.textContent = topicData.description;
+
+    const actionsDiv = document.createElement('div');
+    actionsDiv.className = 'card-actions';
+    actionsDiv.style.marginTop = 'auto';
+    actionsDiv.style.paddingTop = 'var(--space-m)';
+
+    const lectureBtn = document.createElement('button');
+    lectureBtn.textContent = "Konu Anlatımı";
+    lectureBtn.className = 'btn btn-secondary';
+    lectureBtn.disabled = !topicData.lectureAvailable;
+    if (!topicData.lectureAvailable) {
+       lectureBtn.textContent = "Konu Anlatımı (Yakında)";
+       lectureBtn.style.opacity = '0.6';
+       lectureBtn.style.cursor = 'not-allowed';
+    }
+    lectureBtn.dataset.action = 'lecture';
+    lectureBtn.dataset.topicKey = topicKey;
+
+    const quizBtn = document.createElement('button');
+    quizBtn.textContent = "Quizi Başlat";
+    quizBtn.className = 'btn btn-primary';
+    quizBtn.dataset.action = 'quiz';
+    quizBtn.dataset.quizId = topicData.quizId;
+
+    actionsDiv.appendChild(lectureBtn);
+    actionsDiv.appendChild(quizBtn);
+
+    card.appendChild(iconDiv);
+    card.appendChild(title);
+    card.appendChild(description);
+    card.appendChild(actionsDiv);
+
+    return card;
+}
+
+
+function createBackButton() {
+    const backButton = document.createElement('button');
+    backButton.textContent = '← Geri';
+    backButton.className = 'btn btn-secondary hierarchy-back-btn'; // Stil için .btn sınıfını kullandım
+    backButton.dataset.action = 'back';
+    // Geri butonunu gridin başına yerleştirmek için stil
+    backButton.style.marginBottom = 'var(--space-l)';
+    backButton.style.marginRight = 'auto'; // Solda kalmasını sağlar
+    backButton.style.gridColumn = '1 / -1'; // Tüm sütunları kaplamasını sağlar (opsiyonel)
+    return backButton;
+}
+
+
+function renderHierarchyView() {
+    if (!hierarchicalNavContainerEl || !learningHierarchy) return;
+
+    hierarchicalNavContainerEl.innerHTML = ''; // Konteyneri temizle
+    hierarchicalNavContainerEl.scrollTop = 0; // Scroll'u başa al
+
+    let currentDataLevel = learningHierarchy;
+    let layerToRender = hierarchyState.currentLayer;
+    let itemsToRender = {};
+    let showBackButton = false;
+
+    try {
+        // Gösterilecek veri setini belirle
+        if (layerToRender === 1) {
+            itemsToRender = learningHierarchy;
+        } else if (layerToRender === 2 && hierarchyState.path.length >= 1) {
+            const key1 = hierarchyState.path[0];
+            if (learningHierarchy[key1]) {
+                itemsToRender = learningHierarchy[key1];
+                showBackButton = true;
+            } else {
+                 throw new Error(`Layer 1 key not found: ${key1}`);
+            }
+        } else if (layerToRender === 3 && hierarchyState.path.length >= 2) {
+            const key1 = hierarchyState.path[0];
+            const key2 = hierarchyState.path[1];
+            if (learningHierarchy[key1] && learningHierarchy[key1][key2]) {
+                itemsToRender = learningHierarchy[key1][key2];
+                showBackButton = true;
+            } else {
+                 throw new Error(`Layer 2 path not found: ${key1} -> ${key2}`);
+            }
+        } else {
+             // Geçersiz durum, başa dön
+             throw new Error(`Invalid hierarchy state: layer=${layerToRender}, path=${JSON.stringify(hierarchyState.path)}`);
+        }
+
+         // Geri butonunu ekle (eğer gerekiyorsa)
+         if (showBackButton) {
+            const backButton = createBackButton();
+            hierarchicalNavContainerEl.appendChild(backButton); // Başa ekle
+         }
+
+         // Veri setini kontrol et ve kartları oluştur
+         if (typeof itemsToRender !== 'object' || itemsToRender === null || Object.keys(itemsToRender).length === 0) {
+             // Boş mesajı göster (eğer geri butonu eklendiyse bile)
+             const emptyMsg = document.createElement('p');
+             emptyMsg.textContent = 'Bu kategoride henüz içerik bulunmamaktadır.';
+             emptyMsg.style.textAlign = 'center';
+             emptyMsg.style.width = '100%';
+             emptyMsg.style.gridColumn = '1 / -1'; // Gridin tamamını kapla
+             hierarchicalNavContainerEl.appendChild(emptyMsg);
+         } else {
+             // Kartları oluştur ve ekle
+             Object.keys(itemsToRender).forEach(key => {
+                 let card;
+                 if (layerToRender < 3) {
+                     // Katman 1 veya 2 için navigasyon kartı
+                     card = createNavigationCard(key, layerToRender);
+                 } else {
+                     // Katman 3 için konu kartı
+                     card = createTopicCard(itemsToRender[key], key);
+                 }
+                 hierarchicalNavContainerEl.appendChild(card);
+             });
+         }
+
+    } catch (error) {
+        console.error("Error rendering hierarchy view:", error, hierarchyState);
+        hierarchicalNavContainerEl.innerHTML = ''; // Hata durumunda temizle
+        // Hata mesajını göster
+        const errorMsg = document.createElement('p');
+        errorMsg.style.color = 'var(--error)';
+        errorMsg.style.textAlign = 'center';
+        errorMsg.style.width = '100%';
+        errorMsg.style.gridColumn = '1 / -1';
+        errorMsg.textContent = 'İçerik yüklenirken bir hata oluştu. Lütfen tekrar deneyin veya yöneticiye bildirin.';
+        hierarchicalNavContainerEl.appendChild(errorMsg);
+
+        // Hata durumunda başa dönmek için state'i sıfırla ve geri butonu ekle (opsiyonel)
+        hierarchyState = { currentLayer: 1, path: [] };
+        // Geri butonu hatadan sonra mantıklı olmayabilir, bu yüzden eklemiyorum.
+    }
+}
+
+
+
+function navigateToNextLayer(key, currentLayerNumber) {
+     // Sadece 3. katmana kadar ilerle
+     if (currentLayerNumber < 3) {
+         hierarchyState.currentLayer++;
+         hierarchyState.path.push(key);
+         renderHierarchyView(); // Yeni katmanı göster
+     }
+}
+
+function goBackHierarchy() {
+    if (hierarchyState.currentLayer > 1) {
+        hierarchyState.currentLayer--;
+        hierarchyState.path.pop();
+        renderHierarchyView(); // Önceki katmanı göster
+    }
+}
+
+function handleHierarchyNavClick(event) {
+    // Tıklanan en yakın ilgili elemanı bul
+    const clickedNavCard = event.target.closest('.hierarchy-nav-card');
+    const clickedActionButton = event.target.closest('button[data-action]');
+
+    if (clickedNavCard && clickedNavCard.dataset.key && clickedNavCard.dataset.layer) {
+        // Katman 1 veya 2 navigasyon kartına tıklandı
+        event.preventDefault();
+        const key = clickedNavCard.dataset.key;
+        const layer = parseInt(clickedNavCard.dataset.layer, 10);
+        navigateToNextLayer(key, layer);
+    } else if (clickedActionButton) {
+        // Bir aksiyon butonuna (Quiz, Konu, Geri) tıklandı
+        event.preventDefault();
+        const action = clickedActionButton.dataset.action;
+
+        if (action === 'quiz' && clickedActionButton.dataset.quizId) {
+            startQuiz(clickedActionButton.dataset.quizId);
+        } else if (action === 'lecture' && clickedActionButton.dataset.topicKey) {
+             alert('Konu anlatımı özelliği yakında eklenecektir.');
+             console.log("Konu anlatımı istendi:", clickedActionButton.dataset.topicKey);
+        } else if (action === 'back') {
+            goBackHierarchy();
+        }
+    }
+}
 
 const quizData = {
-    'immunoloji_giris_hucreler': { // From 17-İmmünolojiye Giriş ve İmmün Sistem Hücreleri v2.pptx
-        title: "İmmünolojiye Giriş ve İmmün Sistem Hücreleri",
+    'demo': {
+        title: "İmmünoloji Temelleri",
         questions: [
-             { id: 1701, question: "1. Patojenle İlişkili Moleküler Kalıplar (PAMP) için hangisi örnek değildir?", options: ["Lipopolisakkarit (LPS)", "Peptidoglikan", "Çift iplikli RNA", "Monosodyum ürat kristalleri", "Fungal glikanlar"], correctAnswer: "Monosodyum ürat kristalleri", explanation: "Monosodyum ürat kristalleri, hücre hasarı sonucu ortaya çıkan DAMP'lara (Hasarla İlişkili Moleküler Kalıplar) örnektir. Diğerleri PAMP'tır." },
-             { id: 1702, question: "2. Doğal immün yanıt ve kazanılmış immün yanıt arasındaki farklardan hangisi yanlıştır?", options: ["Kazanılmış immün yanıtta izotip değişimi ve antikor üretimi vardır", "Doğal immün yanıtta doğuştan gelen bellek hücreleri sayesinde bakterilere karşı spesifik yanıt vardır", "Kazanılmış yanıtın ana hücre grubu lenfositlerdir", "Doğal yanıt ilk karşılaşmada gelişen ama daha etkisiz olan yanıttır", "Bir yaratılış mucizesi olarak kazanılmış yanıttaki bellek hücreleri çok fazla sayıda etkene karşı özelleşebilecek kabiliyettedir"], correctAnswer: "Doğal immün yanıtta doğuştan gelen bellek hücreleri sayesinde bakterilere karşı spesifik yanıt vardır", explanation: "Doğal immün yanıtın hafızası yoktur ve her karşılaşmada aynı şekilde yanıt verir; spesifik bellek kazanılmış yanıta özgüdür." },
-             { id: 1703, question: "3. Hümoral immüniteden sorumlu temel hücre tipi hangisidir?", options: ["T helper lenfosit", "Sitotoksik T lenfosit", "NK hücresi", "B lenfosit", "Makrofaj"], correctAnswer: "B lenfosit", explanation: "B lenfositler ve onların ürünü olan antikorlar hümoral immüniteden sorumludur ve genellikle hücre dışı mikroorganizmalara karşı etkilidir." },
-             { id: 1704, question: "4. Hücresel immüniteden sorumlu temel hücre tipi hangisidir?", options: ["B lenfosit", "Plazma hücresi", "T lenfosit", "Mast hücresi", "Bazofil"], correctAnswer: "T lenfosit", explanation: "T lenfositler (hem Helper hem Sitotoksik) hücresel immüniteden sorumludur ve özellikle hücre içi mikroorganizmalara ve tümör hücrelerine karşı etkilidir." },
-             { id: 1705, question: "5. Hangisinin özelliği yanlış verilmiştir?", options: ["B lenfositler - antijen sunumu", "Plazma hücreleri - antikor üretimi", "T lenfositler - sitokin üretimi", "Makrofajlar - fagositoz", "Dendritik hücreler - Histamin salınımı"], correctAnswer: "Dendritik hücreler - Histamin salınımı", explanation: "Dendritik hücreler profesyonel antijen sunan hücrelerdir; histamin salınımı ise primer olarak mast hücreleri ve bazofillerin görevidir." },
-             { id: 1706, question: "6. Kanda dolaşan ve dokulara geçince makrofajlara farklılaşan hücre hangisidir?", options: ["Lenfosit", "Nötrofil", "Eozinofil", "Monosit", "Bazofil"], correctAnswer: "Monosit", explanation: "Monositler kanda dolaşır ve dokulara girdiklerinde makrofajlara dönüşürler." },
-             { id: 1707, question: "7. Tip I aşırı duyarlılık reaksiyonlarında erken dönemde rol alan ve granüllerinde histamin/heparin bulunan hücre hangisidir?", options: ["Nötrofil", "Makrofaj", "Mast hücresi", "NK hücresi", "T lenfosit"], correctAnswer: "Mast hücresi", explanation: "Bağ dokusu mast hücreleri, histamin ve heparin içeren granülleriyle Tip I aşırı duyarlılık reaksiyonlarının erken fazında anahtar rol oynar." },
-             { id: 1708, question: "8. İmmünoglobulin E (IgE) reseptörü taşıyan ve alerjik reaksiyonlar ile parazit savunmasında görev alan hücreler hangileridir?", options: ["Nötrofil ve Makrofaj", "Mast hücresi ve Bazofil", "T lenfosit ve B lenfosit", "NK hücresi ve Dendritik hücre", "Sadece Eozinofil"], correctAnswer: "Mast hücresi ve Bazofil", explanation: "Mast hücreleri ve bazofiller yüzeylerinde IgE için yüksek afiniteli reseptörler (FcεRI) taşır ve alerjik yanıtlarda önemlidirler. Eozinofiller de IgE ile ilişkili görev yapar." },
-             { id: 1709, question: "9. Doğal Katil (NK) hücrelerinin temel hedefi olmayan hangisidir?", options: ["Virüsle enfekte hücreler", "Tümör hücreleri", "MHC-I ekspresyonu azalmış hücreler", "Bakterilerle enfekte makrofajlar", "Antikorla kaplı hedef hücreler (ADCC)"], correctAnswer: "Bakterilerle enfekte makrofajlar", explanation: "NK hücreleri öncelikle MHC-I ekspresyonu azalmış veya stres ligandları taşıyan hücreleri (viral enfekte, tümör) veya ADCC ile antikor kaplı hücreleri hedefler. Bakterilerle enfekte makrofajlar daha çok T hücreleri tarafından yönetilir." },
-             { id: 1710, question: "10. Tek başına immün yanıt oluşturamayan ancak taşıyıcı bir proteine bağlandığında immünojenik hale gelen küçük moleküllere ne ad verilir?", options: ["Epitop", "Paratop", "Adjuvan", "Hapten", "İmmünojen"], correctAnswer: "Hapten", explanation: "Haptenler, immün yanıtı tek başlarına tetikleyemeyen ancak taşıyıcı bir moleküle (genellikle protein) bağlandıklarında immünojenik özellik kazanan küçük moleküllerdir." },
-             { id: 1711, question: "11. Foliküler dendritik hücrelerin (FDC) temel görevi nedir?", options: ["Antijenleri fagosite etmek", "Antijenleri MHC-II ile CD4 T hücrelerine sunmak", "Antijenleri MHC-I ile CD8 T hücrelerine sunmak", "Antijenleri B lenfositlere sunmak ve germinal merkez reaksiyonunu desteklemek", "Sitokin salgılayarak inflamasyonu başlatmak"], correctAnswer: "Antijenleri B lenfositlere sunmak ve germinal merkez reaksiyonunu desteklemek", explanation: "FDC'ler, MHC-II taşımazlar ancak antijenleri yüzeylerinde uzun süre tutarak germinal merkezlerdeki B hücrelerinin aktivasyonu, afinite olgunlaşması ve izotip değişimi için kritik rol oynarlar." },
-             { id: 1712, question: "12. Primer immün yanıtta üretilen ilk antikor sınıfı nedir?", options: ["IgG", "IgA", "IgM", "IgE", "IgD"], correctAnswer: "IgM", explanation: "Bir antijenle ilk karşılaşıldığında, B lenfositleri tarafından ilk olarak IgM sınıfı antikorlar üretilir." },
-             { id: 1713, question: "13. IgG antikorlarının antijene olan bağlanma gücünün (afinitesinin) IgM'e göre genellikle daha yüksek olmasının temel nedeni nedir?", options: ["IgG'nin daha büyük olması", "IgG'nin pentamerik olması", "Somatik hipermutasyon ve afinite olgunlaşması", "IgG'nin komplemanı daha iyi aktive etmesi", "IgG'nin plasentadan geçebilmesi"], correctAnswer: "Somatik hipermutasyon ve afinite olgunlaşması", explanation: "Kazanılmış yanıt sırasında germinal merkezlerde meydana gelen somatik hipermutasyon ve afinite olgunlaşması süreçleri, daha yüksek antijen ilgisine (afinite) sahip IgG üreten B hücrelerinin seçilmesini sağlar." },
-             { id: 1714, question: "14. Virüsle enfekte hücrelere ve tümör hücrelerine karşı hücresel immün yanıtta ana rolü oynayan T lenfosit alt tipi hangisidir?", options: ["Th1", "Th2", "Th17", "Treg", "CD8+ Sitotoksik T Lenfosit"], correctAnswer: "CD8+ Sitotoksik T Lenfosit", explanation: "CD8+ T lenfositler, MHC Sınıf I molekülleri ile sunulan endojen antijenleri tanıyarak hedef hücreleri (örn. virüsle enfekte, tümör) doğrudan öldürürler." },
-             { id: 1715, question: "15. Makrofajları aktive ederek hücre içi patojenlere karşı savunmayı güçlendiren T helper alt tipi hangisidir?", options: ["Th1", "Th2", "Th17", "Treg", "Tfh"], correctAnswer: "Th1", explanation: "Th1 hücreleri, özellikle IFN-gama salgılayarak makrofajları aktive eder ve hücre içi patojenlere karşı hücresel immün yanıtı yönetir." }
+            { id: 'demo_q1', question: "1. Patojenle İlişkili Moleküler Kalıplar (PAMP) için hangisi örnek değildir?", options: ["Lipopolisakkarit (LPS)", "Peptidoglikan", "Çift iplikli RNA", "Monosodyum ürat kristalleri", "Fungal glikanlar"], correctAnswer: "Monosodyum ürat kristalleri", explanation: "Monosodyum ürat kristalleri, hücre hasarı sonucu ortaya çıkan DAMP'lara (Hasarla İlişkili Moleküler Kalıplar) örnektir. Diğerleri PAMP'tır." },
+            { id: 'demo_q2', question: "2. Doğal immün yanıt ve kazanılmış immün yanıt arasındaki farklardan hangisi yanlıştır?", options: ["Kazanılmış immün yanıtta izotip değişimi ve antikor üretimi vardır", "Doğal immün yanıtta doğuştan gelen bellek hücreleri sayesinde bakterilere karşı spesifik yanıt vardır", "Kazanılmış yanıtın ana hücre grubu lenfositlerdir", "Doğal yanıt ilk karşılaşmada gelişen ama daha etkisiz olan yanıttır", "Bir yaratılış mucizesi olarak kazanılmış yanıttaki bellek hücreleri çok fazla sayıda etkene karşı özelleşebilecek kabiliyettedir"], correctAnswer: "Doğal immün yanıtta doğuştan gelen bellek hücreleri sayesinde bakterilere karşı spesifik yanıt vardır", explanation: "Doğal immün yanıtın hafızası yoktur ve her karşılaşmada aynı şekilde yanıt verir; spesifik bellek kazanılmış yanıta özgüdür." },
+            { id: 'demo_q3', question: "3. Hümoral immüniteden sorumlu temel hücre tipi hangisidir?", options: ["T helper lenfosit", "Sitotoksik T lenfosit", "NK hücresi", "B lenfosit", "Makrofaj"], correctAnswer: "B lenfosit", explanation: "B lenfositler ve onların ürünü olan antikorlar hümoral immüniteden sorumludur ve genellikle hücre dışı mikroorganizmalara karşı etkilidir." },
+            { id: 'demo_q4', question: "4. Hücresel immüniteden sorumlu temel hücre tipi hangisidir?", options: ["B lenfosit", "Plazma hücresi", "T lenfosit", "Mast hücresi", "Bazofil"], correctAnswer: "T lenfosit", explanation: "T lenfositler (hem Helper hem Sitotoksik) hücresel immüniteden sorumludur ve özellikle hücre içi mikroorganizmalara ve tümör hücrelerine karşı etkilidir." }
         ]
     },
-    'antikorlar': { // From 18-Antikorlar.pptx
-        title: "Antikorlar",
-        questions: [
-             { id: 1801, question: "1. İmmünglobulinlerin ağır zincir (H) farklılıklarına göre sınıflandırılmasına ne ad verilir?", options: ["İdiyotip", "Allotip", "İzotip", "Haplotip", "Serotip"], correctAnswer: "İzotip", explanation: "İzotip, ağır zincir sabit (C) bölgelerindeki farklılıklara göre belirlenen ana immünoglobulin sınıflarını (IgG, IgM, IgA, IgD, IgE) ve alt sınıflarını ifade eder." },
-             { id: 1802, question: "2. Hangi IgG alt sınıfı komplemanı aktive etmez?", options: ["IgG1", "IgG2", "IgG3", "IgG4", "Hiçbiri"], correctAnswer: "IgG4", explanation: "IgG1 ve IgG3 komplemanı en iyi aktive eden IgG alt sınıflarıdır. IgG2 daha zayıf aktive ederken, IgG4 komplemanı klasik yoldan aktive etmez." },
-             { id: 1803, question: "3. Salgısal IgA'nın (sIgA) dimerik yapısını stabilize eden ve transportunu sağlayan komponentler hangileridir?", options: ["Sadece J zinciri", "Sadece Sekretuvar komponent", "J zinciri ve Sekretuvar komponent", "Kappa ve Lambda zincirleri", "FcRn reseptörü"], correctAnswer: "J zinciri ve Sekretuvar komponent", explanation: "İki IgA monomeri J zinciri ile birleşir. Epitel hücresinden lümene transport sırasında eklenen sekretuvar komponent ise dimerik yapıyı proteolizise karşı korur." },
-             { id: 1804, question: "4. IgA proteaz üreterek mukozal savunmadan kaçabilen bakterilere örnek olmayan hangisidir?", options: ["Streptococcus pneumoniae", "Neisseria meningitidis", "Haemophilus influenzae", "Staphylococcus aureus", "Neisseria gonorrhoeae"], correctAnswer: "Staphylococcus aureus", explanation: "Pnömokok, Meningokok, H. influenzae ve Gonokok gibi mukozal patojenler IgA proteaz üreterek sIgA'yı parçalayabilir. S. aureus bu mekanizmayı kullanmaz." },
-             { id: 1805, question: "5. Hangi immünoglobulin hem B hücre reseptörü (BCR) olarak monomerik formda bulunur hem de plazma hücreleri tarafından pentamerik formda salgılanır?", options: ["IgG", "IgA", "IgM", "IgD", "IgE"], correctAnswer: "IgM", explanation: "IgM, B hücre yüzeyinde monomerik BCR olarak bulunur, aktivasyon sonrası plazma hücreleri tarafından J zinciri ile birleşmiş pentamerik formda salgılanır." },
-             { id: 1806, question: "6. Aşağıdaki immünoglobulin fonksiyonlarından hangisi özellikle IgM'in pentamerik yapısı sayesinde çok etkilidir?", options: ["Opsonizasyon", "Plasentadan geçiş", "Alerjik reaksiyon tetikleme", "Aglütinasyon ve Kompleman fiksasyonu", "Mukozal immünite"], correctAnswer: "Aglütinasyon ve Kompleman fiksasyonu", explanation: "IgM'in 10 adet antijen bağlanma bölgesi (Fab) olması aglütinasyonu, çoklu Fc bölgeleri de kompleman (C1q) bağlanmasını çok etkili kılar." },
-             { id: 1807, question: "7. Sadece matür B lenfosit yüzeyinde bulunan ve hücre dışına salgılanmayan immünoglobulin hangisidir?", options: ["IgM", "IgD", "IgG", "IgA", "IgE"], correctAnswer: "IgD", explanation: "IgD, esas olarak matür B lenfosit yüzeyinde IgM ile birlikte BCR kompleksi içinde yer alır ve serumda çok düşük düzeydedir, salgılanmaz." },
-             { id: 1808, question: "8. Antikor Bağımlı Hücresel Sitotoksisite (ADCC) mekanizmasında, NK hücreleri hangi immünoglobulin sınıfı ile kaplı hedef hücrelere bağlanır?", options: ["IgA", "IgM", "IgE", "IgG", "IgD"], correctAnswer: "IgG", explanation: "NK hücreleri, yüzeylerindeki FcγRIII (CD16) reseptörü ile IgG kaplı hedef hücrelerin Fc kısmına bağlanarak ADCC'yi başlatır." },
-             { id: 1809, question: "9. Helmintlere (parazit solucanlar) karşı gelişen ADCC'de eozinofiller hangi immünoglobulin sınıfı ile kaplı parazite bağlanır?", options: ["IgA", "IgM", "IgE", "IgG", "IgD"], correctAnswer: "IgE", explanation: "Eozinofiller yüzeylerinde Fcε reseptörleri taşır ve IgE ile opsonize olmuş helmintlere bağlanarak toksik granüllerini salgılarlar." },
-             { id: 1810, question: "10. Antikor molekülünün antijen bağlayan kısmı aşağıdakilerden hangisidir?", options: ["Fc bölgesi", "Ağır zincir sabit bölgesi", "Fab bölgesi", "J zinciri", "Menteşe bölgesi"], correctAnswer: "Fab bölgesi", explanation: "Fab (Fragment antigen-binding) bölgesi, antikorun değişken bölgelerini içerir ve antijene spesifik olarak bağlanır." },
-             { id: 1811, question: "11. Antikorların mikroorganizmaları veya toksinleri doğrudan bağlayarak konak hücreye girişini veya etkisini engelleme mekanizmasına ne ad verilir?", options: ["Opsonizasyon", "Kompleman aktivasyonu", "Aglütinasyon", "Nötralizasyon", "ADCC"], correctAnswer: "Nötralizasyon", explanation: "Nötralizasyon, antikorların (özellikle IgG, IgM, IgA) patojen yüzeyindeki kritik moleküllere veya toksinlere bağlanarak onları etkisiz hale getirmesidir." },
-             { id: 1812, question: "12. Yenidoğanın bağırsaklarında mukozal korumayı sağlayan ve anne sütünde bol bulunan antikor hangisidir?", options: ["IgG", "IgM", "Sekretuvar IgA", "IgD", "IgE"], correctAnswer: "Sekretuvar IgA", explanation: "Anne sütü, yenidoğanın GİS mukozasını enfeksiyonlardan koruyan sekretuvar IgA açısından çok zengindir." },
-             { id: 1813, question: "13. Plasentadan geçerek fetüsü koruyan ve kanda en bol bulunan antikor sınıfı hangisidir?", options: ["IgA", "IgD", "IgE", "IgG", "IgM"], correctAnswer: "IgG", explanation: "IgG, serumdaki immünoglobulinlerin yaklaşık %75-80'ini oluşturur ve plasentadan geçerek fetüse pasif bağışıklık sağlayan tek antikordur." },
-             { id: 1814, question: "14. Allerjenle ikinci kez karşılaşmada mast hücresi degranülasyonunu tetikleyen olay nedir?", options: ["Alerjenin IgG ile bağlanması", "Alerjenin IgM ile bağlanması", "Mast hücresi yüzeyindeki IgE'lerin alerjenle çapraz bağlanması", "Kompleman aktivasyonu", "NK hücre aktivasyonu"], correctAnswer: "Mast hücresi yüzeyindeki IgE'lerin alerjenle çapraz bağlanması", explanation: "Duyarlı kişide mast hücresi yüzeyine bağlı IgE antikorlarının, tekrar giren alerjen tarafından çapraz bağlanması (cross-linking) hücre içi sinyali tetikler ve degranülasyona yol açar." },
-             { id: 1815, question: "15. Süperantijenlerin neden olduğu aşırı T hücre aktivasyonu ve sitokin fırtınası hangi klinik tabloya yol açabilir?", options: ["Anafilaksi", "Serum hastalığı", "Toksik şok sendromu", "Otoimmün hemolitik anemi", "Kontakt dermatit"], correctAnswer: "Toksik şok sendromu", explanation: "Staphylococcus aureus (TSST-1) ve Streptococcus pyogenes gibi bakterilerin ürettiği süperantijenler, masif T hücre aktivasyonu ve sitokin salınımına neden olarak Toksik Şok Sendromu gibi hayatı tehdit eden durumlara yol açabilir." }
-        ]
-    },
-    'dogal_immun_yanit': { // From 19-Doğal İmmün Yanıt.pptx
-        title: "Doğal İmmün Yanıt",
-        questions: [
-             { id: 1901, question: "1. PAMP'ları tanıyarak doğal immün yanıtı başlatan reseptörlere genel olarak ne ad verilir?", options: ["Antikorlar", "T Hücre Reseptörleri (TCR)", "Patern Tanıma Reseptörleri (PRR)", "B Hücre Reseptörleri (BCR)", "MHC Molekülleri"], correctAnswer: "Patern Tanıma Reseptörleri (PRR)", explanation: "PRR'ler (TLR, NLR, RLR vb.), mikroorganizmalara özgü korunmuş yapılar olan PAMP'ları veya hasarlı hücrelerden salınan DAMP'ları tanır." },
-             { id: 1902, question: "2. Aşağıdakilerden hangisi hücre ilişkili bir PRR değildir?", options: ["TLR (Toll-like receptor)", "NLR (NOD-like receptor)", "Pentraksinler", "RIG-I-like receptor (RLR)", "C-tipi lektin reseptörü"], correctAnswer: "Pentraksinler", explanation: "Pentraksinler (örn: CRP), kollektinler, fikolinler ve kompleman çözünür PRR örnekleridir. TLR, NLR, RLR ve CLR hücre ilişkili PRR'lerdir." },
-             { id: 1903, question: "3. Bakteriyel CpG DNA'yı tanıyan ve endozomlarda bulunan TLR hangisidir?", options: ["TLR3", "TLR4", "TLR5", "TLR7", "TLR9"], correctAnswer: "TLR9", explanation: "TLR9, endozomlarda metillenmemiş CpG oligonükleotidlerini (bakteriyel ve bazı viral DNA'larda bulunur) tanır." },
-             { id: 1904, question: "4. Viral tek iplikli RNA'yı (ssRNA) tanıyan endozomal TLR'ler hangileridir?", options: ["TLR2 ve TLR6", "TLR3 ve TLR9", "TLR4 ve TLR5", "TLR7 ve TLR8", "TLR1 ve TLR10"], correctAnswer: "TLR7 ve TLR8", explanation: "TLR7 ve TLR8, endozomlarda viral ssRNA'yı tanıyarak interferon yanıtını tetikler." },
-             { id: 1905, question: "5. NOD-Like Reseptörler (NLR) aktive olduğunda hangi transkripsiyon faktörünü aktive ederek pro-inflamatuar gen ekspresyonunu uyarır?", options: ["STAT3", "NF-κB", "AP-1", "IRF3", "CREB"], correctAnswer: "NF-κB", explanation: "NLR aktivasyonu, genellikle NF-κB transkripsiyon faktörünü aktive ederek sitokinler, kemokinler ve adhezyon molekülleri gibi inflamatuar genlerin ekspresyonunu artırır." },
-             { id: 1906, question: "6. Çeşitli PAMP ve DAMP'ları algılayarak kaspaz-1'i aktive eden ve IL-1β/IL-18 salınımına yol açan sitozolik protein kompleksine ne ad verilir?", options: ["Fagozom", "Lizozom", "Proteazom", "İnflamazom", "Spliceozom"], correctAnswer: "İnflamazom", explanation: "İnflamazomlar (genellikle NLRP proteinleri içerir), sitozolde PAMP/DAMP'ları tanıyarak kaspaz-1'i aktive eder, bu da pro-IL-1β ve pro-IL-18'i olgunlaştırır." },
-             { id: 1907, question: "7. Lökositlerin damar lümeninden dokuya geçiş sürecine ne ad verilir?", options: ["Marjinasyon", "Rolling (Yuvarlanma)", "Adezyon (Yapışma)", "Transmigrasyon (Diapedez)", "Kemotaksis"], correctAnswer: "Transmigrasyon (Diapedez)", explanation: "Transmigrasyon, lökositlerin endotel hücreleri arasından veya içinden geçerek damar dışına, inflamasyon bölgesine göç etmesidir." },
-             { id: 1908, question: "8. Aşağıdakilerden hangisi güçlü bir nötrofil kemotaktik ajanıdır?", options: ["C3b", "Histamin", "IL-1", "C5a", "TNF-alfa"], correctAnswer: "C5a", explanation: "C5a, kompleman sisteminin bir ürünüdür ve nötrofiller ile makrofajlar için güçlü bir kemotaktik faktördür. IL-8 (CXCL8) de önemli bir nötrofil kemokinidir." },
-             { id: 1909, question: "9. Kompleman sisteminin hangi aktivasyon yolu mikrobiyal yüzeylerdeki mannoz kalıntılarına bağlanarak başlar?", options: ["Klasik yolak", "Lektin yolağı", "Alternatif yolak", "Terminal yolak", "Hiçbiri"], correctAnswer: "Lektin yolağı", explanation: "Lektin yolağı, mannoz bağlayan lektin (MBL) veya fikolinlerin mikrop yüzeyindeki karbonhidratlara (mannoz gibi) bağlanmasıyla aktive olur." },
-             { id: 1910, question: "10. Alternatif kompleman yolunu pozitif yönde düzenleyerek C3 konvertazı stabilize eden protein hangisidir?", options: ["Faktör H", "Faktör I", "Properdin", "DAF (CD55)", "CD59"], correctAnswer: "Properdin", explanation: "Properdin, mikrobiyal yüzeylerde oluşan alternatif yol C3 konvertazını (C3bBb) stabilize ederek kompleman aktivasyonunu artırır." },
-             { id: 1911, question: "11. Makrofajlardan salınan ve hipotalamusta ateş oluşumunu tetikleyen, aynı zamanda kaşeksiye neden olabilen sitokin hangisidir?", options: ["IL-10", "IL-4", "IFN-gama", "TNF-alfa", "IL-8"], correctAnswer: "TNF-alfa", explanation: "TNF-alfa, endotel aktivasyonu, nötrofil aktivasyonu, ateş ve kaşeksi gibi çok çeşitli sistemik etkileri olan pro-inflamatuar bir sitokindir." },
-             { id: 1912, question: "12. Makrofajlar ve nötrofiller tarafından üretilen ve güçlü antimikrobiyal etkiye sahip reaktif nitrojen türü hangisidir?", options: ["Süperoksit anyonu (O2⁻)", "Hidrojen peroksit (H2O2)", "Hipokloröz asit (HOCl)", "Nitrik oksit (NO)", "Ozon (O3)"], correctAnswer: "Nitrik oksit (NO)", explanation: "İndüklenebilir nitrik oksit sentaz (iNOS) enzimi aracılığıyla L-argininden üretilen NO, mikroorganizmalar için toksiktir ve vazodilatasyon gibi başka rolleri de vardır." },
-             { id: 1913, question: "13. Nötrofil granüllerinde bulunan ve demiri bağlayarak bakterilerin demir kullanımını engelleyen protein hangisidir?", options: ["Lizozim", "Defensin", "Katellisidin", "Laktoferrin", "Elastaz"], correctAnswer: "Laktoferrin", explanation: "Laktoferrin, demiri yüksek afiniteyle bağlayarak birçok bakterinin çoğalması için esansiyel olan demiri ortamdan uzaklaştırır." },
-             { id: 1914, question: "14. İnflamazom aktivasyonu ile tetiklenen programlanmış hücre ölümü şekline ne ad verilir?", options: ["Apoptoz", "Nekroz", "Otofaji", "Piropitoz", "Nekroptoz"], correctAnswer: "Piropitoz", explanation: "Piropitoz, inflamazom aktivasyonu ve kaspaz-1 aracılığıyla gerçekleşen, hücre şişmesi, zar yırtılması ve IL-1β/IL-18 salınımı ile karakterize pro-inflamatuar bir hücre ölümü şeklidir." },
-             { id: 1915, question: "15. Klasik makrofaj aktivasyonunu (M1) indükleyen ve NK hücreleri ile Th1 hücreleri tarafından salgılanan temel sitokin hangisidir?", options: ["IL-4", "IL-10", "TGF-beta", "IFN-gama", "IL-5"], correctAnswer: "IFN-gama", explanation: "IFN-gama, makrofajların mikropları öldürme kapasitesini (örn: ROS, NO üretimi) ve MHC-II ekspresyonunu artırarak klasik M1 aktivasyonunu sağlar." }
-        ]
-    },
-    'kazanilmis_immun_yanit': { // From 20-Kazanılmış İmmün Yanıt.pptx
-        title: "Kazanılmış İmmün Yanıt",
-        questions: [
-             { id: 2001, question: "1. T lenfositlerin timusta negatif seçilimi nerede gerçekleşir ve hangi hücreler elimine edilir?", options: ["Korteks / MHC tanıyamayanlar", "Medulla / Self-antijene yüksek afiniteli olanlar", "Korteks / Self-antijene yüksek afiniteli olanlar", "Medulla / MHC tanıyamayanlar", "Kortiko-medüller bileşke / CD4 veya CD8 kaybetmiş olanlar"], correctAnswer: "Medulla / Self-antijene yüksek afiniteli olanlar", explanation: "Negatif seçilim timus medullasında gerçekleşir ve TCR'leri ile vücudun öz antijenlerine yüksek afinite ile bağlanan potansiyel otoreaktif T lenfositler apoptozla elimine edilir." },
-             { id: 2002, question: "2. Timusta hem CD4 hem de CD8 ko-reseptörlerini eksprese eden T lenfosit aşaması hangisidir ve nerede bulunur?", options: ["Double negatif / Korteks üst kısım", "Double pozitif / Korteks", "Single pozitif (CD4+) / Medulla", "Single pozitif (CD8+) / Medulla", "Naif T hücre / Perifer"], correctAnswer: "Double pozitif / Korteks", explanation: "Timositler kortekste ilerlerken double negatiften double pozitif (CD4+CD8+) aşamaya geçerler. Pozitif seçilim bu aşamada gerçekleşir." },
-             { id: 2003, question: "3. Lenf düğümünde B lenfositlerin T lenfosit zonuna (parakorteks) göç etmesini sağlayan kemokin reseptörü hangisidir?", options: ["CXCR5", "CCR7", "CXCR4", "CCR5", "CXCR3"], correctAnswer: "CCR7", explanation: "Antijenle aktive olan B lenfositlerin yüzeyindeki CCR7 ekspresyonu artar. Parakorteksteki T hücre zonunda salgılanan CCR7 ligandları (CCL19, CCL21) B hücrelerini bu bölgeye çeker." },
-             { id: 2004, question: "4. T lenfosit aktivasyonu için gerekli olan sinyal 2 (ko-stimülasyon), APC'deki B7 (CD80/86) molekülünün T hücresindeki hangi molekülle etkileşimiyle oluşur?", options: ["CD4", "CD8", "TCR", "CD28", "CD40L"], correctAnswer: "CD28", explanation: "B7-CD28 etkileşimi, T hücre aktivasyonu için kritik olan ko-stimülatör sinyali sağlar. Bu sinyal olmadan T hücreleri anarjik hale gelebilir." },
-             { id: 2005, question: "5. Aktive olmuş CD4+ T lenfositlerin, B lenfosit aktivasyonu ve izotip değişimi için B hücresindeki CD40 ile etkileşen yüzey molekülü hangisidir?", options: ["CD28", "TCR", "CD3", "CD40L", "LFA-1"], correctAnswer: "CD40L", explanation: "T helper hücre yüzeyindeki CD40 Ligandı (CD154), B hücresindeki CD40'a bağlanarak T-bağımlı B hücre yanıtının önemli bir sinyalini oluşturur." },
-             { id: 2006, question: "6. B lenfositlerde immünoglobulin izotip değişimi ve somatik hipermutasyonun gerçekleştiği lenfoid yapı hangisidir?", options: ["Timus medullası", "Kemik iliği", "Dalak kırmızı pulpa", "Lenf düğümü germinal merkezi", "Peyer plakları T hücre alanı"], correctAnswer: "Lenf düğümü germinal merkezi", explanation: "Aktive B lenfositler foliküllere göç ederek hızla çoğalır ve germinal merkezleri oluşturur. Somatik hipermutasyon ve izotip değişimi bu merkezlerde meydana gelir." },
-             { id: 2007, question: "7. Aşağıdaki sitokinlerden hangisi B lenfositlerde IgE izotipine dönüşümü uyarır?", options: ["IFN-gama", "IL-2", "IL-4", "IL-12", "TGF-beta"], correctAnswer: "IL-4", explanation: "Th2 hücrelerinden salgılanan IL-4, B lenfositlerin IgE sınıfı antikor üretimine yönlenmesini (izotip değişimi) sağlar." },
-             { id: 2008, question: "8. Hücresel immün cevapta görevli hücreleri (makrofaj, sitotoksik T lenfosit) aktifleştiren hücreler hangileridir?", options: ["Makrofajlar", "T helper 2 lenfositler", "B lenfositleri", "Nötrofiller", "T helper 1 lenfositler"], correctAnswer: "T helper 1 lenfositler", explanation: "Th1 hücreleri, salgıladıkları IFN-gama gibi sitokinlerle makrofajları ve sitotoksik T lenfositleri aktive ederek hücresel bağışıklığı yönetir." },
-             { id: 2009, question: "9. Hümoral immün yanıtı (antikor üretimi) ve parazitlere karşı savunmayı destekleyen T helper alt tipi hangisidir?", options: ["Th1", "Th2", "Th17", "Treg", "Tfh"], correctAnswer: "Th2", explanation: "Th2 hücreleri, IL-4, IL-5 ve IL-13 gibi sitokinlerle B hücre aktivasyonunu, IgE üretimini ve eozinofil yanıtını destekleyerek hümoral ve anti-parazit yanıtlarda rol alır." },
-             { id: 2010, question: "10. MHC Sınıf I molekülleri (HLA-A, B, C) hangi T hücre alt tipine antijen sunar?", options: ["CD4+ T helper", "CD8+ Sitotoksik T lenfosit", "Regülatör T hücresi", "Gama-delta T hücresi", "B lenfosit"], correctAnswer: "CD8+ Sitotoksik T lenfosit", explanation: "MHC Sınıf I molekülleri, endojen (hücre içi) antijenleri CD8+ T lenfositlere sunar." },
-             { id: 2011, question: "11. MHC Sınıf II molekülleri (HLA-DP, DQ, DR) hangi T hücre alt tipine antijen sunar?", options: ["CD4+ T helper", "CD8+ Sitotoksik T lenfosit", "NK hücresi", "Nötrofil", "Mast hücresi"], correctAnswer: "CD4+ T helper", explanation: "MHC Sınıf II molekülleri, ekzojen (hücre dışı) antijenleri CD4+ T helper lenfositlere sunar." },
-             { id: 2012, question: "12. Aşağıdakilerden hangisi Tip II aşırı duyarlılık reaksiyonu mekanizması ile gelişen bir duruma örnektir?", options: ["Anafilaksi", "Serum hastalığı", "Kontakt dermatit", "Otoimmün hemolitik anemi", "Astım"], correctAnswer: "Otoimmün hemolitik anemi", explanation: "Tip II reaksiyonlarda IgG veya IgM antikorları hücre yüzeyindeki antijenlere bağlanarak kompleman aktivasyonu veya ADCC yoluyla hücre yıkımına neden olur. Hemolitik anemi buna örnektir." },
-             { id: 2013, question: "13. Dolaşımda çözünür antijen-antikor komplekslerinin dokularda birikmesi ve kompleman aktivasyonu ile karakterize aşırı duyarlılık tipi hangisidir?", options: ["Tip I", "Tip II", "Tip III", "Tip IV", "Tip V"], correctAnswer: "Tip III", explanation: "Tip III (İmmün Kompleks) reaksiyonlarda, oluşan antijen-antikor kompleksleri küçük damarlarda birikerek vaskülit ve doku hasarına yol açar (örn. Serum hastalığı, SLE nefriti)." },
-             { id: 2014, question: "14. Gecikmiş tip hücresel yanıt olarak da bilinen ve T lenfosit aracılı aşırı duyarlılık reaksiyonu hangisidir?", options: ["Tip I", "Tip II", "Tip III", "Tip IV", "Tip V"], correctAnswer: "Tip IV", explanation: "Tip IV reaksiyonlar antikor aracılı değildir; duyarlı T lenfositlerin (CD4+ veya CD8+) antijenle tekrar karşılaşması sonucu aktive olması ve sitokin salınımı veya sitotoksisite ile doku hasarı oluşturmasıdır." },
-             { id: 2015, question: "15. B lenfositlerin yüzeyinde bulunan ve antijen tanıma sonrası hücre içi sinyal iletiminde rol alan immünoglobulinler hangileridir?", options: ["Sadece IgG", "Sadece IgA", "IgM ve IgD", "Sadece IgE", "IgG ve IgM"], correctAnswer: "IgM ve IgD", explanation: "Naif matür B lenfositler yüzeylerinde antijen reseptörü olarak hem IgM hem de IgD taşırlar." }
-        ]
-    },
-    'gram_negatif_koklar': { // From 9-Gram negatif koklar.pptx
-        title: "Gram Negatif Koklar",
-        questions: [
-             { id: 901, question: "1. Neisseria meningitidis ve Neisseria gonorrhoeae için ortak olmayan özellik hangisidir?", options: ["Gram negatif diplokok olmaları", "Oksidaz pozitif olmaları", "IgA proteaz üretmeleri", "Kapsül varlığı", "İnsan patojeni olmaları"], correctAnswer: "Kapsül varlığı", explanation: "N. meningitidis kapsüllüdür (önemli virülans faktörü), ancak N. gonorrhoeae kapsülsüzdür." },
-             { id: 902, question: "2. Hangi Neisseria türü hem glukozu hem de maltozu fermente eder?", options: ["N. gonorrhoeae", "N. meningitidis", "N. lactamica", "N. cinerea", "Moraxella catarrhalis"], correctAnswer: "N. meningitidis", explanation: "Meningokok glukoz ve maltoz pozitif iken, Gonokok sadece glukoz pozitiftir. Bu ayrım tanıda önemlidir." },
-             { id: 903, question: "3. N. gonorrhoeae'nin neden olduğu pelvik inflamatuar hastalığın (PID) karaciğer kapsülünü etkileyen komplikasyonuna ne ad verilir?", options: ["Waterhouse-Friderichsen sendromu", "Reiter sendromu", "Fitz-Hugh-Curtis sendromu", "Guillain-Barré sendromu", "Toxic Shock Syndrome"], correctAnswer: "Fitz-Hugh-Curtis sendromu", explanation: "PID'in bir komplikasyonu olan Fitz-Hugh-Curtis sendromu, karaciğer kapsülü çevresinde inflamasyon ve yapışıklıklarla karakterize perihepatit tablosudur." },
-             { id: 904, question: "4. Meningokok menenjiti profilaksisi için aşağıdaki ilaçlardan hangisi öncelikli olarak tercih edilir?", options: ["Penisilin G", "Seftriakson", "Vankomisin", "Rifampin", "Eritromisin"], correctAnswer: "Rifampin", explanation: "Meningokok taşıyıcılığını eradike etmek ve yakın temaslılarda hastalığı önlemek için Rifampin (veya Siprofloksasin, Seftriakson) profilaktik olarak kullanılır." },
-             { id: 905, question: "5. Hangi Gram negatif kok, sıklıkla beta-laktamaz üreterek penisilinlere direnç gösterir ve otitis media/sinüzit etkenidir?", options: ["N. meningitidis", "N. gonorrhoeae", "N. lactamica", "Moraxella catarrhalis", "Veillonella parvula"], correctAnswer: "Moraxella catarrhalis", explanation: "M. catarrhalis sıklıkla beta-laktamaz üretir, bu nedenle penisilinlere dirençlidir. Çocuklarda otitis media ve sinüzitin, yetişkinlerde KOAH alevlenmelerinin önemli etkenlerindendir." },
-             { id: 906, question: "6. Neisseria türlerinin virülansında rol oynayan ve endotoksik aktivite gösteren yapı hangisidir?", options: ["Kapsül", "Pili", "Lipooligosakkarit (LOS)", "IgA Proteaz", "Opa proteinleri"], correctAnswer: "Lipooligosakkarit (LOS)", explanation: "Neisseria türleri, tipik LPS yerine daha kısa zincirli olan LOS yapısına sahiptir. LOS, endotoksin gibi davranarak septik şok ve inflamasyonda rol oynar." },
-             { id: 907, question: "7. Aşağıdaki klinik durumlardan hangisi tipik olarak Neisseria gonorrhoeae ile ilişkilendirilmez?", options: ["Üretrit", "Servisit / PID", "Septik artrit", "Menenjit", "Neonatal konjonktivit"], correctAnswer: "Menenjit", explanation: "Menenjit, Neisseria meningitidis'in en karakteristik klinik tablosudur. Gonokok enfeksiyonları genellikle ürogenital sistem, eklemler ve yenidoğan gözü ile sınırlıdır, menenjit nadirdir." },
-             { id: 908, question: "8. Meningokoksemi sırasında görülen yaygın deri döküntülerine ve adrenal kanamaya bağlı akut adrenal yetmezliğe ne ad verilir?", options: ["Ektima gangrenozum", "Eritema multiforme", "Purpura fulminans / Waterhouse-Friderichsen", "Stevens-Johnson sendromu", "Eritema nodozum"], correctAnswer: "Purpura fulminans / Waterhouse-Friderichsen", explanation: "Meningokoksemiye bağlı yaygın purpura (purpura fulminans) ve buna eşlik eden adrenal kanama ve yetmezlik Waterhouse-Friderichsen sendromu olarak adlandırılır." },
-             { id: 909, question: "9. Gonokokların konak hücre yüzeylerine tutunmasında ve antijenik çeşitlilik göstermesinde rol oynayan ana yapı hangisidir?", options: ["Kapsül", "Flagella", "Lipooligosakkarit (LOS)", "Pili", "Hücre duvarı"], correctAnswer: "Pili", explanation: "Pili (Fimbria), gonokokların epitel hücrelerine tutunmasını sağlayan ve sıkça antijenik yapı değiştirerek immün sistemden kaçmasına yardımcı olan önemli virülans faktörüdür." },
-             { id: 910, question: "10. Hangi laboratuvar özelliği Moraxella catarrhalis'i Neisseria türlerinden ayırmada kullanılır?", options: ["Gram boyanma özelliği", "Oksidaz testi sonucu", "Şeker fermentasyon yeteneği", "Kapsül varlığı", "IgA proteaz üretimi"], correctAnswer: "Şeker fermentasyon yeteneği", explanation: "Neisseria türleri genellikle glukoz ve/veya maltozu fermente ederken, Moraxella catarrhalis sakkarolitik değildir (şekerleri fermente etmez)." },
-             { id: 911, question: "11. Nazofarenks florasında bulunabilen ve hem glukoz hem de maltoz negatif olan, ancak laktaz aktivitesi gösteren Neisseria türü hangisidir?", options: ["N. meningitidis", "N. gonorrhoeae", "N. lactamica", "N. cinerea", "M. catarrhalis"], correctAnswer: "N. lactamica", explanation: "N. lactamica, laktozu fermente etmesiyle diğerlerinden ayrılır ve genellikle patojenik değildir." },
-             { id: 912, question: "12. Membran Atak Kompleksi (C5-C9) eksikliği olan bireylerde hangi enfeksiyon riski belirgin olarak artar?", options: ["Stafilokok enfeksiyonları", "Streptokok enfeksiyonları", "Tekrarlayan Neisseria enfeksiyonları", "Anaerobik enfeksiyonlar", "Mantar enfeksiyonları"], correctAnswer: "Tekrarlayan Neisseria enfeksiyonları", explanation: "MAC, Neisseria türleri gibi ince duvarlı Gram negatif kokların lizisinde önemlidir. Eksikliğinde özellikle tekrarlayan meningokok enfeksiyonları görülür." },
-             { id: 913, question: "13. Gonokok enfeksiyonlarında görülen septik artrit genellikle hangi özellikte seyreder?", options: ["Poliartiküler, simetrik, büyük eklemleri tutan", "Monoartiküler, asimetrik, küçük eklemleri tutan", "Genellikle gezici tarzda poliartralji veya tenosinovitle başlar, sonra monoartiküler pürülan artrite dönüşebilir", "Sadece sakroiliak eklemi tutan", "Vertebraları tutan spondilodiskit şeklinde"], correctAnswer: "Genellikle gezici tarzda poliartralji veya tenosinovitle başlar, sonra monoartiküler pürülan artrite dönüşebilir", explanation: "Dissemine gonokok enfeksiyonunda artrit sık görülür ve tipik olarak başlangıçta gezici poliartralji/tenosinovit ile başlar, ardından bir veya birkaç eklemde (diz, el bileği, ayak bileği) pürülan artrit gelişebilir." },
-             { id: 914, question: "14. Kültürde 'kayan koloni' özelliği gösterebilen Gram negatif diplokok hangisidir?", options: ["N. meningitidis", "N. gonorrhoeae", "N. lactamica", "N. sicca", "Moraxella catarrhalis"], correctAnswer: "Moraxella catarrhalis", explanation: "Moraxella catarrhalis kolonileri besiyerinde öze ile itildiğinde 'buz hokeyi diski' gibi bütün olarak kayma eğilimindedir." },
-             { id: 915, question: "15. Neisseria meningitidis'in insandan insana primer bulaş yolu nedir?", options: ["Cinsel temas", "Fekal-oral yol", "Vektör (kene, bit)", "Solunum yolu damlacıkları", "Kontamine su"], correctAnswer: "Solunum yolu damlacıkları", explanation: "Meningokok, enfekte kişilerin nazofarenks sekresyonlarının damlacık yoluyla solunması ile bulaşır." }
-        ]
-    },
-    'gram_pozitif_basiller': { // From 7-Gram Pozitif Basiller.pptx
-        title: "Gram Pozitif Basiller",
-        questions: [
-             { id: 701, question: "1. Aşağıdaki Gram pozitif basillerden hangisi spor oluşturur?", options: ["Listeria monocytogenes", "Corynebacterium diphtheriae", "Bacillus anthracis", "Erysipelothrix rhusiopathiae", "Actinomyces israelii"], correctAnswer: "Bacillus anthracis", explanation: "Bacillus ve Clostridium cinsleri spor oluşturan önemli Gram pozitif basillerdir. Diğerleri sporsuzdur." },
-             { id: 702, question: "2. Bacillus anthracis'in kapsülü hangi yapıdadır ve hangi reaksiyonla gösterilir?", options: ["Polisakkarit / Quellung", "Polipeptid (Poli-D-glutamik asit) / M'Fadyan", "Lipopolisakkarit / Gümüşleme", "Peptidoglikan / Gram", "Mikolik asit / Ziehl-Neelsen"], correctAnswer: "Polipeptid (Poli-D-glutamik asit) / M'Fadyan", explanation: "B. anthracis kapsülü protein yapısındadır (Poli-D-glutamik asit) ve metilen mavisi ile pembe/mor renkte boyanır (M'Fadyan reaksiyonu)." },
-             { id: 703, question: "3. Şarbon toksinini oluşturan üç komponent hangileridir?", options: ["Toksin A, Toksin B, Toksin C", "Alfa toksin, Beta toksin, Gama toksin", "Protektif Antijen (PA), Ödem Faktörü (EF), Letal Faktör (LF)", "Hemolizin, Lesitinaz, Nörotoksin", "Enterotoksin, Sitotoksin, Nöraminidaz"], correctAnswer: "Protektif Antijen (PA), Ödem Faktörü (EF), Letal Faktör (LF)", explanation: "Şarbon toksini üç ayrı proteinden oluşur: PA hücreye bağlanmayı sağlar, EF adenilat siklaz aktivitesiyle ödeme, LF ise MAP kinazı parçalayarak hücre ölümüne yol açar." },
-             { id: 704, question: "4. En sık görülen şarbon formu hangisidir ve tipik lezyonu nedir?", options: ["Akciğer şarbonu / Hemorajik mediastinit", "Gastrointestinal şarbon / Kanlı ishal", "Deri şarbonu / Ağrısız siyah eskar", "Menenjit şarbonu / Hemorajik menenjit", "Sistemik şarbon / Sepsis"], correctAnswer: "Deri şarbonu / Ağrısız siyah eskar", explanation: "Deri şarbonu vakaların %95'ini oluşturur ve tipik olarak ortasında siyah nekrotik bir kabuk (eskar) bulunan, etrafı ödemli, ağrısız bir lezyonla karakterizedir." },
-             { id: 705, question: "5. Bacillus cereus'un neden olduğu 'kısa inkübasyonlu' besin zehirlenmesi (kusma tipi) hangi toksinle ilişkilidir ve hangi besinle sık görülür?", options: ["HLET / Et ürünleri", "HSET (Serülid) / Pirinç", "Alfa Toksin / Konserve", "Enterotoksin / Süt ürünleri", "Nekrotik Toksin / Sebzeler"], correctAnswer: "HSET (Serülid) / Pirinç", explanation: "Isıya dayanıklı HSET toksini (serülid), özellikle pişirilip bekletilmiş pirinçli yiyeceklerde bulunur ve 1-6 saat gibi kısa sürede kusma ile seyreden besin zehirlenmesine neden olur." },
-             { id: 706, question: "6. Clostridium botulinum toksini hangi nörotransmitterin salınımını engelleyerek flask paraliziye neden olur?", options: ["Asetilkolin", "GABA", "Glisin", "Dopamin", "Serotonin"], correctAnswer: "Asetilkolin", explanation: "Botulinum nörotoksini, nöromusküler kavşakta asetilkolin salınımını bloke ederek kasların kasılamamasına ve gevşek (flask) paraliziye yol açar." },
-             { id: 707, question: "7. Clostridium tetani toksini (tetanospazmin) hangi nörotransmitterlerin salınımını engelleyerek spastik paraliziye neden olur?", options: ["Asetilkolin ve Noradrenalin", "GABA ve Glisin", "Dopamin ve Serotonin", "Glutamat ve Aspartat", "Sadece Asetilkolin"], correctAnswer: "GABA ve Glisin", explanation: "Tetanospazmin, spinal korddaki inhibitör nöronlardan GABA ve glisin gibi inhibitör nörotransmitterlerin salınımını engelleyerek motor nöronların aşırı uyarılmasına ve spastik paraliziye yol açar." },
-             { id: 708, question: "8. Gazlı gangrenin en sık etkeni olan Clostridium türü hangisidir ve en önemli virülans faktörü nedir?", options: ["C. difficile / Toksin B", "C. botulinum / Nörotoksin", "C. tetani / Tetanospazmin", "C. perfringens / Alfa Toksin (Lesitinaz)", "C. septicum / Beta Toksin"], correctAnswer: "C. perfringens / Alfa Toksin (Lesitinaz)", explanation: "C. perfringens, gazlı gangrenin en sık etkenidir. Alfa toksini (fosfolipaz C/lesitinaz) hücre membranlarını parçalayarak masif doku nekrozu ve hemolize neden olur." },
-             { id: 709, question: "9. Antibiyotik kullanımı sonrası gelişen psödomembranöz enterokolitin en önemli etkeni hangisidir?", options: ["Bacillus cereus", "Clostridium perfringens", "Clostridioides difficile", "Listeria monocytogenes", "Staphylococcus aureus (MRSA)"], correctAnswer: "Clostridioides difficile", explanation: "Antibiyotik kullanımı (özellikle Klindamisin, Sefalosporinler, Florokinolonlar) normal bağırsak florasını bozarak C. difficile'nin aşırı çoğalmasına ve toksinleri (A ve B) ile psödomembranöz kolite neden olmasına yol açar." },
-             { id: 710, question: "10. Listeria monocytogenes için karakteristik olmayan özellik hangisidir?", options: ["Gram pozitif basil", "Fakültatif intraselüler", "Oda sıcaklığında takla atar gibi hareketli", "Soğukta (+4°C) üreyebilme", "Zorunlu anaerob olması"], correctAnswer: "Zorunlu anaerob olması", explanation: "Listeria monocytogenes fakültatif anaerobdur (hem oksijenli hem oksijensiz ortamda üreyebilir), zorunlu anaerob değildir. Diğer özellikler karakteristiktir." },
-             { id: 711, question: "11. Listeria monocytogenes'in fagozomdan sitoplazmaya kaçmasını sağlayan temel virülans faktörü nedir?", options: ["Internalin A/B", "Listeriolizin O (LLO)", "ActA", "Fosfolipaz C", "Sideroforlar"], correctAnswer: "Listeriolizin O (LLO)", explanation: "LLO, kolesterol bağımlı bir sitolizindir ve fagozomun asidik pH'ında aktive olarak fagozom zarını deler, bakterinin sitoplazmaya kaçışını ve hücre içinde çoğalmasını sağlar." },
-             { id: 712, question: "12. Balıkçılarda veya kasaplarda travma sonrası elde gelişen, mor renkli, kenarları kabarık, ağrılı ve kaşıntılı deri lezyonuna (erizipeloid) neden olan bakteri hangisidir?", options: ["Bacillus anthracis", "Clostridium perfringens", "Listeria monocytogenes", "Erysipelothrix rhusiopathiae", "Corynebacterium diphtheriae"], correctAnswer: "Erysipelothrix rhusiopathiae", explanation: "Erizipeloid, E. rhusiopathiae'nin neden olduğu karakteristik bir deri enfeksiyonudur ve genellikle hayvan ürünleriyle (özellikle balık, domuz) temas sonrası travma bölgesinde gelişir." },
-             { id: 713, question: "13. Corynebacterium diphtheriae'nin toksin üretimi hangi faktör tarafından düzenlenir?", options: ["Ortamdaki glukoz miktarı", "Ortamdaki oksijen seviyesi", "Bakterinin spor oluşturması", "Lizojenik faj varlığı ve ortamdaki demir miktarı", "Bakterinin kapsül varlığı"], correctAnswer: "Lizojenik faj varlığı ve ortamdaki demir miktarı", explanation: "Difteri toksin geni (tox) bir bakteriyofaj tarafından taşınır (lizojenik konversiyon) ve üretimi kromozomal DTxR geni tarafından ortamdaki demir miktarına göre negatif olarak düzenlenir (düşük demirde üretim artar)." },
-             { id: 714, question: "14. Difteri toksini, hücrelerde hangi mekanizmayla protein sentezini inhibe eder?", options: ["Ribozomun 50S alt birimine bağlanarak", "mRNA translasyonunu bloke ederek", "Elongasyon Faktör-2'yi (EF-2) ADP-ribozilleyerek", "DNA girazı inhibe ederek", "Aminoasil-tRNA'nın ribozoma bağlanmasını engelleyerek"], correctAnswer: "Elongasyon Faktör-2'yi (EF-2) ADP-ribozilleyerek", explanation: "Difteri toksininin A parçası, EF-2'yi ADP-ribozilasyon ile inaktive eder, bu da protein sentezinin durmasına ve hücre ölümüne yol açar. Pseudomonas ekzotoksin A da aynı mekanizmayla çalışır." },
-             { id: 715, question: "15. Aktinomikozun en sık görülen klinik formu hangisidir ve lezyonlardan alınan drenaj materyalinde tipik olarak ne görülür?", options: ["Torasik / Kazeifiye nekroz", "Abdominal / Psödomembran", "Pelvik / Mantar topu", "Servikofasiyal / Sülfür granülleri", "Kutanöz / Siyah eskar"], correctAnswer: "Servikofasiyal / Sülfür granülleri", explanation: "Aktinomikozun en sık formu servikofasiyal tiptir ve genellikle diş çekimi gibi travmalar sonrası gelişir. Drenaj yapan sinüs yollarından çıkan materyalde makroskopik olarak görülebilen sarı renkli sülfür granülleri (bakteri kümeleri) karakteristiktir." }
-        ]
-    },
-    'mikobakteriler': { // From 8-Mikobakteriler v2.pptx
-        title: "Mikobakteriler",
-        questions: [
-              { id: 801, question: "1. Mikobakterilerin aside dirençli boyanmasını sağlayan hücre duvarı bileşeni hangisidir?", options: ["Peptidoglikan", "Lipopolisakkarit", "Mikolik asit", "Arabinogalaktan", "Kord faktör"], correctAnswer: "Mikolik asit", explanation: "Mikobakterilerin hücre duvarındaki yüksek oranda bulunan uzun zincirli yağ asitleri olan mikolik asitler, Ziehl-Neelsen veya Kinyoun gibi boyama yöntemlerinde asitle yıkamaya karşı direnç gösterir." },
-              { id: 802, question: "2. Mycobacterium tuberculosis'in virülansında rol oynayan, yılan benzeri kordonlar oluşturmasını sağlayan ve lökosit göçünü inhibe eden glikolipid hangisidir?", options: ["Mikolik asit", "Arabinogalaktan", "Lipoarabinomannan (LAM)", "Kord faktör (Trehaloz dimikolat)", "Fosfatidilinozitol mannozid (PIM)"], correctAnswer: "Kord faktör (Trehaloz dimikolat)", explanation: "Kord faktör, M. tuberculosis'in kültürde karakteristik kordonlar oluşturmasından, granülom oluşumundan ve virülansından sorumlu önemli bir glikolipiddir." },
-              { id: 803, question: "3. Primer tüberküloz enfeksiyonunda akciğerdeki parankimal lezyon (Ghon odağı) ile bölgesel hiler lenf nodu tutulumunun birlikte oluşturduğu yapıya ne ad verilir?", options: ["Granülom", "Kavite", "Tüberkülom", "Ghon kompleksi", "Miliyer lezyon"], correctAnswer: "Ghon kompleksi", explanation: "Primer tüberkülozda akciğerdeki ilk lezyon odağı (Ghon odağı) ve drene olan lenf nodlarındaki tutulum birlikte Ghon kompleksini oluşturur." },
-              { id: 804, question: "4. Tüberküloz granülomunun histolojik incelemesinde tipik olarak bulunan dev hücre tipi hangisidir?", options: ["Touton dev hücresi", "Yabancı cisim dev hücresi", "Langhans dev hücresi", "Osteoklast", "Megakaryosit"], correctAnswer: "Langhans dev hücresi", explanation: "Tüberküloz granülomlarında, makrofajların füzyonu ile oluşan ve nükleusları periferde at nalı şeklinde dizilmiş Langhans tipi dev hücreler karakteristiktir." },
-              { id: 805, question: "5. Reaktivasyon (sekonder) tüberkülozu genellikle akciğerin hangi bölümünde kavite oluşumu ile karakterizedir?", options: ["Alt lobların bazali", "Orta lob", "Lingula", "Apeks (üst loblar)", "Hilus bölgesi"], correctAnswer: "Apeks (üst loblar)", explanation: "M. tuberculosis zorunlu aerob olduğu için oksijen konsantrasyonunun yüksek olduğu akciğer apkeslerinde reaktive olma ve kavite oluşturma eğilimindedir." },
-              { id: 806, question: "6. Ekstrapulmoner tüberkülozun en sık görüldüğü yer neresidir?", options: ["Vertebralar (Pott hastalığı)", "Böbrekler", "Menenksler", "Perikard", "Servikal lenf bezleri (Skrofula)"], correctAnswer: "Servikal lenf bezleri (Skrofula)", explanation: "Ekstrapulmoner tüberküloz olgularında en sık tutulum yeri servikal lenf nodlarıdır (skrofula)." },
-              { id: 807, question: "7. Tüberküloz menenjitinde beyin omurilik sıvısı (BOS) bulgularından hangisi tipik değildir?", options: ["Protein artışı", "Şeker düşüklüğü", "Klor düşüklüğü", "Lenfositik pleositoz", "Nötrofilik pleositoz"], correctAnswer: "Nötrofilik pleositoz", explanation: "Tüberküloz menenjitinde BOS'ta genellikle protein artar, şeker ve klor düşer, hücre sayımı artmıştır ve bu artış ağırlıklı olarak lenfositlerden oluşur (lenfositik pleositoz). Nötrofil hakimiyeti bakteriyel menenjitlerde daha sıktır." },
-              { id: 808, question: "8. M. tuberculosis kültürü için kullanılan yumurta bazlı besiyeri hangisidir ve hangi madde diğer bakterilerin üremesini inhibe eder?", options: ["Middlebrook 7H10 / Albumin", "Löwenstein-Jensen / Maleşit yeşili", "Tiyoglikolat buyyon / Sodyum tiyoglikolat", "Çikolata agar / Vankomisin", "MacConkey agar / Safra tuzları"], correctAnswer: "Löwenstein-Jensen / Maleşit yeşili", explanation: "Löwenstein-Jensen, yumurta bazlı bir besiyeridir ve içerdiği maleşit yeşili boyası kontaminant bakterilerin üremesini baskılar." },
-              { id: 809, question: "9. Mycobacterium bovis'i, Mycobacterium tuberculosis'ten ayıran temel özelliklerden biri nedir?", options: ["Aside dirençli boyanmaması", "Niasin testinin pozitif olması", "Gliserollü besiyerinde üreyememesi", "Kord faktör oluşturmaması", "Zorunlu anaerob olması"], correctAnswer: "Gliserollü besiyerinde üreyememesi", explanation: "M. bovis, M. tuberculosis'ten farklı olarak gliserolü karbon kaynağı olarak kullanamaz ve niasin testi negatiftir. Üremesi için pirüvat eklenmesi gerekir." },
-              { id: 810, question: "10. Tüberkülin deri testinin (PPD) pozitifliği hangi tip immün yanıtın varlığını gösterir?", options: ["Humoral immünite (Antikor)", "Doğal immünite", "Tip I aşırı duyarlılık", "Tip IV gecikmiş tip hücresel immünite", "Tip III immün kompleks"], correctAnswer: "Tip IV gecikmiş tip hücresel immünite", explanation: "PPD testi, M. tuberculosis antijenlerine karşı gelişmiş olan T hücre aracılı (Tip IV) gecikmiş tip aşırı duyarlılık yanıtını ölçer." },
-              { id: 811, question: "11. Aşağıdaki anti-tüberküloz ilaçlardan hangisi mikolik asit sentezini inhibe ederek etki gösterir?", options: ["Rifampin", "İzoniazid", "Pirazinamid", "Etambutol", "Streptomisin"], correctAnswer: "İzoniazid", explanation: "İzoniazid, mikobakterilerin hücre duvarının temel bileşeni olan mikolik asitlerin sentezini inhibe eden bakterisidal bir ilaçtır." },
-              { id: 812, question: "12. Hangi anti-tüberküloz ilacın en önemli yan etkisi reversibl optik nöropatidir?", options: ["İzoniazid", "Rifampin", "Pirazinamid", "Etambutol", "Streptomisin"], correctAnswer: "Etambutol", explanation: "Etambutol, arabinogalaktan sentezini inhibe eder ve en önemli doza bağımlı yan etkisi geri dönüşümlü optik nöropatidir (renk görme bozukluğu, görme keskinliğinde azalma)." },
-              { id: 813, question: "13. Hem İzoniazid hem de Rifampin'e dirençli tüberküloz suşları nasıl adlandırılır?", options: ["Primer dirençli TB (PDR-TB)", "Sekonder dirençli TB (SDR-TB)", "Çok ilaca dirençli TB (MDR-TB)", "Yaygın ilaca dirençli TB (XDR-TB)", "Total ilaca dirençli TB (TDR-TB)"], correctAnswer: "Çok ilaca dirençli TB (MDR-TB)", explanation: "MDR-TB, en etkili iki birinci kuşak anti-tüberküloz ilaç olan İzoniazid ve Rifampin'e karşı direnç olarak tanımlanır." },
-              { id: 814, question: "14. Lepra (Cüzzam) hastalığının etkeni olan mikobakteri hangisidir ve in vitro üretilebilir mi?", options: ["M. tuberculosis / Evet", "M. bovis / Evet", "M. leprae / Hayır", "M. kansasii / Evet", "M. avium complex / Hayır"], correctAnswer: "M. leprae / Hayır", explanation: "Lepra etkeni M. leprae, zorunlu intraselüler bir patojendir ve yapay besiyerlerinde üretilemez; sadece canlı dokularda (örn. armadillo) çoğaltılabilir." },
-              { id: 815, question: "15. Lepramin deri testi pozitif olan, granülomların görüldüğü ve az sayıda basil içeren lepra formu hangisidir?", options: ["Lepromatöz Lepra", "Sınırda Lepromatöz Lepra", "Sınırda Tüberküloid Lepra", "Tüberküloid Lepra", "İndetermine Lepra"], correctAnswer: "Tüberküloid Lepra", explanation: "Tüberküloid leprada (paucibasiller) hücresel immün yanıt güçlüdür, bu nedenle lepramin testi pozitiftir, lezyonlarda granülomlar oluşur ve basil sayısı azdır." }
-         ]
-     },
-    'gram_negatif_non_fermenter_basiller': { // From 11-Gram Negatif non-fermenter basiller v2.pptx
-        title: "Gram Negatif Non-fermenter Basiller",
-        questions: [
-              { id: 1101, question: "1. Aşağıdaki bakterilerden hangisi oksidaz pozitif, non-fermenter Gram negatif bir basildir?", options: ["Escherichia coli", "Klebsiella pneumoniae", "Pseudomonas aeruginosa", "Acinetobacter baumannii", "Stenotrophomonas maltophilia"], correctAnswer: "Pseudomonas aeruginosa", explanation: "P. aeruginosa ve Burkholderia türleri oksidaz pozitif non-fermenterlerdir. Acinetobacter ve Stenotrophomonas oksidaz negatiftir. E. coli ve Klebsiella fermenterdir." },
-              { id: 1102, question: "2. Pseudomonas aeruginosa'nın ürettiği ve kültürde mavi-yeşil renk veren karakteristik pigment hangisidir?", options: ["Piyoverdin", "Piyorubin", "Piyomelanin", "Piyosiyanin", "İndigo"], correctAnswer: "Piyosiyanin", explanation: "Piyosiyanin, sadece P. aeruginosa tarafından üretilen, mavi renkli, suda çözünebilen bir pigmenttir ve virülansa katkıda bulunur. Piyoverdin yeşil ve floresandır." },
-              { id: 1103, question: "3. Pseudomonas aeruginosa'nın EF-2'yi inhibe ederek protein sentezini durduran ve doku nekrozuna yol açan en önemli ekzotoksini hangisidir?", options: ["Elastaz (LasB)", "Ekzotoksin A", "Fosfolipaz C", "Alginat", "Lipopolisakkarit (LPS)"], correctAnswer: "Ekzotoksin A", explanation: "Ekzotoksin A, difteri toksinine benzer şekilde EF-2'yi ADP-ribozilleyerek protein sentezini inhibe eder ve ciddi doku hasarına neden olur." },
-              { id: 1104, question: "4. Özellikle yanık hastaları ve nötropenik hastalarda görülen, P. aeruginosa'ya bağlı hemorajik ve nekrotik cilt lezyonlarına ne ad verilir?", options: ["Eritema migrans", "Ektima gangrenozum", "Pyoderma gangrenozum", "Selülit", "Erizipel"], correctAnswer: "Ektima gangrenozum", explanation: "Ektima gangrenozum, genellikle P. aeruginosa bakteriyemisi sırasında damar invazyonu ve tromboz sonucu gelişen, ortası nekrotik, etrafı eritemli karakteristik cilt lezyonlarıdır." },
-              { id: 1105, question: "5. Kistik fibrozisli hastalarda kronik akciğer enfeksiyonlarına neden olan ve mukoid (alginat üreten) koloniler oluşturan bakteri hangisidir?", options: ["Burkholderia cepacia", "Stenotrophomonas maltophilia", "Acinetobacter baumannii", "Pseudomonas aeruginosa", "Haemophilus influenzae"], correctAnswer: "Pseudomonas aeruginosa", explanation: "P. aeruginosa, özellikle kistik fibrozisli hastaların akciğerlerinde alginat (bir tür biyofilm) üreterek mukoid koloniler oluşturur ve kronikleşerek eradikasyonu zorlaştırır." },
-              { id: 1106, question: "6. Kistik fibrozisli veya Kronik Granülomatoz Hastalığı (KGH) olan hastalarda ciddi pnömoni ve 'cepacia sendromu'na neden olabilen bakteri hangisidir?", options: ["Pseudomonas aeruginosa", "Burkholderia cepacia", "Burkholderia pseudomallei", "Acinetobacter baumannii", "Stenotrophomonas maltophilia"], correctAnswer: "Burkholderia cepacia", explanation: "B. cepacia kompleksi, özellikle KF ve KGH hastalarında fırsatçı enfeksiyonlara, bazen de hızla kötüleşen fatal 'cepacia sendromu'na yol açabilir." },
-              { id: 1107, question: "7. Güneydoğu Asya ve Kuzey Avustralya'da endemik olan, toprak ve sudan bulaşarak 'Melioidozis' (Whitmore Hastalığı) adı verilen ciddi enfeksiyona neden olan bakteri hangisidir?", options: ["Burkholderia cepacia", "Burkholderia mallei", "Burkholderia pseudomallei", "Pseudomonas aeruginosa", "Acinetobacter baumannii"], correctAnswer: "Burkholderia pseudomallei", explanation: "B. pseudomallei, kontamine toprak veya suyla temas sonucu melioidozis hastalığına neden olur. Bu hastalık akut sepsis veya kronik granülomatöz enfeksiyon şeklinde görülebilir." },
-              { id: 1108, question: "8. Esas olarak atlarda 'Ruam' hastalığına neden olan, insanlara enfekte hayvanlardan bulaşabilen ve biyoterörizm ajanı olarak kabul edilen bakteri hangisidir?", options: ["Burkholderia cepacia", "Burkholderia mallei", "Burkholderia pseudomallei", "Francisella tularensis", "Yersinia pestis"], correctAnswer: "Burkholderia mallei", explanation: "B. mallei, atlarda ruam etkenidir, insanlara nadiren bulaşır ve akut veya kronik enfeksiyona yol açabilir. Hareketsiz olmasıyla B. pseudomallei'den ayrılır." },
-              { id: 1109, question: "9. Hastane ortamında, özellikle yoğun bakım ünitelerinde ventilatör ilişkili pnömoni (VİP) ve kateter enfeksiyonlarının sık etkenlerinden olan, oksidaz negatif, non-fermenter kokobasil hangisidir?", options: ["Pseudomonas aeruginosa", "Burkholderia cepacia", "Stenotrophomonas maltophilia", "Acinetobacter baumannii", "Klebsiella pneumoniae"], correctAnswer: "Acinetobacter baumannii", explanation: "A. baumannii, hastane ortamına oldukça dayanıklı, çoklu ilaç direnci gösterebilen, oksidaz negatif bir non-fermenterdir ve özellikle VİP başta olmak üzere nozokomiyal enfeksiyonların önemli bir etkenidir." },
-              { id: 1110, question: "10. Acinetobacter baumannii'nin Gram boyamada Neisseria türleri ile karışabilmesinin nedeni nedir?", options: ["Oksidaz pozitif olması", "Kokobasil veya kok şeklinde görülebilmesi", "Hareketli olması", "Spor oluşturması", "Kapsüllü olması"], correctAnswer: "Kokobasil veya kok şeklinde görülebilmesi", explanation: "Acinetobacter türleri pleomorfik olup bazen kokoid formlar oluşturabilir, bu da Gram boyamada Neisseria gibi diplokoklarla karışmasına neden olabilir. Ancak oksidaz negatif olmasıyla Neisseria'dan ayrılır." },
-              { id: 1111, question: "11. Çoklu ilaç direnci gösteren Acinetobacter baumannii enfeksiyonlarının tedavisinde sıklıkla son çare olarak kullanılan antibiyotik hangisidir?", options: ["Penisilin G", "Seftriakson", "Azitromisin", "Vankomisin", "Kolistin"], correctAnswer: "Kolistin", explanation: "A. baumannii suşları genellikle karbapenemler dahil birçok antibiyotiğe dirençlidir. Bu nedenle polimiksin grubu bir antibiyotik olan Kolistin, sıklıkla MDR Acinetobacter enfeksiyonlarında kullanılan son seçeneklerden biridir." },
-              { id: 1112, question: "12. Kültürde lavanta yeşili pigmentasyon ve amonyak benzeri koku oluşturabilen, oksidaz negatif, non-fermenter basil hangisidir?", options: ["Pseudomonas aeruginosa", "Burkholderia cepacia", "Acinetobacter baumannii", "Stenotrophomonas maltophilia", "Escherichia coli"], correctAnswer: "Stenotrophomonas maltophilia", explanation: "S. maltophilia, kanlı agarda genellikle lavanta yeşili-gri koloniler ve karakteristik amonyak kokusu oluşturur. Oksidaz negatiftir." },
-              { id: 1113, question: "13. Stenotrophomonas maltophilia enfeksiyonlarının tedavisinde genellikle ilk tercih edilen antibiyotik hangisidir?", options: ["Meropenem", "Seftazidim", "Piperasilin-Tazobaktam", "Trimetoprim-Sülfametoksazol (TMP-SXT)", "Gentamisin"], correctAnswer: "Trimetoprim-Sülfametoksazol (TMP-SXT)", explanation: "S. maltophilia, karbapenemler dahil birçok beta-laktama doğal dirençlidir. Tedavisinde genellikle TMP-SXT ilk seçenektir." },
-              { id: 1114, question: "14. Pseudomonas aeruginosa'nın özellikle kistik fibrozisli hastalarda akciğerde oluşturduğu ve antibiyotik penetrasyonunu zorlaştıran yapının adı nedir?", options: ["Kapsül", "Spor", "Biyofilm (Alginat)", "Granülom", "Abse"], correctAnswer: "Biyofilm (Alginat)", explanation: "P. aeruginosa'nın ürettiği alginat, mukoid bir ekzopolisakkarittir ve akciğerlerde biyofilm oluşturarak bakteriyi fagositozdan ve antibiyotik etkisinden korur." },
-              { id: 1115, question: "15. Aşağıdaki non-fermenter Gram negatif basillerden hangisi 42°C'de üreyemez?", options: ["Pseudomonas aeruginosa", "Burkholderia pseudomallei", "Acinetobacter baumannii", "Burkholderia cepacia", "Stenotrophomonas maltophilia"], correctAnswer: "Burkholderia cepacia", explanation: "P. aeruginosa, B. pseudomallei ve A. baumannii 42°C'de üreyebilirken, B. cepacia genellikle bu sıcaklıkta üreyemez. Bu özellik ayrımda kullanılabilir." }
-         ]
-     },
-    'spiroketler': { // From 15-Spiroketler.pptx
-        title: "Spiroketler",
-        questions: [
-              { id: 1501, question: "1. Spiroketlerin karakteristik hareketini sağlayan yapı hangisidir?", options: ["Flagella (Ekzoflagella)", "Pili", "Kapsül", "Endoflagella (Aksiyal filaman)", "Fimbria"], correctAnswer: "Endoflagella (Aksiyal filaman)", explanation: "Spiroketler, periplazmik boşlukta yer alan ve hücre gövdesine sarılı olan endoflagellaları (aksiyal filamanlar) sayesinde burgu şeklinde hareket ederler." },
-              { id: 1502, question: "2. Sifiliz (Frengi) etkeni olan spiroket hangisidir?", options: ["Borrelia burgdorferi", "Leptospira interrogans", "Treponema pallidum", "Borrelia recurrentis", "Treponema denticola"], correctAnswer: "Treponema pallidum", explanation: "Treponema pallidum subspecies pallidum, cinsel yolla bulaşan sifiliz hastalığının etkenidir." },
-              { id: 1503, question: "3. Primer sifiliz lezyonu olan 'şankr'ın tipik özelliği nedir?", options: ["Ağrılı, yumuşak, pürülan ülser", "Ağrısız, sert tabanlı, temiz ülser", "Veziküler döküntü", "Nekrotik siyah eskar", "Kaşıntılı papül"], correctAnswer: "Ağrısız, sert tabanlı, temiz ülser", explanation: "Primer sifilizde enfeksiyon yerinde oluşan şankr, genellikle tek, ağrısız, endüre (sert) tabanlı ve kenarları belirgin bir ülserdir." },
-              { id: 1504, question: "4. Sekonder sifilizin en karakteristik bulgusu nedir?", options: ["Şankr", "Gumma", "Yaygın makülopapüler döküntü (el ve ayak tabanları dahil)", "Aortit", "Tabes dorsalis"], correctAnswer: "Yaygın makülopapüler döküntü (el ve ayak tabanları dahil)", explanation: "Sekonder sifiliz, genellikle primer şankrdan haftalar sonra ortaya çıkar ve en belirgin bulgusu avuç içi ve ayak tabanlarını da tutabilen yaygın, non-pruritik (kaşıntısız) makülopapüler döküntüdür." },
-              { id: 1505, question: "5. Tersiyer sifilizde görülen granülomatöz lezyonlara ne ad verilir?", options: ["Şankr", "Kondiloma lata", "Gumma", "Eritema migrans", "Tüberkülom"], correctAnswer: "Gumma", explanation: "Gumma, tersiyer sifilizde deri, kemik ve iç organlarda görülebilen, merkezinde nekroz bulunan granülomatöz, yıkıcı lezyonlardır." },
-              { id: 1506, question: "6. Sifiliz tanısında kullanılan non-treponemal testler (VDRL, RPR) neyi ölçer ve ne için kullanılır?", options: ["Spesifik Treponema antikorlarını / Doğrulama", "Kardiyolipine karşı antikorları (Reagin) / Tarama ve takip", "Treponema DNA'sını / Erken tanı", "Canlı spiroketleri / Kültür", "IgM antikorlarını / Konjenital sifiliz tanısı"], correctAnswer: "Kardiyolipine karşı antikorları (Reagin) / Tarama ve takip", explanation: "Non-treponemal testler, sifiliz enfeksiyonu sırasında hasarlanan hücrelerden açığa çıkan lipitlere (kardiyolipin) karşı oluşan antikorları (reagin) saptar. Tarama ve tedavi takibinde kullanılırlar, ancak spesifik değillerdir." },
-              { id: 1507, question: "7. Sifiliz tanısında kullanılan treponemal testler (FTA-ABS, TPHA) neyi ölçer ve ne için kullanılır?", options: ["Reagin antikorlarını / Tarama", "Spesifik Treponema pallidum antikorlarını / Doğrulama", "Treponema RNA'sını / Tedavi takibi", "Komplemanı / Hastalık aktivitesi", "IgE antikorlarını / Alerji tespiti"], correctAnswer: "Spesifik Treponema pallidum antikorlarını / Doğrulama", explanation: "Treponemal testler, T. pallidum'a özgü antikorları saptar ve non-treponemal test pozitifliğini doğrulamak için kullanılırlar. Genellikle ömür boyu pozitif kalırlar." },
-              { id: 1508, question: "8. Konjenital sifilizin geç dönem bulgularından olan Hutchinson triadı hangi üç bulguyu içerir?", options: ["Sarılık, Hepatosplenomegali, Döküntü", "Keratit, Sağırlık, Diş anomalisi (Hutchinson dişleri)", "Şankr, Alopesi, Lenfadenopati", "Artrit, Kardit, Nörit", "Saddle nose, Sabre shin, Frontal bossing"], correctAnswer: "Keratit, Sağırlık, Diş anomalisi (Hutchinson dişleri)", explanation: "Geç konjenital sifilizin karakteristik bulgularından biri olan Hutchinson triadı; interstisyel keratit (göz), 8. sinir tutulumuna bağlı sağırlık ve üst kesici dişlerde çentikleşmeyi (Hutchinson dişleri) içerir." },
-              { id: 1509, question: "9. Lyme hastalığının etkeni olan spiroket hangisidir ve hangi vektörle bulaşır?", options: ["Treponema pallidum / Sivrisinek", "Leptospira interrogans / Fare idrarı", "Borrelia recurrentis / Bit", "Borrelia burgdorferi / Ixodes kenesi", "Treponema pertenue / Deri teması"], correctAnswer: "Borrelia burgdorferi / Ixodes kenesi", explanation: "Lyme hastalığının etkeni Borrelia burgdorferi'dir ve Ixodes cinsi sert kenelerin ısırmasıyla bulaşır." },
-              { id: 1510, question: "10. Erken lokalize Lyme hastalığının en karakteristik deri bulgusu nedir?", options: ["Şankr", "Vezikül", "Eritema migrans (Boğa gözü döküntü)", "Peteşi", "Gumma"], correctAnswer: "Eritema migrans (Boğa gözü döküntü)", explanation: "Eritema migrans, kene ısırığı yerinde ortaya çıkan, ortası soluk, kenarları kırmızı, halka şeklinde genişleyen karakteristik Lyme döküntüsüdür." },
-              { id: 1511, question: "11. Lyme hastalığının geç döneminde en sık görülen komplikasyon hangisidir?", options: ["Menenjit", "Kardit (AV blok)", "Yüz felci", "Kronik artrit (özellikle diz)", "Eritema migrans"], correctAnswer: "Kronik artrit (özellikle diz)", explanation: "Tedavi edilmeyen Lyme hastalığının geç döneminde (aylar-yıllar sonra) en sık görülen bulgu, genellikle büyük eklemleri (özellikle diz) tutan kronik veya tekrarlayan artrittir." },
-              { id: 1512, question: "12. Tekrarlayan ateş (Rekürren ateş) hastalığının etkeni nedir ve hangi vektörle bulaşır?", options: ["Borrelia burgdorferi / Kene", "Borrelia recurrentis / Bit", "Leptospira interrogans / Fare idrarı", "Treponema pallidum / Cinsel temas", "Rickettsia prowazekii / Bit"], correctAnswer: "Borrelia recurrentis / Bit", explanation: "Epidemik rekürren ateşin etkeni B. recurrentis'tir ve insan vücut biti (Pediculus humanus corporis) ile bulaşır. Endemik formlar kenelerle bulaşan farklı Borrelia türlerinden kaynaklanır." },
-              { id: 1513, question: "13. Rekürren ateşteki tekrarlayan ateş ataklarının nedeni nedir?", options: ["Bakterinin toksin salgılaması", "Konak immün sisteminin zayıflaması", "Borrelia'nın yüzey antijenlerini değiştirmesi", "Bakterinin spor oluşturması", "Kompleman sisteminin aşırı aktivasyonu"], correctAnswer: "Borrelia'nın yüzey antijenlerini değiştirmesi", explanation: "Borrelia türleri, yüzeylerindeki ana proteinleri (VMP veya VIsE gibi) genetik mekanizmalarla değiştirerek konak antikor yanıtından kaçar ve bu durum tekrarlayan ateş ve bakteriyemi ataklarına neden olur." },
-              { id: 1514, question: "14. Leptospiroz etkeni olan Leptospira interrogans'ın ana rezervuarı ve bulaş yolu nedir?", options: ["İnsanlar / Solunum yolu", "Keneler / Kene ısırığı", "Sivrisinekler / Sivrisinek ısırığı", "Enfekte hayvanlar (özellikle kemirgenler) / Kontamine su veya toprak", "Kuşlar / Fekal-oral yol"], correctAnswer: "Enfekte hayvanlar (özellikle kemirgenler) / Kontamine su veya toprak", explanation: "Leptospira'nın ana rezervuarı enfekte hayvanlardır (özellikle fareler). Bakteri hayvan idrarıyla kontamine olmuş su veya topraktan, derideki sıyrıklar veya mukozalar yoluyla insanlara bulaşır." },
-              { id: 1515, question: "15. Leptospirozun sarılık, böbrek yetmezliği ve kanama ile seyreden ağır formuna ne ad verilir?", options: ["Lyme Karditi", "Rekürren Ateş", "Weil Hastalığı", "Nörosifiliz", "Eritema Migrans"], correctAnswer: "Weil Hastalığı", explanation: "Weil hastalığı, leptospirozun ikter (sarılık), böbrek yetmezliği, hemorajik diyatez (kanama eğilimi) ve bazen pulmoner tutulum ile seyreden ciddi ve potansiyel olarak ölümcül formudur." }
-         ]
-     },
-    'anaeroblar': { // From 16-Anaeroblar.pptx
-        title: "Anaeroblar",
-        questions: [
-              { id: 1601, question: "1. Oksijenin varlığında üremesi engellenen veya ölen bakterilere ne ad verilir?", options: ["Zorunlu aerob", "Fakültatif anaerob", "Mikroaerofil", "Anaerob", "Kapnofil"], correctAnswer: "Anaerob", explanation: "Anaerob bakteriler, oksijenli solunum için gerekli enzimleri (sitokromlar, SOD, katalaz vb.) içermediklerinden oksijen onlar için toksiktir ve oksijensiz ortamda ürerler." },
-              { id: 1602, question: "2. Hem aerobik hem de anaerobik koşullarda üreyebilen bakterilere ne ad verilir?", options: ["Zorunlu aerob", "Fakültatif anaerob", "Mikroaerofil", "Zorunlu anaerob", "Aerotoleran anaerob"], correctAnswer: "Fakültatif anaerob", explanation: "Fakültatif anaeroblar, oksijen varlığında aerobik solunum, oksijen yokluğunda ise fermantasyon veya anaerobik solunum yapabilirler (örn. E.coli, S.aureus)." },
-              { id: 1603, question: "3. Anaerob bakterilerin oksijene tolerans gösterememesinin temel nedeni nedir?", options: ["Hücre duvarlarının ince olması", "Kapsül oluşturamamaları", "Sitokrom sistemi, SOD, katalaz gibi enzimleri içermemeleri", "Flagellalarının olmaması", "Endotoksin üretmeleri"], correctAnswer: "Sitokrom sistemi, SOD, katalaz gibi enzimleri içermemeleri", explanation: "Aerobik solunum sırasında oluşan toksik oksijen radikallerini (süperoksit, hidrojen peroksit) detoksifiye eden süperoksit dismutaz (SOD) ve katalaz/peroksidaz gibi enzimlerin yokluğu, anaerobları oksijenin toksik etkisine maruz bırakır." },
-              { id: 1604, question: "4. Aşağıdakilerden hangisi insan kalın bağırsağında en bol bulunan anaerob bakteri grubudur?", options: ["Clostridium türleri", "Actinomyces türleri", "Bacteroides fragilis grubu", "Peptostreptococcus türleri", "Fusobacterium türleri"], correctAnswer: "Bacteroides fragilis grubu", explanation: "Kalın bağırsak florasının büyük çoğunluğunu (%99'dan fazlasını) anaerob bakteriler oluşturur ve bunlar içinde Bacteroides fragilis grubu en baskın olanıdır." },
-              { id: 1605, question: "5. Ağız florasında sıkça bulunan ve periodontal hastalıklar ile baş-boyun enfeksiyonlarında rol oynayan pigmentli anaerob bakteri cinsi hangisidir?", options: ["Bacteroides", "Prevotella (pigmentli)", "Fusobacterium", "Actinomyces", "Veillonella"], correctAnswer: "Prevotella (pigmentli)", explanation: "Pigmentli Prevotella türleri (örn. P. intermedia, P. melaninogenica) ve Porphyromonas türleri ağız florasında bulunur ve diş eti hastalıkları, dental apseler ve diğer baş-boyun enfeksiyonlarında sıkça izole edilir." },
-              { id: 1606, question: "6. Deri florasında bol bulunan ve akne vulgarisin patogenezinde rol oynayan anaerob (veya aerotoleran) bakteri hangisidir?", options: ["Clostridium perfringens", "Bacteroides fragilis", "Propionibacterium acnes (Cutibacterium acnes)", "Actinomyces israelii", "Peptostreptococcus magnus"], correctAnswer: "Propionibacterium acnes (Cutibacterium acnes)", explanation: "P. acnes, deri florasının (özellikle kıl foliküllerinin) yaygın bir üyesidir ve ürettiği lipazlar ve inflamatuar mediyatörlerle akne oluşumuna katkıda bulunur." },
-              { id: 1607, question: "7. Anaerobik enfeksiyonların çoğu zaman polimikrobiyal olmasının temel nedeni nedir?", options: ["Anaerobların tek başına virülansının düşük olması", "Enfeksiyonların genellikle endojen flora kaynaklı olması", "Fakültatif anaerobların ortamı anaeroblar için uygun hale getirmesi", "Antibiyotik direncinin yaygın olması", "Hepsi"], correctAnswer: "Hepsi", explanation: "Anaerobik enfeksiyonlar sıklıkla normal floranın bozulmasıyla (endojen) başlar. Fakültatif bakteriler ortamdaki oksijeni tüketerek anaerobların üremesini kolaylaştırır (sinerji). Tek başına anaeroblar daha az invaziv olabilir. Bu faktörlerin birleşimi polimikrobiyal enfeksiyonlara yol açar." },
-              { id: 1608, question: "8. Bacteroides fragilis'in en önemli virülans faktörü hangisidir ve ne işe yarar?", options: ["Enterotoksin / Diyare yapar", "Kapsüler polisakkarit / Fagositozu önler ve abse oluşumunu destekler", "Nöraminidaz / Mukusu parçalar", "Fibrinolizin / Pıhtıyı eritir", "Hemaglutinin / Eritrositleri aglütine eder"], correctAnswer: "Kapsüler polisakkarit / Fagositozu önler ve abse oluşumunu destekler", explanation: "B. fragilis'in kapsülü, fagositoza karşı koruma sağlar ve konak immün hücresini uyararak abse oluşumunu indükler. Bu, intraabdominal enfeksiyonlardaki önemini açıklar." },
-              { id: 1609, question: "9. Clostridium perfringens'in neden olduğu gazlı gangrende doku nekrozundan sorumlu ana toksin hangisidir?", options: ["Beta toksin", "Enterotoksin", "Alfa toksin (Fosfolipaz C / Lesitinaz)", "Tetanospazmin", "Botulinum toksini"], correctAnswer: "Alfa toksin (Fosfolipaz C / Lesitinaz)", explanation: "Alfa toksin, hücre membranlarındaki lesitini (fosfatidilkolin) parçalayarak masif hücre lizizine, doku nekrozuna ve gazlı gangrenin karakteristik bulgularına yol açar." },
-              { id: 1610, question: "10. Clostridium tetani'nin ürettiği tetanospazmin hangi mekanizmayla spastik paraliziye neden olur?", options: ["Asetilkolin salınımını bloke ederek", "İnhibitör nörotransmitter (GABA, Glisin) salınımını engelleyerek", "Kas hücrelerini doğrudan parçalayarak", "Motor nöronları uyararak", "Dopamin reseptörlerini bloke ederek"], correctAnswer: "İnhibitör nörotransmitter (GABA, Glisin) salınımını engelleyerek", explanation: "Tetanospazmin, spinal korddaki Renshaw hücreleri gibi inhibitör internöronlardan GABA ve Glisin salınımını bloke eder, bu da motor nöronların sürekli ateşlemesine ve spastik paraliziye yol açar." },
-              { id: 1611, question: "11. Anaerobik bir enfeksiyondan şüphelenmeyi gerektiren bulgulardan biri olmayan hangisidir?", options: ["Lezyondan kötü koku gelmesi", "Enfeksiyon yerinin mukozal yüzeye yakınlığı", "Gram boyamada bakteri görülüp aerop kültürde üreme olmaması", "Dokuda gaz varlığı (krepitasyon)", "Aminoglikozid tedavisine iyi yanıt alınması"], correctAnswer: "Aminoglikozid tedavisine iyi yanıt alınması", explanation: "Aminoglikozidler (Gentamisin, Amikasin vb.) genellikle anaerob bakterilere etkisizdir. Bu nedenle aminoglikozid tedavisine yanıt alınamaması, anaerobik bir enfeksiyonu düşündürebilir." },
-              { id: 1612, question: "12. Hangi anaerobik bakteri grubu, özellikle pigmentli türleri, UV ışığı altında kırmızı floresans verebilir?", options: ["Bacteroides", "Clostridium", "Prevotella/Porphyromonas (pigmentli)", "Fusobacterium", "Peptostreptococcus"], correctAnswer: "Prevotella/Porphyromonas (pigmentli)", explanation: "Bazı pigmentli Prevotella ve Porphyromonas türleri, porfirin pigmentleri ürettikleri için UV ışığı altında kırmızı veya turuncu renkte floresans gösterebilirler." },
-              { id: 1613, question: "13. Aktinomikoz lezyonlarından alınan drenaj materyalinde görülen makroskopik sarı partiküllere ne ad verilir?", options: ["Kazeöz nekroz", "Gumma", "Sülfür granülleri", "Psödomembran", "Mantar topu"], correctAnswer: "Sülfür granülleri", explanation: "Aktinomikozda, özellikle Actinomyces israelii enfeksiyonlarında, lezyondan drene olan pürülan materyal içinde çıplak gözle görülebilen, sert, sarı renkli sülfür granülleri (aslında bakteri kolonileri ve kalsiyum fosfat) tipiktir." },
-              { id: 1614, question: "14. Aşağıdaki antibiyotiklerden hangisi genellikle anaerobik bakterilere karşı etkilidir?", options: ["Gentamisin", "Siprofloksasin", "Trimetoprim-Sulfametoksazol", "Metronidazol", "Aztreonam"], correctAnswer: "Metronidazol", explanation: "Metronidazol, özellikle Bacteroides, Clostridium, Fusobacterium gibi birçok zorunlu anaeroba karşı oldukça etkilidir. Klindamisin, karbapenemler, bazı beta-laktam/beta-laktamaz inhibitör kombinasyonları da etkilidir." },
-              { id: 1615, question: "15. Toksik oksijen radikallerinden süperoksiti (O2⁻) daha az toksik olan H2O2'ye dönüştüren enzim hangisidir?", options: ["Katalaz", "Peroksidaz", "Süperoksit dismutaz (SOD)", "NADPH oksidaz", "Sitokrom oksidaz"], correctAnswer: "Süperoksit dismutaz (SOD)", explanation: "SOD, aerobik ve fakültatif anaerobik organizmalarda süperoksit radikalini hidrojen peroksit ve oksijene dönüştürerek hücreyi oksidatif hasardan korur. Zorunlu anaeroblarda genellikle bulunmaz." }
-         ]
-     }
-    // Henüz eklenmemiş diğer quizler için buraya benzer yapılar eklenecek
-    // 'quiz_11': { title: "Quiz 11 Başlık", questions: [ /* ... sorular ... */ ] },
-    // ...
 };
 
 
@@ -3732,50 +3985,57 @@ let searchableIndex = [];
 
 function createSearchIndex() {
     searchableIndex = [];
-    console.log("Arama indeksi oluşturuluyor...");
-
-    
-    for (const quizId in quizData) {
-        if (quizData.hasOwnProperty(quizId)) {
-            const quiz = quizData[quizId];
-            let description = '';
-            
-            
-            const titleElement = document.getElementById(`quiz-title-${quizId}`);
-            if (titleElement && titleElement.nextElementSibling && titleElement.nextElementSibling.tagName === 'P') {
-                description = titleElement.nextElementSibling.textContent;
-            } else { 
-                 
-                 const cardElement = document.querySelector(`.quiz-card[aria-labelledby="quiz-title-${quizId}"]`);
-                 const pElement = cardElement ? cardElement.querySelector('p') : null;
-                 if (pElement) {
-                     description = pElement.textContent;
-                 }
-            }
-
-             
-             const cardElementId = `card-${quizId}`;
-             const cardElement = document.querySelector(`.quiz-card[aria-labelledby="quiz-title-${quizId}"]`);
-             if (cardElement && !cardElement.id) {
-                 cardElement.id = cardElementId; 
-             }
-
-            searchableIndex.push({
-                id: quizId,
-                title: quiz.title || 'Başlıksız Quiz',
-                description: description || '', 
-                type: 'quiz',
-                elementId: cardElementId 
-            });
-        }
+    console.log("Arama indeksi oluşturuluyor (hiyerarşik)...");
+    if (typeof learningHierarchy !== 'object' || learningHierarchy === null) {
+        console.error("learningHierarchy bulunamadı veya geçerli değil.");
+        return;
     }
 
-    
-    
+    Object.keys(learningHierarchy).forEach(layer1Key => {
+        const layer1Data = learningHierarchy[layer1Key];
+        if (typeof layer1Data !== 'object' || layer1Data === null) return;
 
-    console.log(`Arama indeksi ${searchableIndex.length} elemanla oluşturuldu.`);
+        Object.keys(layer1Data).forEach(layer2Key => {
+            const layer2Data = layer1Data[layer2Key];
+            if (typeof layer2Data !== 'object' || layer2Data === null) return;
+
+            Object.keys(layer2Data).forEach(topicKey => {
+                const topicData = layer2Data[topicKey];
+                if (typeof topicData === 'object' && topicData !== null && topicData.title) {
+                    searchableIndex.push({
+                        id: topicKey,
+                        title: topicData.title,
+                        description: topicData.description || '',
+                        type: 'topic',
+                        path: [layer1Key, layer2Key, topicKey],
+                        quizId: topicData.quizId
+                    });
+                }
+            });
+        });
+    });
+
+    console.log(`Hiyerarşik arama indeksi ${searchableIndex.length} konu ile oluşturuldu.`);
 }
 
+function highlightSearchResultCard(topicKey) {
+    const targetCard = hierarchicalNavContainerEl ? hierarchicalNavContainerEl.querySelector(`.hierarchy-topic-card[data-topic-key="${topicKey}"]`) : null;
+
+    if (targetCard) {
+        targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        targetCard.style.transition = 'outline 0.1s ease-out';
+        targetCard.style.outline = '3px solid var(--accent-primary)';
+        setTimeout(() => {
+            if(targetCard) targetCard.style.outline = 'none';
+        }, 2500);
+    } else {
+        console.warn("Vurgulanacak kart bulunamadı:", topicKey);
+        const quizlerSection = document.getElementById('quizler');
+         if(quizlerSection) {
+             quizlerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+         }
+    }
+}
 
 function openSearchModal() {
     if (!searchModal) return;
@@ -3836,75 +4096,70 @@ function performSearch() {
 
 function renderSearchResults(results, searchTerm) {
     if (!searchResultsContainer) return;
-    searchResultsContainer.innerHTML = ''; 
+    searchResultsContainer.innerHTML = '';
 
     if (results.length === 0) {
-        searchResultsContainer.innerHTML = '<p class="search-no-results">"' + searchTerm + '" için sonuç bulunamadı.</p>';
+        searchResultsContainer.innerHTML = `<p class="search-no-results">"${searchTerm}" için sonuç bulunamadı.</p>`;
         return;
     }
 
     results.forEach(item => {
-        const resultElement = document.createElement('a'); 
+        const resultElement = document.createElement('a');
         resultElement.classList.add('search-result-item');
-        resultElement.href = `#${item.elementId || ''}`; 
+        resultElement.href = '#quizler'; // Bölüme gitmesi için
+        resultElement.dataset.path = JSON.stringify(item.path); // Navigasyon için yolu sakla
+
+        const typeEl = document.createElement('span');
+        typeEl.classList.add('search-result-type', 'lecture'); // Stil için 'lecture' kullanabiliriz
+        typeEl.textContent = 'Konu';
 
         const titleEl = document.createElement('div');
         titleEl.classList.add('search-result-title');
-        
         try {
-             const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-             titleEl.innerHTML = item.title.replace(regex, '<mark>$1</mark>');
-        } catch (e) { titleEl.textContent = item.title; } 
-
+            const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+            titleEl.innerHTML = item.title.replace(regex, '<mark>$1</mark>');
+        } catch (e) { titleEl.textContent = item.title; }
 
         const descEl = document.createElement('p');
         descEl.classList.add('search-result-desc');
         const truncatedDesc = item.description ? item.description.substring(0, 120) + (item.description.length > 120 ? '...' : '') : '';
-        
-         try {
-             const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-             descEl.innerHTML = truncatedDesc.replace(regex, '<mark>$1</mark>');
+        try {
+            const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+            descEl.innerHTML = truncatedDesc.replace(regex, '<mark>$1</mark>');
         } catch (e) { descEl.textContent = truncatedDesc; }
 
-
-        const typeEl = document.createElement('span');
-        typeEl.classList.add('search-result-type', item.type); 
-        typeEl.textContent = item.type === 'quiz' ? 'Quiz' : 'Konu Anlatımı';
-
-        resultElement.appendChild(typeEl); 
+        resultElement.appendChild(typeEl);
         resultElement.appendChild(titleEl);
         resultElement.appendChild(descEl);
 
-
-        
         resultElement.addEventListener('click', (e) => {
-            e.preventDefault(); 
-            closeSearchModal(); 
+            e.preventDefault();
+            closeSearchModal();
 
-            if (item.type === 'quiz' && item.elementId) {
-                const targetCard = document.getElementById(item.elementId);
-                if (targetCard) {
-                     
-                     smoothScrollToTarget(`#${item.elementId}`);
-
-                    
-                    targetCard.style.transition = 'outline 0.1s ease-out';
-                    targetCard.style.outline = '3px solid var(--accent-primary)';
-                    setTimeout(() => { targetCard.style.outline = 'none'; }, 1500);
+            try {
+                const path = JSON.parse(e.currentTarget.dataset.path);
+                if (Array.isArray(path) && path.length === 3) {
+                    const topicKey = path[2];
+                    hierarchyState.currentLayer = 3;
+                    hierarchyState.path = path.slice(0, 2);
+                    renderHierarchyView();
+                    setTimeout(() => {
+                        highlightSearchResultCard(topicKey);
+                    }, 150); // DOM güncellemesi için kısa bekleme
                 } else {
-                    console.warn(`Scroll hedefi bulunamadı: #${item.elementId}`);
-                    
+                    console.error("Arama sonucu için geçersiz yol verisi:", path);
+                     const quizlerSection = document.getElementById('quizler');
+                     if(quizlerSection) { quizlerSection.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
                 }
-            } else if (item.type === 'lecture' && item.url) {
-                 
-                 
+            } catch (parseError) {
+                console.error("Arama sonucu yolu ayrıştırılamadı:", parseError);
+                 const quizlerSection = document.getElementById('quizler');
+                 if(quizlerSection) { quizlerSection.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
             }
         });
-
         searchResultsContainer.appendChild(resultElement);
     });
 }
-
 
 
 function closeMobileMenu() {
@@ -4066,7 +4321,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     
-    goHome(); 
+    goHome();
+    if (hierarchicalNavContainerEl) {
+        hierarchyState = { currentLayer: 1, path: [] }; // Başlangıç durumunu ayarla
+        renderHierarchyView(); // İlk katmanı göster
+    }
+    if (hierarchicalNavContainerEl) {
+        hierarchicalNavContainerEl.addEventListener('click', handleHierarchyNavClick);
+    } 
 });
 </script>
     </body>
